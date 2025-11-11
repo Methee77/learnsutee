@@ -3,88 +3,118 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>คลังความรู้ — ตัวอย่างหน้าเว็บ</title>
+  <title>คลังความรู้ — น่ารัก ๆ เล่นได้</title>
   <style>
     :root{
-      --bg:#f7f8fb; --card:#ffffff; --muted:#6b7280; --accent:#2563eb; --radius:12px;
+      --bg:#f6f8ff; --card:#ffffff; --muted:#6b7280; --accent:#7c3aed; --accent-2:#06b6d4; --pink:#fb7185; --radius:14px;
       --glass: rgba(255,255,255,0.6);
+      --shadow: 0 8px 30px rgba(15,23,42,0.08);
     }
     *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial; margin:0; background:var(--bg); color:#0f172a;}
-    .container{max-width:1100px;margin:28px auto;padding:20px}
+    html,body{height:100%}
+    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial; margin:0; background:linear-gradient(180deg,var(--bg) 0%, #ffffff 70%); color:#0f172a;}
+    .wrap{max-width:1200px;margin:26px auto;padding:18px}
 
-    header{display:flex;gap:16px;align-items:center;justify-content:space-between}
+    header{display:flex;gap:12px;align-items:center;justify-content:space-between}
     .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:grid;place-items:center;color:white;font-weight:700}
+    .logo{width:60px;height:60px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:white;font-weight:800;font-size:22px;box-shadow:0 6px 22px rgba(124,58,237,0.28);position:relative}
+    .mascot{position:absolute;right:-10px;bottom:-10px;width:36px;height:36px;border-radius:999px;background:white;display:grid;place-items:center;font-size:18px;transform:rotate(-12deg);box-shadow:0 6px 12px rgba(2,6,23,0.08)}
     h1{margin:0;font-size:20px}
     p.lead{margin:0;color:var(--muted);font-size:13px}
 
     .controls{display:flex;gap:12px;align-items:center}
-    .search{display:flex;align-items:center;background:var(--card);padding:8px 12px;border-radius:10px;box-shadow:0 1px 2px rgba(10,10,10,0.04);width:420px}
+    .search{display:flex;align-items:center;background:linear-gradient(180deg,#fff, #fbfdff);padding:10px 12px;border-radius:999px;box-shadow:var(--shadow);width:420px;border:1px solid rgba(99,102,241,0.06)}
     .search input{border:0;outline:none;font-size:14px;background:transparent;width:100%}
-    .btn{background:var(--accent);color:white;padding:8px 12px;border-radius:10px;border:0;cursor:pointer}
+    .btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;padding:10px 14px;border-radius:12px;border:0;cursor:pointer;box-shadow:0 8px 20px rgba(124,58,237,0.18)}
+    .btn.ghost{background:transparent;color:var(--accent);border:1px dashed rgba(124,58,237,0.18)}
 
-    main{display:grid;grid-template-columns:1fr 290px;gap:20px;margin-top:18px}
+    main{display:grid;grid-template-columns:1fr 320px;gap:20px;margin-top:18px}
 
     /* cards */
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
-    .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(12,16,30,0.06);display:flex;flex-direction:column;gap:10px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+    .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 10px 30px rgba(12,16,30,0.06);display:flex;flex-direction:column;gap:10px;transition:transform .22s ease,box-shadow .22s ease}
+    .card:hover{transform:translateY(-8px) rotate(-0.4deg);box-shadow:0 18px 40px rgba(12,16,30,0.12)}
     .card .meta{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--muted)}
     .card h3{margin:0;font-size:16px}
     .card p{margin:0;color:var(--muted);font-size:13px}
     .tags{display:flex;gap:8px;flex-wrap:wrap}
-    .tag{background:#eef2ff;padding:4px 8px;border-radius:999px;font-size:12px;color:#3730a3}
-    .read{margin-top:auto;display:flex;justify-content:flex-end}
+    .tag{background:linear-gradient(90deg,#eef2ff,#f5f3ff);padding:6px 10px;border-radius:999px;font-size:12px;color:#3b82f6;border:1px solid rgba(59,130,246,0.06)}
+    .read{margin-top:auto;display:flex;justify-content:space-between;align-items:center}
+    .fav{border:0;background:transparent;cursor:pointer;font-size:18px}
+
+    /* playful ribbon */
+    .ribbon{position:absolute;left:18px;top:8px;background:linear-gradient(90deg,#ffedd5,var(--pink));color:white;padding:6px 10px;border-radius:999px;font-weight:600;font-size:12px;box-shadow:0 6px 18px rgba(251,113,133,0.12)}
 
     /* sidebar */
     .sidebar{position:sticky;top:20px}
-    .panel{background:var(--card);padding:12px;border-radius:12px;box-shadow:0 6px 18px rgba(12,16,30,0.04);margin-bottom:12px}
+    .panel{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);margin-bottom:12px}
     .category{display:flex;flex-direction:column;gap:8px}
-    .category button{border:1px solid #e6e9f2;background:transparent;padding:8px;border-radius:8px;cursor:pointer;font-size:13px}
+    .category button{border:0;background:transparent;padding:10px;border-radius:10px;cursor:pointer;font-size:14px;text-align:left}
+    .category button.active{background:linear-gradient(90deg,#eef2ff,#fff);border:1px solid rgba(99,102,241,0.06)}
+
+    .popular-list{display:flex;flex-direction:column;gap:10px}
+    .pop-item{display:flex;gap:8px;align-items:center}
+    .pop-item .dot{width:40px;height:40px;border-radius:8px;background:linear-gradient(180deg,#fff,#fbfdff);display:grid;place-items:center;font-weight:700}
 
     /* footer */
     footer{margin-top:20px;text-align:center;color:var(--muted);font-size:13px}
 
     /* modal */
-    .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.45);display:none;align-items:center;justify-content:center;padding:20px}
-    .modal{width:100%;max-width:900px;background:var(--card);border-radius:12px;padding:18px;box-shadow:0 30px 60px rgba(2,6,23,0.4);max-height:90vh;overflow:auto}
+    .modal-backdrop{position:fixed;inset:0;background:linear-gradient(180deg, rgba(2,6,23,0.35), rgba(2,6,23,0.55));display:none;align-items:center;justify-content:center;padding:20px;z-index:70}
+    .modal{width:100%;max-width:900px;background:var(--card);border-radius:14px;padding:18px;box-shadow:0 30px 60px rgba(2,6,23,0.45);max-height:90vh;overflow:auto}
     .modal h2{margin:0}
     .close{border:0;background:transparent;font-size:16px;cursor:pointer}
 
+    /* confetti canvas */
+    #confetti{position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:80}
+
+    /* cute helper */
+    .help-bubble{position:fixed;right:22px;bottom:22px;background:linear-gradient(90deg,#fff,#fef3c7);padding:10px 12px;border-radius:16px;box-shadow:0 10px 30px rgba(2,6,23,0.12);display:flex;gap:8px;align-items:center}
+
     /* responsive */
-    @media (max-width:900px){
+    @media (max-width:960px){
       main{grid-template-columns:1fr}
       .search{width:100%}
       .controls{flex-direction:column;align-items:stretch}
+      .sidebar{position:static}
     }
+
+    /* small animation */
+    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+    .mascot{animation:floaty 3.4s ease-in-out infinite}
   </style>
 </head>
 <body>
-  <div class="container">
+  <canvas id="confetti"></canvas>
+  <div class="wrap">
     <header>
-      <div class="brand">
-        <div class="logo">ค</div>
+      <div style="display:flex;align-items:center;gap:14px;position:relative">
+        <div class="logo">ค<div class="mascot" title="น้องคิว">˘͈ᵕ˘͈</div></div>
         <div>
-          <h1>คลังความรู้</h1>
-          <p class="lead">รวบรวมบทความ สรุป และเทมเพลตใช้งานได้จริง</p>
+          <h1>คลังความรู้ — สนุก น่ารัก ใช้งานได้</h1>
+          <p class="lead">บทความสั้น เทมเพลต และไกด์ให้ทีมงาน — มีลูกเล่นเล็ก ๆ ทุกที่</p>
         </div>
       </div>
 
       <div class="controls">
-        <div class="search">
+        <div class="search" role="search">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M21 21l-4.35-4.35" stroke="#9CA3AF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" stroke="#9CA3AF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <input id="search" placeholder="ค้นหาบทความหรือแท็ก เช่น 'การตลาด', 'python'" />
+          <input id="search" placeholder="ค้นหา (ลองพิมพ์ 'python' หรือ 'การตลาด')" aria-label="ค้นหา" />
         </div>
-        <button class="btn" id="new-article">เพิ่มบทความ</button>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button class="btn ghost" id="explore">สำรวจ</button>
+          <button class="btn" id="new-article">➕ เพิ่มบทความ</button>
+        </div>
       </div>
     </header>
 
     <main>
       <section>
-        <div class="panel" style="margin-bottom:12px;display:flex;align-items:center;gap:12px;justify-content:space-between">
+        <div class="panel" style="display:flex;align-items:center;gap:12px;justify-content:space-between;position:relative">
           <div style="display:flex;gap:12px;align-items:center">
+            <div class="ribbon">ใหม่</div>
             <strong id="result-count">ทั้งหมด 6 รายการ</strong>
-            <span style="color:var(--muted);font-size:13px">- กรองโดย: <span id="active-filter">ทั้งหมด</span></span>
+            <span style="color:var(--muted);font-size:13px">- <span id="active-filter">ทั้งหมด</span></span>
           </div>
           <div style="display:flex;gap:8px;align-items:center">
             <label style="font-size:13px;color:var(--muted)">เรียงตาม</label>
@@ -97,13 +127,13 @@
         </div>
 
         <div class="grid" id="articles">
-          <!-- ตัวอย่างการ์ดบทความ -->
+          <!-- sample cards (same data attributes as before) -->
           <article class="card" data-title="สรุปการตลาดดิจิทัล 2025" data-category="การตลาด" data-tags="การตลาด,ดิจิทัล">
             <div class="meta">การตลาด • 12 มิ.ย. 2025</div>
             <h3>สรุปการตลาดดิจิทัล 2025</h3>
             <p>เทรนด์หลัก ช่องทางยอดนิยม และเคสศึกษาแบบย่อ — เหมาะสำหรับทีมการตลาด</p>
             <div class="tags"><span class="tag">การตลาด</span><span class="tag">ดิจิทัล</span></div>
-            <div class="read"><button class="btn open">อ่าน</button></div>
+            <div class="read"><button class="fav" title="ชอบ">♡</button><button class="btn open">อ่าน</button></div>
           </article>
 
           <article class="card" data-title="การตั้งค่า Git & Workflow" data-category="ไอที" data-tags="git,workflow,devops">
@@ -111,7 +141,7 @@
             <h3>การตั้งค่า Git & Workflow</h3>
             <p>คำแนะนำการตั้งค่า Git, branch strategy และ CI/CD เบื้องต้น</p>
             <div class="tags"><span class="tag">git</span><span class="tag">devops</span></div>
-            <div class="read"><button class="btn open">อ่าน</button></div>
+            <div class="read"><button class="fav" title="ชอบ">♡</button><button class="btn open">อ่าน</button></div>
           </article>
 
           <article class="card" data-title="แผนการเรียนรู้ Python สำหรับผู้เริ่มต้น" data-category="ไอที" data-tags="python,การเรียนรู้">
@@ -119,7 +149,7 @@
             <h3>แผนการเรียนรู้ Python สำหรับผู้เริ่มต้น</h3>
             <p>เริ่มจากพื้นฐานถึงโปรเจ็กต์จริง 8 สัปดาห์ พร้อมลิงก์เอกสารอ้างอิง</p>
             <div class="tags"><span class="tag">python</span><span class="tag">การเรียนรู้</span></div>
-            <div class="read"><button class="btn open">อ่าน</button></div>
+            <div class="read"><button class="fav" title="ชอบ">♡</button><button class="btn open">อ่าน</button></div>
           </article>
 
           <article class="card" data-title="เทคนิคการสัมภาษณ์งาน" data-category="ทักษะชีวิต" data-tags="สัมภาษณ์,ทักษะ">
@@ -127,7 +157,7 @@
             <h3>เทคนิคการสัมภาษณ์งาน</h3>
             <p>เตรียมคำตอบ แก้ไขจุดอ่อน และทำความประทับใจแรก</p>
             <div class="tags"><span class="tag">สัมภาษณ์</span><span class="tag">ทักษะ</span></div>
-            <div class="read"><button class="btn open">อ่าน</button></div>
+            <div class="read"><button class="fav" title="ชอบ">♡</button><button class="btn open">อ่าน</button></div>
           </article>
 
           <article class="card" data-title="แนวทางเขียนรายงานวิจัยสั้น" data-category="การศึกษา" data-tags="รายงาน,วิจัย">
@@ -135,7 +165,7 @@
             <h3>แนวทางเขียนรายงานวิจัยสั้น</h3>
             <p>โครงสร้าง ตัวอย่าง และคำแนะนำในการอ้างอิง</p>
             <div class="tags"><span class="tag">รายงาน</span><span class="tag">วิจัย</span></div>
-            <div class="read"><button class="btn open">อ่าน</button></div>
+            <div class="read"><button class="fav" title="ชอบ">♡</button><button class="btn open">อ่าน</button></div>
           </article>
 
           <article class="card" data-title="ออกแบบ UX ให้กับหน้า Dashboard" data-category="ออกแบบ" data-tags="ux,design">
@@ -143,9 +173,8 @@
             <h3>ออกแบบ UX ให้กับหน้า Dashboard</h3>
             <p>แนวทางโครงสร้างข้อมูล การจัดลำดับ และตัวอย่าง component</p>
             <div class="tags"><span class="tag">ux</span><span class="tag">design</span></div>
-            <div class="read"><button class="btn open">อ่าน</button></div>
+            <div class="read"><button class="fav" title="ชอบ">♡</button><button class="btn open">อ่าน</button></div>
           </article>
-
         </div>
       </section>
 
@@ -153,7 +182,7 @@
         <div class="panel">
           <h4>หมวดหมู่</h4>
           <div class="category" id="categories">
-            <button data-cat="ทั้งหมด">ทั้งหมด</button>
+            <button data-cat="ทั้งหมด" class="active">ทั้งหมด</button>
             <button data-cat="การตลาด">การตลาด</button>
             <button data-cat="ไอที">ไอที</button>
             <button data-cat="ทักษะชีวิต">ทักษะชีวิต</button>
@@ -163,29 +192,25 @@
         </div>
 
         <div class="panel">
-          <h4>แท็กยอดนิยม</h4>
-          <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <button class="tag-btn tag" data-tag="python">python</button>
-            <button class="tag-btn tag" data-tag="การตลาด">การตลาด</button>
-            <button class="tag-btn tag" data-tag="git">git</button>
-            <button class="tag-btn tag" data-tag="ux">ux</button>
-            <button class="tag-btn tag" data-tag="รายงาน">รายงาน</button>
+          <h4>บทความยอดนิยม</h4>
+          <div class="popular-list">
+            <div class="pop-item"><div class="dot">1</div><div><strong>สรุปการตลาดดิจิทัล 2025</strong><div style="color:var(--muted);font-size:13px">การตลาด • 12 มิ.ย. 2025</div></div></div>
+            <div class="pop-item"><div class="dot">2</div><div><strong>แผนการเรียนรู้ Python</strong><div style="color:var(--muted);font-size:13px">ไอที • 3 มี.ค. 2025</div></div></div>
           </div>
         </div>
 
         <div class="panel">
           <h4>เกี่ยวกับ</h4>
-          <p style="margin:0;color:var(--muted);font-size:13px">คลังความรู้ตัวอย่าง — เก็บบทความสั้น ลิงก์ และเทมเพลต เพื่อให้ทีมใช้งานร่วมกันได้</p>
+          <p style="margin:0;color:var(--muted);font-size:13px">คลังความรู้แบบตัวอย่าง เพิ่มลูกเล่นเล็ก ๆ ให้ใช้งานสนุกและกระตุ้นการมีส่วนร่วม — ปรับแต่งได้เสมอ</p>
         </div>
       </aside>
     </main>
 
     <footer>
-      เวอร์ชันตัวอย่าง — ปรับแต่งเพิ่มเติมได้ตามต้องการ
+      เวอร์ชันตัวอย่าง — มีเอฟเฟกต์คอนเฟตติเมื่อเพิ่มบทความ 🎉
     </footer>
   </div>
 
-  <!-- modal -->
   <div class="modal-backdrop" id="backdrop" role="dialog" aria-hidden="true">
     <div class="modal" role="document">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px">
@@ -198,31 +223,30 @@
     </div>
   </div>
 
+  <div class="help-bubble" id="help" title="เคล็ดลับ">
+    <div style="font-size:18px">✨</div>
+    <div style="font-size:13px">คลิก 'เพิ่มบทความ' แล้วลองพิมพ์ชื่อ — จะมี confetti เล็ก ๆ 🎉</div>
+  </div>
+
   <script>
-    // helper: update count
+    // Elements
     const articlesEl = document.getElementById('articles');
     const resultCount = document.getElementById('result-count');
     const activeFilter = document.getElementById('active-filter');
     const searchInput = document.getElementById('search');
     const sortSelect = document.getElementById('sort');
 
+    // simple visible handling
     function updateCount(){
-      const total = articlesEl.querySelectorAll('article.card:visible').length || articlesEl.querySelectorAll('article.card').length;
+      const total = Array.from(articlesEl.querySelectorAll('article.card')).filter(c=>!c.hasAttribute('hidden')).length;
       resultCount.textContent = `ทั้งหมด ${total} รายการ`;
     }
-
-    // polyfill :visible pseudo (simple)
-    (function(){
-      const style = document.createElement('style');
-      style.innerHTML = 'article.card{display:flex} article.card[hidden]{display:none}';
-      document.head.appendChild(style);
-    })();
 
     function filterArticles({q='',category='ทั้งหมด',tag=''}={}){
       const cards = Array.from(articlesEl.querySelectorAll('article.card'));
       const qLower = q.trim().toLowerCase();
       cards.forEach(card=>{
-        const title = card.dataset.title.toLowerCase();
+        const title = (card.dataset.title||'').toLowerCase();
         const tags = (card.dataset.tags||'').toLowerCase();
         const cat = (card.dataset.category||'').toLowerCase();
         let visible = true;
@@ -235,44 +259,44 @@
       updateCount();
     }
 
-    // event: search
-    searchInput.addEventListener('input', ()=>{
-      filterArticles({q:searchInput.value, category:currentCategory, tag:currentTag});
-    });
-
-    // categories
     let currentCategory='ทั้งหมด', currentTag='';
     document.getElementById('categories').addEventListener('click', e=>{
       if(e.target.matches('button')){
+        Array.from(document.querySelectorAll('#categories button')).forEach(b=>b.classList.remove('active'));
+        e.target.classList.add('active');
         currentCategory = e.target.dataset.cat || 'ทั้งหมด';
         currentTag = '';
-        filterArticles({q:searchInput.value, category:currentCategory, tag:currentTag});
+        searchInput.value = '';
+        filterArticles({q:'', category:currentCategory, tag:currentTag});
       }
     });
 
-    // tags (sidebar)
-    Array.from(document.querySelectorAll('.tag-btn')).forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        currentTag = btn.dataset.tag;
+    // tag buttons in cards clickable — highlight search
+    document.querySelectorAll('.tag').forEach(t=>{
+      t.addEventListener('click', ()=>{
+        const tagText = t.textContent.trim();
+        currentTag = tagText;
         currentCategory = 'ทั้งหมด';
         searchInput.value = '';
         filterArticles({q:'', category:currentCategory, tag:currentTag});
       });
     });
 
-    // sort
+    searchInput.addEventListener('input', ()=>{
+      filterArticles({q:searchInput.value, category:currentCategory, tag:currentTag});
+    });
+
     sortSelect.addEventListener('change', ()=>{
       const val = sortSelect.value;
       const cards = Array.from(articlesEl.querySelectorAll('article.card'));
       cards.sort((a,b)=>{
         if(val==='alpha') return a.dataset.title.localeCompare(b.dataset.title,'th');
         if(val==='old') return new Date(a.querySelector('.meta').textContent.split('•')[1] || 0) - new Date(b.querySelector('.meta').textContent.split('•')[1] || 0);
-        // default new
         return new Date(b.querySelector('.meta').textContent.split('•')[1] || 0) - new Date(a.querySelector('.meta').textContent.split('•')[1] || 0);
       }).forEach(n=>articlesEl.appendChild(n));
     });
 
-    // modal open
+    // modal
     function openModal(title, body){
       document.getElementById('modal-title').textContent = title;
       document.getElementById('modal-body').innerHTML = body;
@@ -288,22 +312,33 @@
     document.getElementById('close').addEventListener('click', closeModal);
     document.getElementById('backdrop').addEventListener('click', e=>{ if(e.target.id==='backdrop') closeModal(); });
 
-    // open article buttons
-    document.querySelectorAll('.card .open').forEach((btn)=>{
-      btn.addEventListener('click', (e)=>{
-        const card = e.target.closest('article.card');
-        const title = card.dataset.title;
-        // ตัวอย่างเนื้อหา — ในของจริงให้ดึงจาก API หรือเก็บเป็น markdown แล้วแปลง
-        const body = `<p style="margin-top:0;color:#111827">${card.querySelector('p').textContent}</p>
-          <h4>เนื้อหาเพิ่มเติม</h4>
-          <p>ตัวอย่างย่อ — ขยายด้วยเนื้อหาจริงได้ตามต้องการ</p>
-          <hr>
-          <p><strong>แท็ก:</strong> ${card.dataset.tags}</p>`;
-        openModal(title, body);
+    // open article
+    function attachOpenButtons(){
+      document.querySelectorAll('.card .open').forEach((btn)=>{
+        if(btn.dataset.attached) return; btn.dataset.attached = '1';
+        btn.addEventListener('click', (e)=>{
+          const card = e.target.closest('article.card');
+          const title = card.dataset.title;
+          const body = `<p style="margin-top:0;color:#111827">${card.querySelector('p').textContent}</p>
+            <h4>เนื้อหาเพิ่มเติม</h4>
+            <p>ตัวอย่างย่อ — ขยายด้วยเนื้อหาจริงได้ตามต้องการ</p>
+            <hr>
+            <p><strong>แท็ก:</strong> ${card.dataset.tags}</p>`;
+          openModal(title, body);
+        });
+      });
+    }
+    attachOpenButtons();
+
+    // favorite hearts
+    document.querySelectorAll('.fav').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        btn.textContent = btn.textContent === '♡' ? '♥' : '♡';
+        btn.animate([{transform:'scale(1)'},{transform:'scale(1.35)'},{transform:'scale(1)'}],{duration:350,easing:'ease-out'});
       });
     });
 
-    // 新 เพิ่มบทความ (ตัวอย่าง) — ในระบบจริงให้เรียก API
+    // add article with confetti
     document.getElementById('new-article').addEventListener('click', ()=>{
       const title = prompt('ชื่อบทความ:');
       if(!title) return;
@@ -312,16 +347,47 @@
       el.dataset.title=title;
       el.dataset.category='ทั่วไป';
       el.dataset.tags='ทั่วไป';
-      el.innerHTML = `<div class="meta">ทั่วไป • ${new Date().toLocaleDateString('th-TH')}</div><h3>${title}</h3><p>คำอธิบายสั้น ๆ</p><div class="tags"><span class="tag">ทั่วไป</span></div><div class="read"><button class="btn open">อ่าน</button></div>`;
+      el.innerHTML = `<div class="meta">ทั่วไป • ${new Date().toLocaleDateString('th-TH')}</div><h3>${title}</h3><p>คำอธิบายสั้น ๆ</p><div class="tags"><span class="tag">ทั่วไป</span></div><div class="read"><button class="fav" title="ชอบ">♡</button><button class="btn open">อ่าน</button></div>`;
       articlesEl.prepend(el);
-      // attach open listener
-      el.querySelector('.open').addEventListener('click', ()=>{
-        openModal(title,'เนื้อหาตัวอย่าง');
-      });
+      attachOpenButtons();
+      // attach heart
+      el.querySelector('.fav').addEventListener('click', e=>{ e.target.textContent = e.target.textContent === '♡' ? '♥' : '♡'; });
       updateCount();
+      fireConfetti();
     });
 
-    // init
+    // small confetti function (canvas)
+    const confettiCanvas = document.getElementById('confetti');
+    confettiCanvas.width = window.innerWidth; confettiCanvas.height = window.innerHeight;
+    const ctx = confettiCanvas.getContext('2d');
+    let confettiPieces = [];
+    function random(min,max){return Math.random()*(max-min)+min}
+    function fireConfetti(){
+      // create pieces
+      const colors = ['#ffb347','#7c3aed','#06b6d4','#fb7185','#34d399'];
+      for(let i=0;i<80;i++){
+        confettiPieces.push({x:random(0,confettiCanvas.width),y:random(-20,confettiCanvas.height/2),vx:random(-1.5,1.5),vy:random(1,4),r:random(6,10),color:colors[Math.floor(Math.random()*colors.length)],rot:random(0,360),vr:random(-6,6)});
+      }
+      requestAnimationFrame(runConfetti);
+      setTimeout(()=>confettiPieces = [],1200);
+    }
+    let confettiAnimating = false;
+    function runConfetti(){
+      confettiAnimating = true;
+      ctx.clearRect(0,0,confettiCanvas.width,confettiCanvas.height);
+      confettiPieces.forEach((p)=>{
+        p.x += p.vx; p.y += p.vy; p.vr += 0; p.rot += p.vr;
+        ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot*Math.PI/180);
+        ctx.fillStyle = p.color; ctx.fillRect(-p.r/2,-p.r/2,p.r,p.r*0.6);
+        ctx.restore();
+      });
+      confettiPieces = confettiPieces.filter(p=>p.y < confettiCanvas.height+30);
+      if(confettiPieces.length) requestAnimationFrame(runConfetti); else { ctx.clearRect(0,0,confettiCanvas.width,confettiCanvas.height); confettiAnimating=false }
+    }
+
+    window.addEventListener('resize', ()=>{ confettiCanvas.width = window.innerWidth; confettiCanvas.height = window.innerHeight; });
+
+    // initial filter
     filterArticles();
     updateCount();
   </script>
