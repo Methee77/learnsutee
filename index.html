@@ -1,197 +1,82 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>คลังความรู้น้องมัธยม — Modern Blue-Purple</title>
-  <meta name="description" content="คลังความรู้ออนไลน์สำหรับน้องมัธยม — โทนฟ้า-ม่วงพาสเทล ทันสมัย รองรับ dark mode และ responsive" />
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>คลังความรู้น้องมัธยม</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    :root{
-      --bg-1: #f4f9ff; /* page bg */
-      --card: #ffffff;
-      --muted: #6b7280;
-      --accent-1: #7dd3fc; /* sky */
-      --accent-2: #a78bfa; /* purple */
-      --glass: rgba(255,255,255,0.6);
-      --radius: 14px;
-      --shadow: 0 12px 30px rgba(12,16,30,0.08);
-      --max-width: 1180px;
+    body {
+      background: linear-gradient(135deg, #c3e5f5 0%, #e8d9f1 100%);
+      font-family: 'Prompt', sans-serif;
     }
-    [data-theme="dark"]{
-      --bg-1: linear-gradient(180deg,#071025 0%, #061028 100%);
-      --card:#091427; --muted:#9aa4b2; --glass: rgba(255,255,255,0.03);
+    .glass {
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{font-family:'Prompt', 'Poppins', system-ui, -apple-system, sans-serif;margin:0;background:var(--bg-1);color:#051423;-webkit-font-smoothing:antialiased}
-    .wrap{max-width:var(--max-width);margin:28px auto;padding:20px}
-
-    /* Header */
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{display:flex;gap:14px;align-items:center}
-    .logo{width:72px;height:72px;border-radius:16px;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));display:grid;place-items:center;color:white;font-weight:800;font-size:28px;box-shadow:var(--shadow)}
-    .logo small{display:block;font-size:11px;opacity:0.9}
-    .title h1{margin:0;font-size:20px}
-    .title p{margin:2px 0 0;color:var(--muted);font-size:13px}
-
-    /* Controls */
-    .controls{display:flex;align-items:center;gap:12px}
-    .search{display:flex;align-items:center;background:var(--card);padding:10px 12px;border-radius:999px;box-shadow:0 6px 18px rgba(10,10,40,0.06);width:420px;border:1px solid rgba(10,10,30,0.03)}
-    .search input{border:0;background:transparent;outline:none;font-size:14px;width:100%}
-    .btn{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;padding:10px 14px;border-radius:12px;border:0;cursor:pointer;font-weight:600}
-    .icon-btn{background:transparent;border:0;padding:8px;border-radius:8px;cursor:pointer}
-
-    main{display:grid;grid-template-columns:1fr 340px;gap:24px;margin-top:20px}
-
-    /* grid of cards */
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
-    .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;transform:translateY(0);transition:transform .26s ease,box-shadow .26s ease;opacity:0;transform-origin:center}
-    .card.visible{opacity:1;transform:translateY(0)}
-    .card:hover{transform:translateY(-10px)}
-    .meta{font-size:12px;color:var(--muted)}
-    .card h3{margin:0;font-size:16px}
-    .excerpt{color:var(--muted);font-size:13px}
-    .chips{display:flex;gap:8px;flex-wrap:wrap}
-    .chip{background:linear-gradient(90deg,#fff,#fafcff);padding:6px 10px;border-radius:999px;font-size:12px;border:1px solid rgba(10,10,30,0.03);cursor:pointer}
-
-    .card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
-
-    /* sidebar */
-    .sidebar{position:sticky;top:22px}
-    .panel{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);margin-bottom:14px}
-    .subjects{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .subject{display:flex;gap:10px;align-items:center;padding:10px;border-radius:10px;cursor:pointer;border:1px solid rgba(10,10,30,0.03)}
-    .subject .dot{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;font-weight:700}
-
-    /* footer */
-    footer{text-align:center;color:var(--muted);font-size:13px;margin-top:22px}
-
-    /* modal */
-    .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.45);display:none;align-items:center;justify-content:center;padding:20px;z-index:60}
-    .modal{width:100%;max-width:920px;background:var(--card);border-radius:12px;padding:18px;box-shadow:0 30px 60px rgba(2,6,23,0.45);max-height:86vh;overflow:auto}
-
-    /* small helpers */
-    .top-btn{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,var(--accent-2),var(--accent-1));border-radius:999px;padding:10px 12px;color:white;border:0;box-shadow:0 10px 30px rgba(2,6,23,0.18);cursor:pointer}
-
-    @media (max-width:1024px){main{grid-template-columns:1fr} .search{width:100%}}
+    .fade-in {
+      animation: fadeInUp 0.8s ease;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo">ค<small>KNOW</small></div>
-        <div class="title"><h1>คลังความรู้น้องมัธยม</h1><p class="lead">สรุป สอน ทำแบบฝึกหัด — อ่านง่าย เตรียมสอบไว</p></div>
-      </div>
+<body class="min-h-screen text-gray-800">
 
-      <div class="controls">
-        <div class="search" role="search">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M21 21l-4.35-4.35" stroke="#9CA3AF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" stroke="#9CA3AF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <input id="search" placeholder="ค้นหา: วิชา/หัวข้อ เช่น 'ตรีโกณ'" aria-label="ค้นหา" />
-        </div>
-        <button class="btn" id="new-article">➕ เพิ่มบทความ</button>
-        <button class="icon-btn" id="theme-toggle" title="Toggle theme">🌙</button>
-      </div>
-    </header>
+  <!-- Header -->
+  <header class="p-6 text-center">
+    <h1 class="text-4xl font-extrabold text-indigo-700">📚 คลังความรู้น้องมัธยม</h1>
+    <p class="text-gray-600 mt-2">เรียนรู้ สนุก เข้าใจง่าย สไตล์เด็กมัธยม</p>
+  </header>
 
-    <main>
-      <section>
-        <div class="panel" style="margin-bottom:12px;display:flex;justify-content:space-between;align-items:center">
-          <div><strong id="result-count">ทั้งหมด 0 รายการ</strong> <span id="active-filter" style="color:var(--muted);font-size:13px;margin-left:8px">(ทั้งหมด)</span></div>
-          <div style="display:flex;gap:8px;align-items:center"><label style="color:var(--muted);font-size:13px">เรียง</label><select id="sort"><option value="new">ใหม่สุด</option><option value="popular">ยอดนิยม</option><option value="alpha">ชื่อตัว</option></select></div>
-        </div>
-
-        <div class="grid" id="articles"></div>
-      </section>
-
-      <aside class="sidebar">
-        <div class="panel">
-          <h3>หมวดวิชา</h3>
-          <div class="subjects" id="subjects"></div>
-        </div>
-
-        <div class="panel">
-          <h3>บทความแนะนำ</h3>
-          <div id="popular-list" style="display:flex;flex-direction:column;gap:8px"></div>
-        </div>
-
-        <div class="panel">
-          <h3>บุ๊กมาร์ก</h3>
-          <div id="bookmarks" style="color:var(--muted);font-size:14px">(ยังไม่มี)</div>
-        </div>
-      </aside>
-    </main>
-
-    <footer>ออกแบบสไตล์ Modern • โทนฟ้า–ม่วงพาสเทล — ปรับได้ตามความต้องการ</footer>
+  <!-- Search bar -->
+  <div class="flex justify-center mb-6">
+    <input id="searchInput" type="text" placeholder="🔍 ค้นหาบทเรียน..." class="px-4 py-2 w-80 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
   </div>
 
-  <div class="modal-backdrop" id="backdrop" aria-hidden="true"><div class="modal" role="document"><div style="display:flex;justify-content:space-between;align-items:center"><h2 id="modal-title">หัวข้อ</h2><button id="close" style="border:0;background:transparent;cursor:pointer">ปิด ✕</button></div><div id="modal-body" style="margin-top:12px;color:var(--muted)"></div></div></div>
+  <!-- Knowledge Grid -->
+  <main class="max-w-5xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
+    <div class="glass p-5 fade-in hover:scale-[1.02] transition transform">
+      <h3 class="text-xl font-semibold text-indigo-700">คณิตศาสตร์</h3>
+      <p class="text-gray-700 mt-2">เรื่อง สมการเชิงเส้นและกราฟ</p>
+      <a href="#" class="text-indigo-600 hover:underline mt-3 inline-block">อ่านเพิ่มเติม →</a>
+    </div>
 
-  <button class="top-btn" id="to-top">⬆️</button>
+    <div class="glass p-5 fade-in hover:scale-[1.02] transition transform">
+      <h3 class="text-xl font-semibold text-pink-600">วิทยาศาสตร์</h3>
+      <p class="text-gray-700 mt-2">เรื่อง แรงและการเคลื่อนที่</p>
+      <a href="#" class="text-pink-600 hover:underline mt-3 inline-block">อ่านเพิ่มเติม →</a>
+    </div>
 
-  <script>
-    // Data — replace with API in production
-    const sampleArticles = [
-      {id:1,title:'ตรีโกณมิติ: สูตรสำคัญและการประยุกต์',subject:'คณิตศาสตร์',tags:['ตรีโกณ','สูตร'],date:'2025-06-12',popular:320,excerpt:'สรุปสูตรตรีโกณมิติ พร้อมตัวอย่างการแก้โจทย์แบบฝึกหัด'},
-      {id:2,title:'แรงและการเคลื่อนที่ (ฟิสิกส์)',subject:'วิทยาศาสตร์',tags:['ฟิสิกส์','แรง'],date:'2025-04-20',popular:210,excerpt:'แนวคิดและวิธีคิดโจทย์แรง พร้อมแบบฝึกหัดละเอียด'},
-      {id:3,title:'เทคนิคอ่านจับใจความ (อังกฤษ)',subject:'ภาษาอังกฤษ',tags:['reading','exam'],date:'2025-02-10',popular:410,excerpt:'วิธีอ่านจับใจความเร็วและคำศัพท์ที่มักออกสอบ'}
-    ];
-    const subjects = ['ทั้งหมด','คณิตศาสตร์','วิทยาศาสตร์','ภาษาอังกฤษ','ภาษาไทย','สังคม','ศิลปะ'];
+    <div class="glass p-5 fade-in hover:scale-[1.02] transition transform">
+      <h3 class="text-xl font-semibold text-green-600">สังคมศึกษา</h3>
+      <p class="text-gray-700 mt-2">เรื่อง ประวัติศาสตร์ไทยสมัยอยุธยา</p>
+      <a href="#" class="text-green-600 hover:underline mt-3 inline-block">อ่านเพิ่มเติม →</a>
+    </div>
+  </main>
 
-    // DOM
-    const articlesEl = document.getElementById('articles');
-    const subjectsEl = document.getElementById('subjects');
-    const popularList = document.getElementById('popular-list');
-    const bookmarksEl = document.getElementById('bookmarks');
-    const resultCount = document.getElementById('result-count');
-    const activeFilter = document.getElementById('active-filter');
-    const searchInput = document.getElementById('search');
-    const sortSelect = document.getElementById('sort');
+  <!-- File Section -->
+  <section id="resources" class="max-w-4xl mx-auto mt-10 mb-20 px-6 fade-in">
+    <h2 class="text-2xl font-semibold mb-4 text-indigo-700">📁 ไฟล์ตัวอย่าง</h2>
+    <div class="glass p-5">
+      <p class="mb-2 text-gray-700">คลิกเพื่อดาวน์โหลดเอกสารตัวอย่าง:</p>
+      <ul class="list-disc ml-5 space-y-1 text-indigo-700">
+        <li><a href="files/math1.pdf" target="_blank" class="hover:underline">📘 แบบฝึกหัดคณิตศาสตร์ ม.3</a></li>
+        <li><a href="files/physics1.pdf" target="_blank" class="hover:underline">🔬 เอกสารฟิสิกส์ แรงและการเคลื่อนที่</a></li>
+        <li><a href="files/history1.pdf" target="_blank" class="hover:underline">🏛️ สรุปประวัติศาสตร์ไทย</a></li>
+      </ul>
+    </div>
+  </section>
 
-    let currentSubject = 'ทั้งหมด';
-    let articles = [...sampleArticles];
+  <!-- Footer -->
+  <footer class="text-center py-6 text-gray-600">
+    © 2025 คลังความรู้น้องมัธยม | ออกแบบโดย ChatGPT 💙
+  </footer>
 
-    // bookmarks in localStorage
-    function getBookmarks(){try{return JSON.parse(localStorage.getItem('mk_bookmarks')||'[]')}catch(e){return []}}
-    function saveBookmarks(list){localStorage.setItem('mk_bookmarks',JSON.stringify(list)); renderBookmarks();}
-    function renderBookmarks(){const list=getBookmarks(); bookmarksEl.innerHTML=''; if(!list.length){bookmarksEl.textContent='(ยังไม่มี)';return} list.forEach(id=>{const a=articles.find(x=>x.id===id); if(!a) return; const d=document.createElement('div'); d.style.display='flex'; d.style.justifyContent='space-between'; d.style.alignItems='center'; d.innerHTML=`<div style="font-size:14px">${a.title}</div><div style='display:flex;gap:8px'><button data-id='${id}' class='bm-open' style='background:transparent;border:0;color:var(--muted);cursor:pointer'>เปิด</button><button data-id='${id}' class='bm-remove' style='background:transparent;border:0;color:var(--muted);cursor:pointer'>ลบ</button></div>`; bookmarksEl.appendChild(d);}); document.querySelectorAll('.bm-open').forEach(b=>b.addEventListener('click',e=>openArticleById(+e.target.dataset.id))); document.querySelectorAll('.bm-remove').forEach(b=>b.addEventListener('click',e=>{const id=+e.target.dataset.id; saveBookmarks(getBookmarks().filter(x=>x!==id));}));}
-
-    // render subjects
-    function renderSubjects(){subjectsEl.innerHTML=''; subjects.forEach(s=>{const el=document.createElement('div'); el.className='subject'; el.dataset.sub=s; const dot=document.createElement('div'); dot.className='dot'; const map={'คณิตศาสตร์':'linear-gradient(135deg,#7dd3fc,#60a5fa)','วิทยาศาสตร์':'linear-gradient(135deg,#86efac,#34d399)','ภาษาอังกฤษ':'linear-gradient(135deg,#a78bfa,#7c3aed)','ภาษาไทย':'linear-gradient(135deg,#fde68a,#fb923c)','สังคม':'linear-gradient(135deg,#c7b3ff,#7c3aed)','ศิลปะ':'linear-gradient(135deg,#ffd1dc,#ff9aa2)','ทั้งหมด':'linear-gradient(135deg,#eef2ff,#fff)'}; dot.style.background = map[s]||'linear-gradient(135deg,#eef2ff,#fff)'; dot.textContent = s==='ทั้งหมด'?'ALL':s.slice(0,2); el.appendChild(dot); const txt=document.createElement('div'); txt.innerHTML=`<div style='font-weight:600'>${s}</div><div style='font-size:13px;color:var(--muted)'>${articles.filter(a=>s==='ทั้งหมด'?true:a.subject===s).length} บทความ</div>`; el.appendChild(txt); el.addEventListener('click',()=>{currentSubject=s; filterAndRender(); document.querySelectorAll('.subject').forEach(x=>x.style.outline=''); el.style.outline='3px solid rgba(99,102,241,0.12)';}); subjectsEl.appendChild(el);});}
-
-    // render articles (with simple reveal)
-    function renderArticles(list){articlesEl.innerHTML=''; if(!list.length){articlesEl.innerHTML=`<div style='color:var(--muted)'>ไม่พบบทความ</div>`; resultCount.textContent='ทั้งหมด 0 รายการ'; return} list.forEach((a,i)=>{const el=document.createElement('article'); el.className='card'; el.dataset.id=a.id; el.innerHTML=`<div class='meta'>${a.subject} • ${a.date}</div><h3>${a.title}</h3><div class='excerpt'>${a.excerpt}</div><div class='chips'>${a.tags.map(t=>`<span class='chip' data-tag='${t}'>#${t}</span>`).join('')}</div><div class='card-footer'><div style='color:var(--muted);font-size:13px'>👁️ ${a.popular}</div><div><button class='bookmark' data-id='${a.id}' style='background:transparent;border:0;cursor:pointer'>🔖</button> <button class='btn open' data-id='${a.id}'>อ่าน</button></div></div>`; articlesEl.appendChild(el); // reveal animation setTimeout(()=>el.classList.add('visible'), i*80);});
-
-      // attach events
-      document.querySelectorAll('.open').forEach(b=>b.addEventListener('click',e=>openArticleById(+e.target.dataset.id)));
-      document.querySelectorAll('.bookmark').forEach(b=>b.addEventListener('click',e=>{const id=+e.target.dataset.id; const list=getBookmarks(); if(list.includes(id)){ saveBookmarks(list.filter(x=>x!==id)); e.target.textContent='🔖'; } else { list.push(id); saveBookmarks(list); e.target.textContent='✅'; }}));
-      document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',e=>{searchInput.value = e.target.dataset.tag; filterAndRender(); }));
-
-      resultCount.textContent = `ทั้งหมด ${list.length} รายการ`;
-    }
-
-    function renderPopular(){const top=[...articles].sort((a,b)=>b.popular-a.popular).slice(0,4); popularList.innerHTML=''; top.forEach(a=>{const d=document.createElement('div'); d.style.display='flex'; d.style.justifyContent='space-between'; d.style.alignItems='center'; d.innerHTML=`<div style='font-weight:600'>${a.title}</div><button data-id='${a.id}' style='background:transparent;border:0;color:var(--muted);cursor:pointer' class='pop-open'>เปิด</button>`; popularList.appendChild(d);}); document.querySelectorAll('.pop-open').forEach(b=>b.addEventListener('click',e=>openArticleById(+e.target.dataset.id))); }
-
-    // filter and sort
-    function filterAndRender(){const q=searchInput.value.trim().toLowerCase(); let list=articles.filter(a=>{const subMatch = currentSubject==='ทั้งหมด'?true: a.subject===currentSubject; const qMatch = !q?true: (a.title.toLowerCase().includes(q) || a.tags.join(',').toLowerCase().includes(q) || a.excerpt.toLowerCase().includes(q)); return subMatch && qMatch; }); const sort = sortSelect.value; if(sort==='popular') list.sort((a,b)=>b.popular-a.popular); else if(sort==='alpha') list.sort((a,b)=>a.title.localeCompare(b.title,'th')); else list.sort((a,b)=>new Date(b.date)-new Date(a.date)); renderArticles(list); renderPopular(); }
-
-    // modal
-    const backdrop = document.getElementById('backdrop'); const modalTitle = document.getElementById('modal-title'); const modalBody = document.getElementById('modal-body'); document.getElementById('close').addEventListener('click',closeModal); backdrop.addEventListener('click',e=>{if(e.target===backdrop) closeModal();}); function openArticleById(id){const a=articles.find(x=>x.id===id); if(!a) return; modalTitle.textContent=a.title; modalBody.innerHTML=`<p style='margin-top:0'>${a.excerpt}</p><hr><p>เนื้อหาเต็มตัวอย่าง — เพิ่ม PDF, วิดีโอ หรือแบบฝึกหัดได้</p><p style='color:var(--muted);font-size:13px'>แท็ก: ${a.tags.join(', ')}</p>`; backdrop.style.display='flex'; backdrop.setAttribute('aria-hidden','false'); } function closeModal(){backdrop.style.display='none'; backdrop.setAttribute('aria-hidden','true');}
-
-    // theme toggle
-    const themeToggle = document.getElementById('theme-toggle'); function setTheme(t){ if(t==='dark') document.documentElement.setAttribute('data-theme','dark'); else document.documentElement.removeAttribute('data-theme'); localStorage.setItem('mk_theme',t);} themeToggle.addEventListener('click',()=>{const cur=localStorage.getItem('mk_theme')||'light'; const next=cur==='light'?'dark':'light'; setTheme(next); themeToggle.textContent = next==='dark'?'☀️':'🌙';}); (function(){const t=localStorage.getItem('mk_theme')||'light'; setTheme(t); themeToggle.textContent = t==='dark'?'☀️':'🌙';})();
-
-    // new article demo + top button
-    document.getElementById('new-article').addEventListener('click',()=>{const title=prompt('ชื่อบทความ (ตัวอย่าง)'); if(!title) return; const id=Math.max(0,...articles.map(a=>a.id))+1; const now=new Date().toISOString().split('T')[0]; const newA={id,title,subject:'ทั่วไป',tags:['ทั่วไป'],date:now,popular:0,excerpt:'คำอธิบายสั้น ๆ — เพิ่มเนื้อหาได้'}; articles.unshift(newA); filterAndRender(); const bm=getBookmarks(); bm.push(id); saveBookmarks(bm); alert('เพิ่มบทความเรียบร้อย 🎉');}); document.getElementById('to-top').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-
-    // search & sort events
-    searchInput.addEventListener('input',()=>filterAndRender()); sortSelect.addEventListener('change',()=>filterAndRender());
-
-    // init
-    function init(){ renderSubjects(); filterAndRender(); renderBookmarks(); }
-    init();
-  </script>
 </body>
 </html>
