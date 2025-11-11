@@ -1,188 +1,454 @@
-/* การตั้งค่าพื้นฐาน */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f7f6; /* พื้นหลังสีเทาอ่อน */
-    color: #333;
-}
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ศูนย์คลังความรู้ F8hf</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Import Google Fonts - Prompt for Thai and Poppins for English/Numbers */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap');
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+        /* Base Styles */
+        body {
+            font-family: 'Prompt', sans-serif; /* Primary font for Thai */
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* Lightest gray for background */
+            color: #343a40; /* Dark gray for text */
+        }
 
-/* ส่วนหัว */
-.header {
-    background-color: #2c3e50; /* สีกรมท่าเข้ม */
-    color: white;
-    padding: 15px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+        /* Use Poppins for specific elements that are likely English or numbers */
+        h1, h2, h3, h4, h5, h6, .header nav a, .search-box button {
+            font-family: 'Poppins', sans-serif;
+        }
 
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px; /* Add some padding to the sides */
+        }
 
-.header h1 {
-    margin: 0;
-    font-size: 1.8em;
-}
+        a {
+            color: #007bff; /* Primary link color */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-.header nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: 500;
-}
+        a:hover {
+            color: #0056b3; /* Darker on hover */
+        }
 
-/* ส่วนค้นหาหลัก (Hero Search) */
-.hero-search {
-    background-color: #3498db; /* สีฟ้าหลัก */
-    color: white;
-    padding: 80px 0;
-    text-align: center;
-    margin-bottom: 30px;
-}
+        hr {
+            border: 0;
+            border-top: 1px solid #e9ecef; /* Lighter separator */
+            margin: 40px 0;
+        }
 
-.hero-search h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
+        /* Header */
+        .header {
+            background-color: #2c3e50; /* Dark blue/gray */
+            color: white;
+            padding: 18px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            position: sticky; /* Make header sticky */
+            top: 0;
+            z-index: 1000; /* Ensure it's above other content */
+        }
 
-.search-box {
-    display: flex;
-    justify-content: center;
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
-}
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.search-box input {
-    flex-grow: 1;
-    padding: 15px 20px;
-    border: none;
-    font-size: 1em;
-    outline: none;
-}
+        .header h1 {
+            margin: 0;
+            font-size: 1.9em; /* Slightly larger */
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
 
-.search-box button {
-    background-color: #2980b9; /* สีฟ้าเข้มกว่า */
-    color: white;
-    border: none;
-    padding: 15px 25px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s;
-}
+        .header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            font-size: 0.95em;
+            padding: 5px 0;
+            position: relative;
+        }
 
-.search-box button:hover {
-    background-color: #1e608f;
-}
+        .header nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #007bff; /* Underline color */
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
 
-/* เนื้อหาหลัก */
-.main-content {
-    padding: 20px 0;
-}
+        .header nav a:hover::after {
+            width: 100%;
+        }
 
-/* หมวดหมู่ */
-.categories {
-    margin-bottom: 40px;
-}
+        /* Hero Search Section */
+        .hero-search {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); /* Gradient background */
+            color: white;
+            padding: 100px 0; /* More padding */
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden; 
+        }
 
-.categories h3 {
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    color: #2c3e50;
-}
+        .hero-search h2 {
+            font-size: 3.2em; /* Larger, more impactful heading */
+            margin-bottom: 25px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Text shadow for depth */
+        }
 
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
+        .search-box {
+            display: flex;
+            justify-content: center;
+            max-width: 700px; /* Wider search box */
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+            border-radius: 10px; /* More rounded corners */
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+            border: 1px solid rgba(255, 255, 255, 0.5); /* Light border */
+        }
 
-.category-item {
-    background-color: white;
-    padding: 25px;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    text-decoration: none;
-    color: #333;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
+        .search-box input {
+            flex-grow: 1;
+            padding: 18px 25px; /* More padding in input */
+            border: none;
+            font-size: 1.1em;
+            outline: none;
+            color: #343a40;
+        }
 
-.category-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
+        .search-box input::placeholder {
+            color: #adb5bd; /* Lighter placeholder text */
+        }
 
-.category-item i {
-    font-size: 3em;
-    color: #3498db;
-    margin-bottom: 10px;
-}
+        .search-box button {
+            background-color: #28a745; /* Green for search button */
+            color: white;
+            border: none;
+            padding: 18px 30px; /* More padding */
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: flex; /* Align icon and text */
+            align-items: center;
+            gap: 8px; /* Space between icon and text */
+        }
 
-.category-item h4 {
-    margin: 5px 0;
-    font-size: 1.2em;
-}
+        .search-box button i {
+            font-size: 1.1em;
+        }
 
-.category-item p {
-    font-size: 0.9em;
-    color: #7f8c8d;
-}
+        .search-box button:hover {
+            background-color: #218838; /* Darker green on hover */
+            transform: translateY(-2px); /* Slight lift effect */
+        }
 
-/* บทความยอดนิยม */
-.popular-articles h3 {
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    color: #2c3e50;
-}
+        /* Main Content Area */
+        .main-content {
+            padding: 40px 0;
+        }
 
-.popular-articles ul {
-    list-style: none;
-    padding: 0;
-}
+        /* Categories Section */
+        .categories {
+            margin-bottom: 50px;
+        }
 
-.popular-articles li {
-    background-color: white;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
+        .categories h3 {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
 
-.popular-articles li i {
-    color: #e74c3c; /* สีแดงสำหรับไอคอน */
-    margin-right: 10px;
-}
+        .categories h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px; /* Underline effect */
+            height: 4px;
+            background-color: #007bff;
+            border-radius: 2px;
+        }
 
-.popular-articles li a {
-    text-decoration: none;
-    color: #2980b9;
-    font-weight: 500;
-}
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly wider items */
+            gap: 25px; /* More spacing */
+        }
 
-/* ส่วนท้าย */
-.footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 40px;
-}
+        .category-item {
+            background-color: white;
+            padding: 30px; /* More padding */
+            text-align: center;
+            border-radius: 12px; /* More rounded corners */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); /* More noticeable shadow */
+            text-decoration: none;
+            color: #343a40;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e9ecef; /* Light border */
+            display: flex; /* Use flex for vertical centering */
+            flex-direction: column;
+            align-items: center;
+        }
 
-.footer a {
-    color: #ccc;
-    text-decoration: none;
-}
+        .category-item:hover {
+            transform: translateY(-8px); /* More pronounced lift */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+        }
+
+        .category-item i {
+            font-size: 3.5em; /* Larger icon */
+            color: #007bff; /* Primary blue icon color */
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .category-item h4 {
+            margin: 8px 0;
+            font-size: 1.4em; /* Larger heading */
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .category-item p {
+            font-size: 1em;
+            color: #6c757d; /* Muted gray for description */
+            margin-top: 5px;
+        }
+
+        /* Popular Articles Section */
+        .popular-articles h3 {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .popular-articles h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 4px;
+            background-color: #dc3545; /* Red underline for popular */
+            border-radius: 2px;
+        }
+
+        .popular-articles ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .popular-articles li {
+            background-color: white;
+            padding: 18px 25px; /* More padding */
+            margin-bottom: 12px;
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-left: 5px solid #007bff; /* Highlight border */
+        }
+
+        .popular-articles li:hover {
+            transform: translateX(5px); /* Slide right effect */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .popular-articles li i {
+            color: #007bff; /* Primary blue for icon */
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+
+        .popular-articles li a {
+            font-size: 1.1em;
+            color: #343a40;
+            font-weight: 500;
+            flex-grow: 1;
+        }
+
+        .popular-articles li a:hover {
+            color: #0056b3;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #343a40; /* Dark gray */
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            font-size: 0.9em;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .footer a {
+            color: #93b0cc; /* Lighter link color */
+            text-decoration: underline;
+        }
+
+        .footer a:hover {
+            color: #c9dff0;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header nav {
+                margin-top: 15px;
+            }
+
+            .header nav a {
+                margin: 0 10px;
+            }
+
+            .hero-search h2 {
+                font-size: 2.5em;
+            }
+
+            .search-box {
+                flex-direction: column;
+                max-width: 90%;
+                margin: 0 auto;
+            }
+
+            .search-box input, .search-box button {
+                width: 100%;
+                border-radius: 0; /* Reset border-radius for stacked elements */
+            }
+
+            .search-box button {
+                margin-top: 10px;
+                border-radius: 8px; /* Apply border-radius to button only */
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr; /* Stack categories on small screens */
+            }
+
+            .category-item {
+                padding: 25px;
+            }
+
+            .category-item i {
+                font-size: 3em;
+            }
+
+            .category-item h4 {
+                font-size: 1.3em;
+            }
+
+            .popular-articles li {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <h1>F8hf Knowledge Center</h1>
+            <nav>
+                <a href="#">หน้าแรก</a>
+                <a href="#">คู่มือ</a>
+                <a href="#">ติดต่อสนับสนุน</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-search">
+        <div class="container">
+            <h2>ค้นหาคำตอบที่คุณต้องการได้ที่นี่</h2>
+            <div class="search-box">
+                <input type="text" placeholder="ค้นหาบทความ, คู่มือ, หรือวิธีการแก้ไขปัญหา...">
+                <button type="submit"><i class="fas fa-search"></i> ค้นหา</button>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content container">
+
+        <section class="categories">
+            <h3><i class="fas fa-folder-open"></i> หมวดหมู่หลัก</h3>
+            <div class="category-grid">
+                <a href="#" class="category-item">
+                    <i class="fas fa-cogs"></i>
+                    <h4>การเริ่มต้นและตั้งค่า</h4>
+                    <p>6 บทความ</p>
+                </a>
+                <a href="#" class="category-item">
+                    <i class="fas fa-wrench"></i>
+                    <h4>การแก้ไขปัญหา</h4>
+                    <p>12 บทความ</p>
+                </a>
+                <a href="#" class="category-item">
+                    <i class="fas fa-book-open"></i>
+                    <h4>คู่มือการใช้งานผลิตภัณฑ์</h4>
+                    <p>15 บทความ</p>
+                </a>
+                <a href="#" class="category-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>ความปลอดภัยและการจัดการบัญชี</h4>
+                    <p>8 บทความ</p>
+                </a>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="popular-articles">
+            <h3><i class="fas fa-fire-alt"></i> บทความยอดนิยม</h3>
+            <ul>
+                <li><i class="fas fa-file-alt"></i> <a href="#">วิธีการรีเซ็ตรหัสผ่านหากคุณลืม</a></li>
+                <li><i class="fas fa-file-alt"></i> <a href="#">ขั้นตอนการติดตั้ง F8hf บนอุปกรณ์มือถือ</a></li>
+                <li><i class="fas fa-file-alt"></i> <a href="#">ความแตกต่างระหว่างแผน A และแผน B</a></li>
+                <li><i class="fas fa-file-alt"></i> <a href="#">คู่มือการสำรองข้อมูล (Backup Guide) ฉบับสมบูรณ์</a></li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 F8hf Knowledge Center | <a href="#">นโยบายความเป็นส่วนตัว</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
