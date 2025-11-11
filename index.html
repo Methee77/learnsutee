@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ศูนย์คลังความรู้ F8hf</title>
+    <title>คลังความรู้แสนน่ารักของ F8hf</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
-        /* Import Google Fonts - Prompt for Thai and Poppins for English/Numbers */
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap');
+        /* Import Google Fonts - K2D for Thai (playful but readable), Poppins for English/Numbers */
+        @import url('https://fonts.googleapis.com/css2?family=K2D:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 
         /* Base Styles */
         body {
-            font-family: 'Prompt', sans-serif; /* Primary font for Thai */
+            font-family: 'K2D', sans-serif; /* Primary font for Thai - playful */
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa; /* Lightest gray for background */
-            color: #343a40; /* Dark gray for text */
+            background-color: #fcf6f8; /* Very light pinkish background */
+            color: #4a4a68; /* Soft dark blue/purple for text */
         }
 
         /* Use Poppins for specific elements that are likely English or numbers */
@@ -29,34 +29,36 @@
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px; /* Add some padding to the sides */
+            padding: 0 15px;
         }
 
         a {
-            color: #007bff; /* Primary link color */
+            color: #ff85a2; /* Soft pink link color */
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         a:hover {
-            color: #0056b3; /* Darker on hover */
+            color: #e66c88; /* Darker pink on hover */
         }
 
         hr {
             border: 0;
-            border-top: 1px solid #e9ecef; /* Lighter separator */
+            border-top: 1px dashed #ffd1dc; /* Dashed line for cuteness */
             margin: 40px 0;
         }
 
         /* Header */
         .header {
-            background-color: #2c3e50; /* Dark blue/gray */
-            color: white;
+            background-color: #ffe6f0; /* Light pink header */
+            color: #4a4a68;
             padding: 18px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-            position: sticky; /* Make header sticky */
+            box-shadow: 0 4px 8px rgba(255, 192, 203, 0.3); /* Pinkish shadow */
+            position: sticky;
             top: 0;
-            z-index: 1000; /* Ensure it's above other content */
+            z-index: 1000;
+            border-bottom-left-radius: 20px; /* Rounded corners */
+            border-bottom-right-radius: 20px;
         }
 
         .header .container {
@@ -67,100 +69,99 @@
 
         .header h1 {
             margin: 0;
-            font-size: 1.9em; /* Slightly larger */
-            font-weight: 600;
-            letter-spacing: -0.5px;
+            font-size: 2em; /* Slightly larger for playful look */
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #8c76ad; /* Soft purple */
         }
 
         .header nav a {
-            color: white;
+            color: #8c76ad;
             text-decoration: none;
             margin-left: 25px;
-            font-weight: 500;
-            font-size: 0.95em;
-            padding: 5px 0;
-            position: relative;
+            font-weight: 600;
+            font-size: 1em;
+            padding: 5px 10px;
+            border-radius: 15px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        .header nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: #007bff; /* Underline color */
-            bottom: 0;
-            left: 0;
-            transition: width 0.3s ease;
-        }
-
-        .header nav a:hover::after {
-            width: 100%;
+        .header nav a:hover {
+            background-color: #ffd1dc; /* Lighter pink on hover */
+            color: #4a4a68;
         }
 
         /* Hero Search Section */
         .hero-search {
-            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); /* Gradient background */
+            background: linear-gradient(135deg, #ffc0cb 0%, #ff85a2 100%); /* Pink gradient */
             color: white;
-            padding: 100px 0; /* More padding */
+            padding: 100px 0;
             text-align: center;
             margin-bottom: 40px;
             position: relative;
             overflow: hidden; 
+            border-bottom-left-radius: 50px; /* Extra rounded bottom */
+            border-bottom-right-radius: 50px;
         }
 
         .hero-search h2 {
-            font-size: 3.2em; /* Larger, more impactful heading */
+            font-size: 3.5em; /* Bigger, more friendly heading */
             margin-bottom: 25px;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Text shadow for depth */
+            font-weight: 800;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1px;
+            color: white; /* Ensure text is white for contrast */
         }
 
         .search-box {
             display: flex;
             justify-content: center;
-            max-width: 700px; /* Wider search box */
+            max-width: 700px;
             margin: 0 auto;
-            background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
-            border-radius: 10px; /* More rounded corners */
+            background-color: rgba(255, 255, 255, 0.98); /* Almost opaque white */
+            border-radius: 30px; /* Very rounded corners */
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* More prominent shadow */
-            border: 1px solid rgba(255, 255, 255, 0.5); /* Light border */
+            box-shadow: 0 12px 25px rgba(255, 192, 203, 0.4); /* Pinker, softer shadow */
+            border: 2px solid #ffccd5; /* Soft pink border */
         }
 
         .search-box input {
             flex-grow: 1;
-            padding: 18px 25px; /* More padding in input */
+            padding: 18px 25px;
             border: none;
             font-size: 1.1em;
             outline: none;
-            color: #343a40;
+            color: #4a4a68;
+            background-color: transparent; /* Make input background transparent to match box */
         }
 
         .search-box input::placeholder {
-            color: #adb5bd; /* Lighter placeholder text */
+            color: #ffb6c1; /* Lighter, cuter placeholder */
         }
 
         .search-box button {
-            background-color: #28a745; /* Green for search button */
-            color: white;
+            background-color: #a8e6cf; /* Mint green for search button */
+            color: #4a4a68; /* Darker text for contrast */
             border: none;
-            padding: 18px 30px; /* More padding */
+            padding: 18px 30px;
             cursor: pointer;
             font-size: 1.1em;
-            font-weight: 600;
+            font-weight: 700;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            display: flex; /* Align icon and text */
+            display: flex;
             align-items: center;
-            gap: 8px; /* Space between icon and text */
+            gap: 8px;
+            border-left: 2px solid #e0f7fa; /* Light border for separation */
         }
 
         .search-box button i {
-            font-size: 1.1em;
+            font-size: 1.2em;
         }
 
         .search-box button:hover {
-            background-color: #218838; /* Darker green on hover */
-            transform: translateY(-2px); /* Slight lift effect */
+            background-color: #8ce1c2; /* Darker mint on hover */
+            transform: scale(1.05); /* Pop effect */
+            box-shadow: 0 5px 15px rgba(168, 230, 207, 0.5); /* Greenish glow */
         }
 
         /* Main Content Area */
@@ -174,12 +175,20 @@
         }
 
         .categories h3 {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #2c3e50;
+            font-size: 2em;
+            font-weight: 700;
+            color: #8c76ad; /* Soft purple */
             margin-bottom: 30px;
             position: relative;
             padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .categories h3 i {
+            color: #ffd1dc; /* Pink icon */
+            font-size: 1.2em;
         }
 
         .categories h3::after {
@@ -187,66 +196,112 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            width: 60px; /* Underline effect */
-            height: 4px;
-            background-color: #007bff;
-            border-radius: 2px;
+            width: 80px; /* Longer underline */
+            height: 5px;
+            background-color: #ffccd5; /* Soft pink underline */
+            border-radius: 3px;
         }
 
         .category-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly wider items */
-            gap: 25px; /* More spacing */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px; /* More spacing */
         }
 
         .category-item {
             background-color: white;
-            padding: 30px; /* More padding */
+            padding: 30px;
             text-align: center;
-            border-radius: 12px; /* More rounded corners */
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); /* More noticeable shadow */
+            border-radius: 25px; /* Super rounded corners for cuteness */
+            box-shadow: 0 8px 20px rgba(255, 192, 203, 0.2); /* Soft pink shadow */
             text-decoration: none;
-            color: #343a40;
+            color: #4a4a68;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #e9ecef; /* Light border */
-            display: flex; /* Use flex for vertical centering */
+            border: 2px solid #ffe6f0; /* Light pink border */
+            display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
         }
 
+        .category-item::before { /* Decorative element */
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 30px;
+            height: 30px;
+            background-color: #a8e6cf; /* Mint dot */
+            border-radius: 50%;
+            opacity: 0.6;
+            filter: blur(5px);
+            transition: transform 0.3s ease;
+        }
+        .category-item:nth-child(2)::before {
+             background-color: #ffccd5; /* Different color dot */
+             top: -15px;
+             left: 20px;
+        }
+        .category-item:nth-child(3)::before {
+             background-color: #ffd1dc; /* Different color dot */
+             top: 10px;
+             right: -10px;
+             left: unset;
+        }
+        .category-item:nth-child(4)::before {
+             background-color: #ff85a2; /* Different color dot */
+             bottom: -10px;
+             right: -10px;
+             left: unset;
+             top: unset;
+        }
+
+
         .category-item:hover {
-            transform: translateY(-8px); /* More pronounced lift */
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+            transform: translateY(-12px) scale(1.02); /* More pronounced lift and slight enlarge */
+            box-shadow: 0 18px 35px rgba(255, 192, 203, 0.4);
+        }
+        .category-item:hover::before {
+            transform: scale(1.2);
         }
 
         .category-item i {
-            font-size: 3.5em; /* Larger icon */
-            color: #007bff; /* Primary blue icon color */
+            font-size: 4em; /* Very large, cute icon */
+            color: #ff85a2; /* Soft pink icon color */
             margin-bottom: 15px;
             opacity: 0.9;
+            text-shadow: 2px 2px 4px rgba(255, 192, 203, 0.3); /* Soft icon shadow */
         }
 
         .category-item h4 {
             margin: 8px 0;
-            font-size: 1.4em; /* Larger heading */
-            font-weight: 600;
-            color: #2c3e50;
+            font-size: 1.5em; /* Larger heading */
+            font-weight: 700;
+            color: #6a6a8a; /* Slightly darker text */
+            letter-spacing: 0.5px;
         }
 
         .category-item p {
-            font-size: 1em;
-            color: #6c757d; /* Muted gray for description */
+            font-size: 1.1em;
+            color: #a0a0c0; /* Muted purple for description */
             margin-top: 5px;
         }
 
         /* Popular Articles Section */
         .popular-articles h3 {
-            font-size: 1.8em;
-            font-weight: 600;
-            color: #2c3e50;
+            font-size: 2em;
+            font-weight: 700;
+            color: #8c76ad;
             margin-bottom: 30px;
             position: relative;
             padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .popular-articles h3 i {
+            color: #ff85a2; /* Pink icon */
+            font-size: 1.2em;
         }
 
         .popular-articles h3::after {
@@ -254,10 +309,10 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            width: 60px;
-            height: 4px;
-            background-color: #dc3545; /* Red underline for popular */
-            border-radius: 2px;
+            width: 80px;
+            height: 5px;
+            background-color: #a8e6cf; /* Mint green underline for popular */
+            border-radius: 3px;
         }
 
         .popular-articles ul {
@@ -267,46 +322,50 @@
 
         .popular-articles li {
             background-color: white;
-            padding: 18px 25px; /* More padding */
-            margin-bottom: 12px;
-            border-radius: 8px; /* Rounded corners */
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+            padding: 20px 25px; /* More padding */
+            margin-bottom: 15px;
+            border-radius: 18px; /* Rounded corners */
+            box-shadow: 0 5px 15px rgba(255, 192, 203, 0.1); /* Soft shadow */
             display: flex;
             align-items: center;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            border-left: 5px solid #007bff; /* Highlight border */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 8px solid #ffccd5; /* Thick, soft pink highlight border */
         }
 
         .popular-articles li:hover {
-            transform: translateX(5px); /* Slide right effect */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            transform: translateX(8px); /* More pronounced slide right effect */
+            box-shadow: 0 10px 20px rgba(255, 192, 203, 0.2);
+            border-left-color: #ff85a2; /* Darker pink on hover */
         }
 
         .popular-articles li i {
-            color: #007bff; /* Primary blue for icon */
-            margin-right: 15px;
-            font-size: 1.2em;
+            color: #a8e6cf; /* Mint green for icon */
+            margin-right: 18px;
+            font-size: 1.3em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .popular-articles li a {
-            font-size: 1.1em;
-            color: #343a40;
+            font-size: 1.2em;
+            color: #6a6a8a; /* Muted purple for link */
             font-weight: 500;
             flex-grow: 1;
         }
 
         .popular-articles li a:hover {
-            color: #0056b3;
+            color: #ff85a2; /* Soft pink on hover */
         }
 
         /* Footer */
         .footer {
-            background-color: #343a40; /* Dark gray */
-            color: white;
+            background: linear-gradient(90deg, #ffccd5 0%, #ffe6f0 100%); /* Light pink gradient */
+            color: #4a4a68;
             text-align: center;
             padding: 30px 0;
             margin-top: 60px;
-            font-size: 0.9em;
+            font-size: 0.95em;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
         }
 
         .footer p {
@@ -314,12 +373,12 @@
         }
 
         .footer a {
-            color: #93b0cc; /* Lighter link color */
+            color: #8c76ad; /* Soft purple */
             text-decoration: underline;
         }
 
         .footer a:hover {
-            color: #c9dff0;
+            color: #6a6a8a;
         }
 
         /* Responsive Adjustments */
@@ -334,31 +393,33 @@
             }
 
             .header nav a {
-                margin: 0 10px;
+                margin: 0 8px;
+                padding: 5px 8px;
             }
 
             .hero-search h2 {
-                font-size: 2.5em;
+                font-size: 2.8em;
             }
 
             .search-box {
                 flex-direction: column;
                 max-width: 90%;
-                margin: 0 auto;
             }
 
             .search-box input, .search-box button {
                 width: 100%;
-                border-radius: 0; /* Reset border-radius for stacked elements */
+                border-radius: 0;
             }
 
             .search-box button {
                 margin-top: 10px;
-                border-radius: 8px; /* Apply border-radius to button only */
+                border-radius: 25px; /* Keep button rounded */
+                border-left: none; /* Remove left border when stacked */
+                border-top: 2px solid #e0f7fa; /* Add top border for separation */
             }
 
             .category-grid {
-                grid-template-columns: 1fr; /* Stack categories on small screens */
+                grid-template-columns: 1fr;
             }
 
             .category-item {
@@ -366,15 +427,15 @@
             }
 
             .category-item i {
-                font-size: 3em;
+                font-size: 3.5em;
             }
 
             .category-item h4 {
-                font-size: 1.3em;
+                font-size: 1.4em;
             }
 
             .popular-articles li {
-                padding: 15px 20px;
+                padding: 18px 20px;
             }
         }
     </style>
@@ -383,21 +444,21 @@
 
     <header class="header">
         <div class="container">
-            <h1>F8hf Knowledge Center</h1>
+            <h1>F8hf น่ารัก</h1>
             <nav>
                 <a href="#">หน้าแรก</a>
-                <a href="#">คู่มือ</a>
-                <a href="#">ติดต่อสนับสนุน</a>
+                <a href="#">เรื่องน่ารู้</a>
+                <a href="#">ถามคำถาม</a>
             </nav>
         </div>
     </header>
 
     <section class="hero-search">
         <div class="container">
-            <h2>ค้นหาคำตอบที่คุณต้องการได้ที่นี่</h2>
+            <h2>อยากรู้อะไร ถามมาเลยสิ!</h2>
             <div class="search-box">
-                <input type="text" placeholder="ค้นหาบทความ, คู่มือ, หรือวิธีการแก้ไขปัญหา...">
-                <button type="submit"><i class="fas fa-search"></i> ค้นหา</button>
+                <input type="text" placeholder="ค้นหาเรื่องราวสนุกๆ หรือคำตอบน่ารักๆ ที่นี่...">
+                <button type="submit"><i class="fas fa-heart"></i> ค้นหา</button>
             </div>
         </div>
     </section>
@@ -405,27 +466,27 @@
     <main class="main-content container">
 
         <section class="categories">
-            <h3><i class="fas fa-folder-open"></i> หมวดหมู่หลัก</h3>
+            <h3><i class="fas fa-star"></i> หมวดหมู่แสนสนุก</h3>
             <div class="category-grid">
                 <a href="#" class="category-item">
-                    <i class="fas fa-cogs"></i>
-                    <h4>การเริ่มต้นและตั้งค่า</h4>
-                    <p>6 บทความ</p>
+                    <i class="fas fa-seedling"></i>
+                    <h4>เริ่มต้นง่ายๆ</h4>
+                    <p>6 บทความหรรษา</p>
                 </a>
                 <a href="#" class="category-item">
-                    <i class="fas fa-wrench"></i>
-                    <h4>การแก้ไขปัญหา</h4>
-                    <p>12 บทความ</p>
+                    <i class="fas fa-magic"></i>
+                    <h4>ไขปริศนาให้ปิ๊ง</h4>
+                    <p>12 บทความเวทมนตร์</p>
                 </a>
                 <a href="#" class="category-item">
-                    <i class="fas fa-book-open"></i>
-                    <h4>คู่มือการใช้งานผลิตภัณฑ์</h4>
-                    <p>15 บทความ</p>
+                    <i class="fas fa-lightbulb"></i>
+                    <h4>คู่มือฉบับเพื่อนซี้</h4>
+                    <p>15 บทความวิเศษ</p>
                 </a>
                 <a href="#" class="category-item">
                     <i class="fas fa-shield-alt"></i>
-                    <h4>ความปลอดภัยและการจัดการบัญชี</h4>
-                    <p>8 บทความ</p>
+                    <h4>ปกป้องข้อมูลสุดคิวท์</h4>
+                    <p>8 บทความปลอดภัย</p>
                 </a>
             </div>
         </section>
@@ -433,12 +494,12 @@
         <hr>
 
         <section class="popular-articles">
-            <h3><i class="fas fa-fire-alt"></i> บทความยอดนิยม</h3>
+            <h3><i class="fas fa-fire"></i> เรื่องฮิตติดชาร์ต</h3>
             <ul>
-                <li><i class="fas fa-file-alt"></i> <a href="#">วิธีการรีเซ็ตรหัสผ่านหากคุณลืม</a></li>
-                <li><i class="fas fa-file-alt"></i> <a href="#">ขั้นตอนการติดตั้ง F8hf บนอุปกรณ์มือถือ</a></li>
-                <li><i class="fas fa-file-alt"></i> <a href="#">ความแตกต่างระหว่างแผน A และแผน B</a></li>
-                <li><i class="fas fa-file-alt"></i> <a href="#">คู่มือการสำรองข้อมูล (Backup Guide) ฉบับสมบูรณ์</a></li>
+                <li><i class="fas fa-feather-alt"></i> <a href="#">วิธีเปลี่ยนรหัสผ่านเหมือนเสกเวทมนตร์</a></li>
+                <li><i class="fas fa-gem"></i> <a href="#">ติดตั้ง F8hf บนมือถือง่ายกว่าปอกกล้วย</a></li>
+                <li><i class="fas fa-cookie-bite"></i> <a href="#">แผน A vs แผน B เลือกแบบไหนดีนะ?</a></li>
+                <li><i class="fas fa-box"></i> <a href="#">เก็บข้อมูลให้ปลอดภัยเหมือนอยู่ในกล่องสมบัติ</a></li>
             </ul>
         </section>
 
@@ -446,7 +507,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 F8hf Knowledge Center | <a href="#">นโยบายความเป็นส่วนตัว</a></p>
+            <p>&copy; 2025 คลังความรู้แสนสนุกของ F8hf | <a href="#">ข้อตกลงความเป็นส่วนตัวสุดน่ารัก</a></p>
         </div>
     </footer>
 
