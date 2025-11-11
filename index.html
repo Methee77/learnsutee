@@ -1,360 +1,175 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ปฏิบัติการเคมี | การแบ่งคะแนน</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <style>
-        /* Import Google Fonts - Sarabun for Thai (readable) and Poppins for English/Headings */
-        @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>คลังความรู้สำหรับโหลดไฟล์เรียน</title>
+  <style>
+    /* Reset เบื้องต้น */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
 
-        /* Theme Colors: University Blue (#007bff), Accent Green (#28a745), Dark Text (#343a40) */
+    body { background-color: #f8f9fa; color: #333; }
 
-        /* Base Styles (ใช้สไตล์เดียวกับหน้าก่อนหน้า) */
-        body {
-            font-family: 'Sarabun', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa; 
-            color: #343a40;
-        }
+    header {
+      background-color: #4a90e2;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.8em;
+      font-weight: bold;
+    }
 
-        h1, h2, h3, h4 {
-            font-family: 'Poppins', sans-serif;
-            color: #343a40;
-        }
+    nav {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 10px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
 
-        .container {
-            width: 95%;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
 
-        a {
-            color: #007bff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+    nav a:hover {
+      background-color: #4a90e2;
+      color: white;
+    }
 
-        a:hover {
-            color: #0056b3;
-        }
+    main {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
 
-        /* Header / Title Bar */
-        .page-header {
-            background-color: #ffffff;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            padding: 15px 0;
-        }
-        
-        .page-header h1 {
-            margin: 0;
-            font-size: 1.8em;
-            color: #2c3e50;
-            font-weight: 700;
-        }
-        
-        .page-header .subtitle {
-            font-size: 1em;
-            color: #7f8c8d;
-            margin-top: 5px;
-        }
+    .search-bar {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
 
-        /* Main Layout: Two Columns */
-        .main-layout {
-            display: flex;
-            gap: 25px;
-            padding: 30px 0;
-        }
+    .file-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
 
-        /* Left Sidebar Menu */
-        .sidebar {
-            width: 280px;
-            flex-shrink: 0;
-            background-color: #ffffff;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            height: fit-content;
-        }
-        
-        .sidebar h3 {
-            font-size: 1.1em;
-            color: #2c3e50;
-            margin: 15px 0 10px 0;
-            padding: 5px 0;
-            border-bottom: 1px solid #dee2e6;
-            font-weight: 600;
-        }
+    .file-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+    .file-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
 
-        .sidebar ul li a {
-            display: block;
-            padding: 8px 10px;
-            color: #495057;
-            border-radius: 4px;
-            font-size: 0.95em;
-            transition: background-color 0.2s, color 0.2s;
-            font-weight: 500;
-        }
+    .file-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
 
-        .sidebar ul li a i {
-            margin-right: 8px;
-            color: #007bff;
-        }
+    .file-card p {
+      font-size: 0.9em;
+      color: #666;
+      margin-bottom: 15px;
+    }
 
-        .sidebar ul li a:hover {
-            background-color: #e9ecef;
-            color: #007bff;
-        }
-        
-        /* Sub-menu styling for nested items - Highlight active link for "การแบ่งคะแนน" */
-        .sidebar .submenu {
-            padding-left: 15px;
-            margin-top: 5px;
-            margin-bottom: 15px;
-            border-left: 2px solid #ced4da;
-        }
-        
-        .sidebar .submenu li a {
-            padding: 5px 10px;
-            font-size: 0.9em;
-            color: #6c757d;
-        }
-        
-        .sidebar .submenu li a.active {
-            font-weight: 600;
-            color: #343a40;
-            background-color: #f1f3f5;
-        }
+    .file-card a {
+      text-align: center;
+      padding: 8px 12px;
+      background-color: #4a90e2;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
 
-        .sidebar .submenu li a:hover {
-            color: #343a40;
-            background-color: #f1f3f5;
-        }
+    .file-card a:hover {
+      background-color: #357abd;
+    }
 
-        /* Content Area */
-        .content-area {
-            flex-grow: 1;
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
-
-        .content-area h2 {
-            font-size: 2em;
-            margin-top: 0;
-            color: #007bff;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #dee2e6;
-            margin-bottom: 20px;
-        }
-
-        /* Grading Table Styles */
-        .content-area table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-        .content-area th, .content-area td {
-            border: 1px solid #dee2e6;
-            padding: 12px;
-            text-align: left;
-        }
-        .content-area th {
-            background-color: #007bff; /* Blue header */
-            color: white;
-            font-weight: 600;
-            text-align: center;
-        }
-        .content-area td:first-child {
-            font-weight: 500;
-            color: #2c3e50;
-            width: 30%; /* Set width for the item column */
-        }
-        .content-area td:nth-child(2) {
-             text-align: center;
-             font-weight: 700;
-             color: #e74c3c; /* Red for high emphasis on score */
-             width: 15%;
-        }
-        .content-area tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-        
-        .total-row td {
-            font-weight: 700 !important;
-            background-color: #e9ecef;
-            border-top: 3px double #343a40;
-            color: #2c3e50 !important;
-        }
-        .total-row td:nth-child(2) {
-            color: #007bff !important;
-            font-size: 1.1em;
-        }
-
-        /* Note/Warning Box */
-        .note-box {
-            margin-top: 30px;
-            padding: 15px;
-            background-color: #fef7e9; /* Light yellow background */
-            border-left: 5px solid #ffc107;
-            color: #856404;
-            border-radius: 4px;
-        }
-
-        /* Footer */
-        .page-footer {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #e9ecef;
-            color: #6c757d;
-            font-size: 0.9em;
-            margin-top: 30px;
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 992px) {
-            .main-layout {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .sidebar {
-                width: 100%;
-            }
-        }
-        @media (max-width: 600px) {
-             .content-area th, .content-area td {
-                 padding: 8px;
-             }
-        }
-    </style>
+    footer {
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      background-color: #f1f1f1;
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
 
-    <header class="page-header">
-        <div class="container">
-            <h1>ปฏิบัติการเคมี</h1>
-            <p class="subtitle">ข้อกำหนดรายวิชา (การแบ่งคะแนน)</p>
-        </div>
-    </header>
+  <header>คลังความรู้</header>
 
-    <div class="main-layout container">
-        
-        <aside class="sidebar">
-            
-            <h3><i class="fas fa-bullhorn"></i> ข่าว / ประกาศ</h3>
-            <ul>
-                <li><a href="#"><i class="fas fa-dot-circle"></i> ข่าวล่าสุด</a></li>
-            </ul>
+  <nav>
+    <a href="#">คณิตศาสตร์</a>
+    <a href="#">วิทยาศาสตร์</a>
+    <a href="#">อังกฤษ</a>
+    <a href="#">ประวัติศาสตร์</a>
+  </nav>
 
-            <h3><i class="fas fa-file-contract"></i> ข้อกำหนดรายวิชา</h3>
-            <ul class="submenu">
-                <li><a href="#" class="active">การแบ่งคะแนน</a></li> <li><a href="#">การเข้าเรียน</a></li>
-                <li><a href="#">การทำข้อสอบย่อย</a></li>
-                <li><a href="#">การทำรายงาน</a></li>
-                <li><a href="#">การสอบ</a></li>
-                <li><a href="#">การขาดเรียน</a></li>
-                <li><a href="#">การขอเรียนชดเชย</a></li>
-            </ul>
+  <main>
+    <input type="text" class="search-bar" id="searchInput" placeholder="ค้นหาไฟล์เรียน...">
 
-            <h3><i class="fas fa-calendar-alt"></i> ตารางเรียน</h3>
-            <ul class="submenu">
-                <li><a href="#">ตารางเรียนวิชา 01403112</a></li>
-                <li><a href="#">ตารางเรียนวิชา 01403114</a></li>
-                <li><a href="#">ตารางเรียนวิชา 01403118</a></li>
-            </ul>
-            
-            <h3><i class="fas fa-user-tie"></i> อาจารย์ผู้สอน</h3>
-            <ul>
-                <li><a href="#">รายชื่ออาจารย์</a></li>
-            </ul>
-
-        </aside>
-
-        <main class="content-area">
-            
-            <h2>การแบ่งคะแนน</h2>
-            
-            <p>รายละเอียดการประเมินผลและการแบ่งสัดส่วนคะแนนของรายวิชา **ปฏิบัติการเคมี** มีดังนี้:</p>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>รายการประเมิน</th>
-                        <th>คะแนน (%)</th>
-                        <th>รายละเอียด</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>**เวลาเรียนและการเข้าปฏิบัติการ**</td>
-                        <td>12</td>
-                        <td>จำนวน 12 บทเรียน บทละ 1 คะแนน</td>
-                    </tr>
-                    <tr>
-                        <td>**ความปลอดภัยและเทคนิคการปฏิบัติ**</td>
-                        <td>2</td>
-                        <td>พิจารณาตามพฤติกรรมและความถูกต้องในการทำปฏิบัติการ</td>
-                    </tr>
-                    <tr>
-                        <td>**สอบย่อย (Quiz)**</td>
-                        <td>22</td>
-                        <td>จำนวน 11 บทเรียน บทละ 2 คะแนน</td>
-                    </tr>
-                    <tr>
-                        <td>**รายงาน (Report)**</td>
-                        <td>12</td>
-                        <td>จำนวน 6 บทเรียน บทละ 2 คะแนน</td>
-                    </tr>
-                    <tr>
-                        <td>**สอบวิเคราะห์ Unknown**</td>
-                        <td>22</td>
-                        <td>
-                            <ul>
-                                <li>วิเคราะห์แคตไอออน (6%)</li>
-                                <li>วิเคราะห์แอนไอออน (6%)</li>
-                                <li>ปฏิกิริยาเคมีและความสัมพันธ์ทางน้ำหนัก (5%)</li>
-                                <li>การไทเทรตระหว่างกรด-เบส (5%)</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>**สอบปลายภาค (Final Exam)**</td>
-                        <td>30</td>
-                        <td>ข้อสอบ 60 ข้อ (กรณีขาดสอบปลายภาคได้ F)</td>
-                    </tr>
-                    <tr class="total-row">
-                        <td>**รวม**</td>
-                        <td>100</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <div class="note-box">
-                <p><i class="fas fa-exclamation-triangle"></i> **ข้อควรระวัง:** การขาดเรียนเกิน 2 ครั้งอาจส่งผลต่อการพิจารณาเกรด และหากขาดสอบปลายภาคจะถูกปรับเป็นเกรด F ทันที</p>
-            </div>
-
-        </main>
+    <div class="file-grid" id="fileGrid">
+      <div class="file-card">
+        <h3>แบบฝึกหัดคณิต ม.3</h3>
+        <p>PDF | ขนาด 1.2 MB</p>
+        <a href="files/math_exercise.pdf" download>ดาวน์โหลด</a>
+      </div>
+      <div class="file-card">
+        <h3>ชีววิทยา บทที่ 5</h3>
+        <p>PDF | ขนาด 2 MB</p>
+        <a href="files/biology_ch5.pdf" download>ดาวน์โหลด</a>
+      </div>
+      <div class="file-card">
+        <h3>แกรมม่าอังกฤษ ม.4</h3>
+        <p>PDF | ขนาด 900 KB</p>
+        <a href="files/english_grammar.pdf" download>ดาวน์โหลด</a>
+      </div>
+      <!-- เพิ่มไฟล์อื่น ๆ ได้ที่นี่ -->
     </div>
-    
-    <footer class="page-footer">
-        <div class="container">
-            <p>&copy; 2025 ปฏิบัติการเคมี ภาควิชาเคมี คณะวิทยาศาสตร์ มหาวิทยาลัยเกษตรศาสตร์</p>
-        </div>
-    </footer>
+  </main>
+
+  <footer>
+    © 2025 คลังความรู้. สงวนลิขสิทธิ์
+  </footer>
+
+  <script>
+    // Search filter
+    const searchInput = document.getElementById('searchInput');
+    const fileGrid = document.getElementById('fileGrid');
+    searchInput.addEventListener('input', () => {
+      const filter = searchInput.value.toLowerCase();
+      const cards = fileGrid.getElementsByClassName('file-card');
+      Array.from(cards).forEach(card => {
+        const title = card.getElementsByTagName('h3')[0].innerText.toLowerCase();
+        if (title.includes(filter)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
