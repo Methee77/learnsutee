@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ปฏิบัติการเคมี | ตารางเรียนวิชา 01403112</title>
+    <title>ปฏิบัติการเคมี | การแบ่งคะแนน</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
@@ -12,13 +12,13 @@
 
         /* Theme Colors: University Blue (#007bff), Accent Green (#28a745), Dark Text (#343a40) */
 
-        /* Base Styles */
+        /* Base Styles (ใช้สไตล์เดียวกับหน้าก่อนหน้า) */
         body {
             font-family: 'Sarabun', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa; /* Light academic background */
+            background-color: #f8f9fa; 
             color: #343a40;
         }
 
@@ -117,18 +117,24 @@
             color: #007bff;
         }
         
-        /* Sub-menu styling for nested items like "ข้อกำหนดรายวิชา" */
+        /* Sub-menu styling for nested items - Highlight active link for "การแบ่งคะแนน" */
         .sidebar .submenu {
             padding-left: 15px;
             margin-top: 5px;
             margin-bottom: 15px;
-            border-left: 2px solid #ced4da; /* Subtle visual cue for nesting */
+            border-left: 2px solid #ced4da;
         }
         
         .sidebar .submenu li a {
             padding: 5px 10px;
             font-size: 0.9em;
             color: #6c757d;
+        }
+        
+        .sidebar .submenu li a.active {
+            font-weight: 600;
+            color: #343a40;
+            background-color: #f1f3f5;
         }
 
         .sidebar .submenu li a:hover {
@@ -154,11 +160,12 @@
             margin-bottom: 20px;
         }
 
-        /* Specific content styles (e.g., table) */
+        /* Grading Table Styles */
         .content-area table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
         .content-area th, .content-area td {
             border: 1px solid #dee2e6;
@@ -166,36 +173,46 @@
             text-align: left;
         }
         .content-area th {
-            background-color: #e9ecef;
+            background-color: #007bff; /* Blue header */
+            color: white;
             font-weight: 600;
-            color: #495057;
+            text-align: center;
+        }
+        .content-area td:first-child {
+            font-weight: 500;
+            color: #2c3e50;
+            width: 30%; /* Set width for the item column */
+        }
+        .content-area td:nth-child(2) {
+             text-align: center;
+             font-weight: 700;
+             color: #e74c3c; /* Red for high emphasis on score */
+             width: 15%;
         }
         .content-area tr:nth-child(even) {
             background-color: #f8f9fa;
         }
         
-        /* Google Calendar Button */
-        .calendar-action {
-            margin-top: 30px;
-            padding: 15px;
-            background-color: #fff3cd; /* Light warning color */
-            border: 1px solid #ffc107;
-            border-radius: 5px;
-            text-align: center;
+        .total-row td {
+            font-weight: 700 !important;
+            background-color: #e9ecef;
+            border-top: 3px double #343a40;
+            color: #2c3e50 !important;
         }
-        
-        .calendar-action a {
-            display: inline-block;
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: 600;
-        }
-        .calendar-action a:hover {
-            background-color: #0056b3;
+        .total-row td:nth-child(2) {
+            color: #007bff !important;
+            font-size: 1.1em;
         }
 
+        /* Note/Warning Box */
+        .note-box {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #fef7e9; /* Light yellow background */
+            border-left: 5px solid #ffc107;
+            color: #856404;
+            border-radius: 4px;
+        }
 
         /* Footer */
         .page-footer {
@@ -214,8 +231,13 @@
                 gap: 15px;
             }
             .sidebar {
-                width: 100%; /* Sidebar takes full width on tablets/mobiles */
+                width: 100%;
             }
+        }
+        @media (max-width: 600px) {
+             .content-area th, .content-area td {
+                 padding: 8px;
+             }
         }
     </style>
 </head>
@@ -224,7 +246,7 @@
     <header class="page-header">
         <div class="container">
             <h1>ปฏิบัติการเคมี</h1>
-            <p class="subtitle">ตารางเรียนวิชา 01403112 (ปีการศึกษา 2568)</p>
+            <p class="subtitle">ข้อกำหนดรายวิชา (การแบ่งคะแนน)</p>
         </div>
     </header>
 
@@ -239,8 +261,7 @@
 
             <h3><i class="fas fa-file-contract"></i> ข้อกำหนดรายวิชา</h3>
             <ul class="submenu">
-                <li><a href="#">การแบ่งคะแนน</a></li>
-                <li><a href="#">การเข้าเรียน</a></li>
+                <li><a href="#" class="active">การแบ่งคะแนน</a></li> <li><a href="#">การเข้าเรียน</a></li>
                 <li><a href="#">การทำข้อสอบย่อย</a></li>
                 <li><a href="#">การทำรายงาน</a></li>
                 <li><a href="#">การสอบ</a></li>
@@ -250,7 +271,7 @@
 
             <h3><i class="fas fa-calendar-alt"></i> ตารางเรียน</h3>
             <ul class="submenu">
-                <li class="active"><a href="#">ตารางเรียนวิชา 01403112</a></li>
+                <li><a href="#">ตารางเรียนวิชา 01403112</a></li>
                 <li><a href="#">ตารางเรียนวิชา 01403114</a></li>
                 <li><a href="#">ตารางเรียนวิชา 01403118</a></li>
             </ul>
@@ -264,44 +285,66 @@
 
         <main class="content-area">
             
-            <h2>ตารางเรียนวิชา 01403112</h2>
+            <h2>การแบ่งคะแนน</h2>
             
-            <p><strong>หมายเหตุ:</strong> โปรดตรวจสอบห้องเรียนและเวลาให้ถูกต้องก่อนวันเรียนจริง</p>
+            <p>รายละเอียดการประเมินผลและการแบ่งสัดส่วนคะแนนของรายวิชา **ปฏิบัติการเคมี** มีดังนี้:</p>
 
             <table>
                 <thead>
                     <tr>
-                        <th>สัปดาห์</th>
-                        <th>วันที่</th>
-                        <th>หัวข้อปฏิบัติการ</th>
-                        <th>เอกสาร / สื่อ</th>
+                        <th>รายการประเมิน</th>
+                        <th>คะแนน (%)</th>
+                        <th>รายละเอียด</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>1</td>
-                        <td>18 ส.ค. 2568</td>
-                        <td>ปฐมนิเทศและข้อควรปฏิบัติ</td>
-                        <td><a href="#">ดูสไลด์</a></td>
+                        <td>**เวลาเรียนและการเข้าปฏิบัติการ**</td>
+                        <td>12</td>
+                        <td>จำนวน 12 บทเรียน บทละ 1 คะแนน</td>
                     </tr>
                     <tr>
+                        <td>**ความปลอดภัยและเทคนิคการปฏิบัติ**</td>
                         <td>2</td>
-                        <td>25 ส.ค. 2568</td>
-                        <td>การไตเตรทกรด-เบส</td>
-                        <td><a href="#">ดาวน์โหลดคู่มือ</a></td>
+                        <td>พิจารณาตามพฤติกรรมและความถูกต้องในการทำปฏิบัติการ</td>
                     </tr>
                     <tr>
-                        <td>3</td>
-                        <td>1 ก.ย. 2568</td>
-                        <td>การหาความเข้มข้นของสารละลาย</td>
-                        <td><a href="#">วิดีโอสาธิต</a></td>
+                        <td>**สอบย่อย (Quiz)**</td>
+                        <td>22</td>
+                        <td>จำนวน 11 บทเรียน บทละ 2 คะแนน</td>
                     </tr>
-                    </tbody>
+                    <tr>
+                        <td>**รายงาน (Report)**</td>
+                        <td>12</td>
+                        <td>จำนวน 6 บทเรียน บทละ 2 คะแนน</td>
+                    </tr>
+                    <tr>
+                        <td>**สอบวิเคราะห์ Unknown**</td>
+                        <td>22</td>
+                        <td>
+                            <ul>
+                                <li>วิเคราะห์แคตไอออน (6%)</li>
+                                <li>วิเคราะห์แอนไอออน (6%)</li>
+                                <li>ปฏิกิริยาเคมีและความสัมพันธ์ทางน้ำหนัก (5%)</li>
+                                <li>การไทเทรตระหว่างกรด-เบส (5%)</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>**สอบปลายภาค (Final Exam)**</td>
+                        <td>30</td>
+                        <td>ข้อสอบ 60 ข้อ (กรณีขาดสอบปลายภาคได้ F)</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>**รวม**</td>
+                        <td>100</td>
+                        <td></td>
+                    </tr>
+                </tbody>
             </table>
             
-            <div class="calendar-action">
-                <p>คุณสามารถเพิ่มตารางเรียนเข้าไปใน Google Calendar ส่วนตัวได้</p>
-                <a href="#"><i class="fab fa-google"></i> Google Calendar 01403112</a>
+            <div class="note-box">
+                <p><i class="fas fa-exclamation-triangle"></i> **ข้อควรระวัง:** การขาดเรียนเกิน 2 ครั้งอาจส่งผลต่อการพิจารณาเกรด และหากขาดสอบปลายภาคจะถูกปรับเป็นเกรด F ทันที</p>
             </div>
 
         </main>
