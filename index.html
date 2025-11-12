@@ -7,7 +7,354 @@
     <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <link rel="stylesheet" href="style.css"> 
+    <style>
+        /* --- BASE SETUP (ฟอนต์ Kodchasan) --- */
+        body {
+            font-family: 'Kodchasan', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        .main-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-sizing: border-box;
+        }
+        
+        /* --- 1. HEADER SECTION --- */
+        .header-section {
+            background-color: #ffffff;
+            border: 1px solid #bbdefb;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 0;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-left {
+            flex-basis: 70%;
+            background-color: #e3f2fd;
+            padding: 20px;
+        }
+
+        .header-right {
+            flex-basis: 30%;
+            background-color: #0d47a1;
+            color: white;
+            padding: 15px;
+            text-align: right;
+        }
+
+        .title-main {
+            font-size: 2em;
+            font-weight: 700;
+            color: #01579b;
+        }
+
+        .title-sub {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #0288d1;
+        }
+
+        .caution-text {
+            font-weight: 700;
+            color: #c62828;
+            margin-top: 15px;
+        }
+
+        .measure-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        
+        .measure-list li {
+            margin-bottom: 5px;
+        }
+
+        .logo-ku {
+            font-size: 1.2em;
+            font-weight: 700;
+            background-color: #00838f;
+            padding: 5px;
+            display: inline-block;
+        }
+
+        .info-date {
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+        
+        /* --- ADMIN & SUMMARY (ใน Header-Left) --- */
+        .admin-summary-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            gap: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #90caf9;
+        }
+
+        .admin-box-inner, .summary-box-inner {
+            background-color: #ffffff;
+            border: 1px solid #90caf9;
+            padding: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .admin-box-inner h3, .summary-box-inner h3 {
+            color: #01579b;
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            font-weight: 700;
+        }
+        
+        .admin-box-inner p, .summary-box-inner p {
+            color: #555;
+            font-size: 0.75em;
+            line-height: 1.3;
+            margin: 0 0 5px 0;
+        }
+
+        .admin-button {
+            background-color: #388e3c;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            font-size: 0.8em;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 5px;
+            transition: background-color 0.3s;
+        }
+        .admin-button:hover {
+            background-color: #2e7d32;
+        }
+
+        /* --- 2. MAIN REGISTRATION LINKS --- */
+        .main-registration {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .reg-box {
+            display: block;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .reg-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .reg-code {
+            font-size: 3em;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .reg-name {
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        /* Pastel Color Schemes */
+        .box-1 {
+            background-color: #bbdefb;
+            border: 5px solid #42a5f5;
+        }
+        .box-2 {
+            background-color: #c8e6c9;
+            border: 5px solid #81c784;
+        }
+        .box-3 {
+            background-color: #b2ebf2;
+            border: 5px solid #4dd0e1;
+        }
+
+        .reg-status {
+            background-color: #90caf9;
+            display: inline-block;
+            padding: 5px 10px;
+            font-size: 0.8em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .reg-button {
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 80%;
+            transition: background-color 0.3s;
+        }
+        
+        .reg-button:hover {
+            background-color: #0d47a1;
+        }
+        
+        /* --- RATING SECTION --- */
+        .rating-section {
+            background-color: #f1f8e9;
+            padding: 15px 20px;
+            text-align: center;
+            border: 1px solid #bbdefb;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .rating-section h3 {
+            color: #01579b;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        .rating-stars {
+            font-size: 1.8em;
+            color: #ccc;
+        }
+
+        .rating-stars i.rated {
+            color: #FFC107;
+        }
+
+        /* --- FOOTER SECTION --- */
+        .footer-section {
+            background-color: #0d47a1;
+            color: white;
+            padding: 15px 0;
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.85em;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .footer-section a {
+            color: #90caf9;
+            text-decoration: none;
+        }
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* --- 3. MODAL (หน้าต่างลอยประกาศ) --- */
+        .modal {
+            display: none; /* เริ่มต้นให้ซ่อนไว้ */
+            position: fixed; /* ให้อยู่คงที่บนหน้าจอ */
+            z-index: 1000; /* ให้อยู่ด้านบนสุด */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7); /* พื้นหลังดำโปร่งแสง */
+            backdrop-filter: blur(5px); /* เพิ่มเอฟเฟกต์เบลอ */
+            box-sizing: border-box;
+            padding-top: 50px; /* ระยะห่างจากด้านบน */
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            margin: 15% auto; /* จัดกึ่งกลางแนวตั้งและแนวนอน */
+            padding: 30px;
+            border: 3px solid #0d47a1; /* กรอบสีน้ำเงินเข้ม */
+            width: 80%;
+            max-width: 500px; /* จำกัดความกว้างสูงสุด */
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.5s; /* เพิ่ม Animation */
+        }
+
+        .modal-content h2 {
+            color: #c62828; /* สีแดงสำหรับประกาศสำคัญ */
+            font-size: 1.8em;
+            margin-top: 0;
+        }
+
+        .modal-content p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .modal-close-btn {
+            background-color: #0d47a1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: 700;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .modal-close-btn:hover {
+            background-color: #1976d2;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-section {
+                flex-direction: column;
+            }
+
+            .main-registration {
+                grid-template-columns: 1fr;
+            }
+            
+            .admin-summary-group { 
+                grid-template-columns: 1fr; 
+            }
+
+            .modal-content {
+                width: 90%;
+                margin: 30% auto;
+            }
+        }
+    </style>
 </head>
 <body>
     
@@ -15,7 +362,7 @@
         <div class="modal-content">
             <i class="fas fa-exclamation-triangle" style="font-size: 3em; color: #ff9800; margin-bottom: 15px;"></i>
             <h2>ระบบกำลังอัปเดตข้อมูล</h2>
-            <p>ขณะนี้ระบบอยู่ระหว่างการปรับปรุงและอัปเดตข้อมูล อาจทำให้ข้อมูลบางส่วนไม่ตรงกับปัจจุบัน ขออภัยในความไม่สะดวก</p>
+            <p>ขณะนี้ระบบอยู่ระหว่างการปรับปรุงและอัปเดตข้อมูลการลงทะเบียน อาจทำให้ข้อมูลบางส่วนไม่ตรงกับปัจจุบัน ขออภัยในความไม่สะดวก</p>
             <button class="modal-close-btn" onclick="closeModal()">รับทราบและปิด</button>
         </div>
     </div>
@@ -52,9 +399,6 @@
                     
                 </div>
                 <div class="header-right">
-                    <button id="darkModeToggle" class="mode-toggle-btn">
-                        <i class="fas fa-moon"></i> Dark Mode
-                    </button>
                     <div class="logo-ku">สไลด์ของสุธี</div>
                     <div class="info-date">อัปเดต 12 พฤศจิกายน 2568</div>
                 </div>
@@ -64,21 +408,21 @@
                 <a href="#" class="reg-box box-1">
                     <div class="reg-status">ปี1 ภาคปลาย</div>
                     <div class="reg-code">02036221</div>
-                    <div class="reg-name">วิทยาศาสตร์และเทคโนโลยีด้านสัตว์</div>
+                    <div class="reg-name">;วิทยาศาสตร์และเทคโนโลยีด้านสัตว์</div>
                     <button class="reg-button">คลิก</button>
                 </a>
                 
                 <a href="#" class="reg-box box-2">
                     <div class="reg-status">ปี1 ภาคปลาย</div>
                     <div class="reg-code">02036231</div>
-                    <div class="reg-name">วิทยาศาสตร์และเทคโนโลยีพืชไร่</div>
+                    <div class="reg-name">;วิทยาศาสตร์และเทคโนโลยีพืชไร่</div>
                     <button class="reg-button">คลิก</button>
                 </a>
 
                 <a href="#" class="reg-box box-3">
                     <div class="reg-status">ปี2 ภาคต้น</div>
                     <div class="reg-code">01419211</div>
-                    <div class="reg-name">จุลชีววิทยาทั่วไป</div>
+                    <div class="reg-name">;จุลชีววิทยาทั่วไป</div>
                     <button class="reg-button">คลิก</button>
                 </a>
             </main>
@@ -100,10 +444,67 @@
     </div>
     
     <footer class="footer-section">
-        © 2025 โดยสุธี | สงวนลิขสิทธิ์ | <a href="#">นโยบายความเป็นส่วนตัว</a>
+        © 2025 โดย สไลด์ของสุธี | ภาควิชาเคมี มหาวิทยาลัยเกษตรศาสตร์ | <a href="#">นโยบายความเป็นส่วนตัว</a>
     </footer>
     
-    <script src="script.js"></script>
+    <script>
+        const stars = document.querySelectorAll('#star-rating i');
+        const message = document.getElementById('rating-message');
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const ratingValue = star.getAttribute('data-rating');
+                
+                // Set the status of all stars
+                stars.forEach(s => {
+                    s.classList.remove('fas', 'rated');
+                    s.classList.add('far');
+                });
+                
+                // Color the selected stars and those before it
+                for (let i = 0; i < ratingValue; i++) {
+                    stars[i].classList.remove('far');
+                    stars[i].classList.add('fas', 'rated');
+                }
+
+                // Display a feedback message
+                message.textContent = `ขอบคุณสำหรับ ${ratingValue} ดาว!`;
+                
+                // In a real application, you would send this ratingValue to a server here.
+                console.log('User rated:', ratingValue);
+            });
+            
+            // Optional: Add hover effect (visual feedback)
+            star.addEventListener('mouseover', () => {
+                const hoverValue = star.getAttribute('data-rating');
+                stars.forEach((s, index) => {
+                    if (index < hoverValue) {
+                        s.style.color = '#ffd700'; // Gold on hover
+                    } else {
+                        s.style.color = '';
+                    }
+                });
+            });
+            
+            star.addEventListener('mouseout', () => {
+                stars.forEach(s => {
+                    s.style.color = ''; // Reset color if not rated
+                });
+            });
+        });
+
+        /* --- Modal Functions --- */
+        function showModal() {
+            document.getElementById('updateModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('updateModal').style.display = 'none';
+        }
+
+        // เรียกใช้ Modal ทันทีที่หน้าเว็บโหลดเสร็จ
+        window.onload = showModal; 
+    </script>
 
 </body>
 </html>
