@@ -1,204 +1,208 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>โรงเรียน/หน่วยงาน — แบบตัวอย่าง</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>โรงเรียนกนกสุทธิ์ | เว็บไซต์ตัวอย่างสวยทันสมัย</title>
   <style>
-    /* Reset & basic */
-    :root{--accent:#0b6e4f;--muted:#6b7280;--card:#ffffff}
-    *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, "Noto Sans Thai", Arial, sans-serif;margin:0;background:#f5f7fb;color:#0f1724}
-    a{color:var(--accent);text-decoration:none}
+    :root {
+      --primary: #047857;
+      --secondary: #10b981;
+      --accent: #f59e0b;
+      --bg: #f0fdf4;
+      --text: #1e293b;
+      --muted: #64748b;
+      --radius: 18px;
+      --shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
 
-    /* Topbar */
-    .topbar{background:var(--accent);color:#fff;padding:.4rem 1rem;display:flex;justify-content:space-between;align-items:center}
-    .topbar .contact{font-size:.95rem;opacity:.95}
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Noto Sans Thai', sans-serif; background: var(--bg); color: var(--text); }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { color: var(--secondary); }
 
     /* Header */
-    header{background:#fff;box-shadow:0 1px 3px rgba(15,23,36,.06)}
-    .container{max-width:1100px;margin:0 auto;padding:1rem}
-    .brand{display:flex;align-items:center;gap:1rem}
-    .brand img{width:70px;height:70px;object-fit:cover;border-radius:8px}
-    nav{margin-left:auto}
-    .nav-links{display:flex;gap:1rem;align-items:center}
-    .btn{background:var(--accent);color:#fff;padding:.5rem .9rem;border-radius:8px}
+    header {
+      background: white;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-radius: 0 0 var(--radius) var(--radius);
+    }
+    .container { max-width: 1200px; margin: auto; padding: 1rem 1.5rem; }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: flex; align-items: center; gap: 1rem; }
+    .logo img { width: 70px; height: 70px; border-radius: 50%; box-shadow: var(--shadow); }
+    .title h1 { margin: 0; font-size: 1.6rem; color: var(--primary); }
+    .title p { margin: 0; color: var(--muted); font-size: .95rem; }
 
-    /* Hero */
-    .hero{display:grid;grid-template-columns:1fr 380px;gap:1.25rem;align-items:stretch;padding:1.25rem 0}
-    .hero-card{background:linear-gradient(180deg,#ffffff,#f7fafc);padding:1.25rem;border-radius:12px;box-shadow:0 6px 18px rgba(11,110,79,.06)}
-    .hero h1{margin:0 0 .5rem 0;font-size:1.6rem}
-    .search{display:flex;gap:.5rem;margin-top:.75rem}
-    .search input{flex:1;padding:.6rem .8rem;border:1px solid #e6e7eb;border-radius:8px}
-    .quick{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem}
-    .quick a{background:#f3fbf6;padding:.5rem .7rem;border-radius:8px;border:1px solid rgba(11,110,79,.08);font-size:.95rem}
+    nav { display: flex; gap: 1.5rem; align-items: center; }
+    nav a { font-weight: 600; color: var(--text); transition: .2s; }
+    nav a:hover { color: var(--primary); }
+    .btn-primary { background: var(--primary); color: white; padding: .5rem 1rem; border-radius: var(--radius); transition: .2s; }
+    .btn-primary:hover { background: var(--secondary); }
 
-    /* News & sidebar */
-    .grid{display:grid;grid-template-columns:2fr 1fr;gap:1rem;margin-top:1rem}
-    .card{background:var(--card);padding:1rem;border-radius:10px;box-shadow:0 6px 18px rgba(2,6,23,.04)}
-    .news-list{display:grid;gap:.75rem}
-    .news-item{display:flex;gap:.75rem;align-items:flex-start}
-    .news-item img{width:96px;height:64px;object-fit:cover;border-radius:6px}
-    .meta{color:var(--muted);font-size:.85rem}
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 3rem 1.5rem;
+      border-radius: var(--radius);
+      margin: 2rem auto;
+      max-width: 1200px;
+      box-shadow: var(--shadow);
+    }
+    .hero-text { max-width: 550px; }
+    .hero-text h2 { font-size: 2.2rem; margin: 0; color: var(--primary); }
+    .hero-text p { margin-top: .5rem; color: var(--muted); font-size: 1rem; }
+    .hero img { width: 400px; border-radius: var(--radius); box-shadow: var(--shadow); }
+
+    .search-bar { display: flex; margin-top: 1rem; }
+    .search-bar input {
+      flex: 1;
+      padding: .7rem 1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: var(--radius) 0 0 var(--radius);
+      outline: none;
+      font-size: 1rem;
+    }
+    .search-bar button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: .7rem 1.25rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      cursor: pointer;
+      font-weight: 600;
+      transition: .2s;
+    }
+    .search-bar button:hover { background: #fbbf24; }
+
+    /* Content */
+    .content { max-width: 1200px; margin: 2rem auto; display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; }
+    .card { background: white; padding: 1.5rem; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .card h3 { margin-top: 0; color: var(--primary); }
+
+    .news-item { display: flex; gap: 1rem; margin-bottom: 1rem; }
+    .news-item img { width: 120px; height: 80px; border-radius: var(--radius); object-fit: cover; }
+    .news-item div { flex: 1; }
+    .news-item .meta { color: var(--muted); font-size: .85rem; }
+
+    /* Sidebar */
+    aside h4 { margin-top: 0; color: var(--secondary); }
+    aside ul { list-style: none; padding-left: 0; }
+    aside li { margin-bottom: .5rem; }
 
     /* Footer */
-    footer{margin-top:1.5rem;padding:1.25rem 0;background:#0f1724;color:#fff}
-    .footer-grid{display:flex;gap:2rem;flex-wrap:wrap}
+    footer {
+      background: var(--primary);
+      color: white;
+      margin-top: 3rem;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    footer p { margin: .3rem 0; }
 
-    /* Responsive */
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
-      .brand img{width:52px;height:52px}
-      nav{display:none}
+    @media (max-width: 900px) {
+      .hero { flex-direction: column; text-align: center; }
+      .hero img { width: 100%; margin-top: 1rem; }
+      .content { grid-template-columns: 1fr; }
+      nav { display: none; }
     }
   </style>
 </head>
 <body>
-  <div class="topbar">
-    <div class="container" style="display:flex;gap:1rem;align-items:center">
-      <div class="contact">ข่าว/ประกาศล่าสุด • สายด่วน: 02-xxx-xxxx</div>
-      <div style="margin-left:auto;font-size:.9rem;opacity:.95">เข้าระบบบุคลากร | เข้าระบบนักเรียน</div>
-    </div>
-  </div>
-
   <header>
-    <div class="container" style="display:flex;align-items:center;gap:1rem">
-      <div class="brand">
-        <img src="https://via.placeholder.com/140x140.png?text=Logo" alt="โลโก้" />
-        <div>
-          <div style="font-weight:700;font-size:1.05rem">ชื่อหน่วยงาน / โรงเรียน</div>
-          <div style="color:var(--muted);font-size:.92rem">คำอธิบายสั้น ๆ เกี่ยวกับหน่วยงาน</div>
+    <div class="container header-inner">
+      <div class="logo">
+        <img src="https://via.placeholder.com/100x100.png?text=Logo" alt="โลโก้โรงเรียน">
+        <div class="title">
+          <h1>โรงเรียนกนกสุทธิ์</h1>
+          <p>สร้างสรรค์ปัญญา พัฒนาคุณธรรม นำสู่ความสำเร็จ</p>
         </div>
       </div>
       <nav>
-        <div class="nav-links">
-          <a href="#">หน้าแรก</a>
-          <a href="#">เกี่ยวกับเรา</a>
-          <a href="#">ข้อมูลการศึกษา</a>
-          <a href="#">งานทะเบียน</a>
-          <a href="#">ติดต่อ</a>
-          <a class="btn" href="#">ดาวน์โหลด</a>
-        </div>
+        <a href="#">หน้าแรก</a>
+        <a href="#">เกี่ยวกับเรา</a>
+        <a href="#">ข่าวสาร</a>
+        <a href="#">กิจกรรม</a>
+        <a href="#">ติดต่อเรา</a>
+        <a class="btn-primary" href="#">เข้าสู่ระบบ</a>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <div class="hero-card">
-        <h1>ยินดีต้อนรับสู่เว็บไซต์ตัวอย่าง</h1>
-        <p class="meta">รวมประกาศ ข่าว และเอกสารสำคัญไว้ที่นี่ — ใช้งานง่ายสำหรับนักเรียน ผู้ปกครอง และบุคลากร</p>
-        <div class="search">
-          <input placeholder="ค้นหา ข่าว/งานทะเบียน/เอกสาร เช่น ใบรายงาน" />
-          <button class="btn">ค้นหา</button>
-        </div>
-        <div class="quick">
-          <a href="#">ตารางสอน</a>
-          <a href="#">ปฏิทินการศึกษา</a>
-          <a href="#">แบบฟอร์ม</a>
-          <a href="#">ติดต่อครู</a>
-        </div>
-
-        <div style="margin-top:1rem;display:flex;gap:1rem;align-items:center">
-          <div style="flex:1">
-            <h3 style="margin:.25rem 0">ประกาศล่าสุด</h3>
-            <ul style="padding-left:1.1rem;color:var(--muted);margin:0">
-              <li>ประกาศเรื่องการลงทะเบียนภาคเรียนที่ 1/2568</li>
-              <li>ตารางสอบปลายภาคระดับมัธยมศึกษาตอนต้น</li>
-              <li>คำชี้แจงการใช้งานระบบ e-learning</li>
-            </ul>
-          </div>
-          <div style="width:160px;text-align:center">
-            <img src="https://via.placeholder.com/300x200.png?text=Event" style="width:100%;border-radius:8px" alt="กิจกรรม" />
-            <div style="font-size:.85rem;color:var(--muted);margin-top:.4rem">กิจกรรมหน้าโรงเรียน</div>
-          </div>
-        </div>
-      </div>
-
-      <aside class="card" style="height:100%">
-        <h3 style="margin-top:0">เมนูด่วน</h3>
-        <div style="display:flex;flex-direction:column;gap:.5rem">
-          <a href="#">ระบบลงทะเบียน</a>
-          <a href="#">ฐานข้อมูลนักเรียน</a>
-          <a href="#">รายงานผลการเรียน</a>
-          <a href="#">คลังความรู้/ไฟล์เรียน</a>
-        </div>
-      </aside>
-    </section>
-
-    <section class="grid">
-      <div>
-        <div class="card">
-          <h3 style="margin-top:0">ข่าว/ประกาศ</h3>
-          <div class="news-list">
-            <div class="news-item">
-              <img src="https://via.placeholder.com/200x120.png?text=News+1" alt="news1">
-              <div>
-                <div style="font-weight:600">การเปิดภาคเรียนที่ 2/2568</div>
-                <div class="meta">12 พ.ย. 2568 • ประกาศ</div>
-                <p style="margin:.4rem 0 0 0;color:var(--muted);font-size:.95rem">รายละเอียดสั้น ๆ เกี่ยวกับประกาศนี้ — ดาวน์โหลดเอกสารได้จากลิงก์</p>
-              </div>
-            </div>
-
-            <div class="news-item">
-              <img src="https://via.placeholder.com/200x120.png?text=News+2" alt="news2">
-              <div>
-                <div style="font-weight:600">แจ้งการชำระค่าธรรมเนียม</div>
-                <div class="meta">01 ต.ค. 2568 • ประกาศการเงิน</div>
-                <p style="margin:.4rem 0 0 0;color:var(--muted);font-size:.95rem">กรุณาชำระก่อนวันที่กำหนด เพื่อป้องกันการถูกระงับสิทธิ์</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:1rem">
-          <h3 style="margin-top:0">คลังความรู้ / ไฟล์ดาวน์โหลด</h3>
-          <ul style="margin:0;padding-left:1.05rem;color:var(--muted)">
-            <li>คู่มือนักเรียน (PDF)</li>
-            <li>ตารางสอน (XLSX)</li>
-            <li>แผนการจัดการเรียนรู้ (DOCX)</li>
-          </ul>
-        </div>
-      </div>
-
-      <aside>
-        <div class="card">
-          <h4 style="margin-top:0">ติดต่อ</h4>
-          <p class="meta">ที่อยู่: 123 หมู่ 4 ต.ตัวอย่าง อ.ตัวอย่าง จ.ตัวอย่าง</p>
-          <p class="meta">โทร: 02-xxx-xxxx • อีเมล: info@domain.ac.th</p>
-        </div>
-
-        <div class="card" style="margin-top:1rem">
-          <h4 style="margin-top:0">ลิงก์ที่เกี่ยวข้อง</h4>
-          <ul style="margin:0;padding-left:1.05rem;color:var(--muted)">
-            <li><a href="#">ระบบทะเบียนกลาง</a></li>
-            <li><a href="#">เว็บไซต์กระทรวง</a></li>
-            <li><a href="#">คู่มือการใช้งาน</a></li>
-          </ul>
-        </div>
-      </aside>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div style="flex:1;min-width:220px">
-          <div style="font-weight:700">ชื่อหน่วยงาน</div>
-          <div class="meta">ลิขสิทธิ์ © 2568 — สงวนลิขสิทธิ์</div>
-        </div>
-        <div style="min-width:220px">
-          <div style="font-weight:700">แผนผังเว็บไซต์</div>
-          <div class="meta">หน้าแรก • ข่าว • ติดต่อ • ดาวน์โหลด</div>
-        </div>
-        <div style="min-width:220px">
-          <div style="font-weight:700">ติดต่อ</div>
-          <div class="meta">info@domain.ac.th • 02-xxx-xxxx</div>
-        </div>
+  <section class="hero">
+    <div class="hero-text">
+      <h2>ยินดีต้อนรับสู่เว็บไซต์โรงเรียนกนกสุทธิ์</h2>
+      <p>ศูนย์กลางข้อมูล ข่าวสาร และกิจกรรม เพื่อการเรียนรู้ของนักเรียนและบุคลากรทุกคน</p>
+      <div class="search-bar">
+        <input type="text" placeholder="ค้นหาข่าว ประกาศ หรือเอกสาร...">
+        <button>ค้นหา</button>
       </div>
     </div>
-  </footer>
+    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=60" alt="ภาพโรงเรียน">
+  </section>
 
+  <section class="content">
+    <div>
+      <div class="card">
+        <h3>ข่าวประกาศล่าสุด</h3>
+        <div class="news-item">
+          <img src="https://via.placeholder.com/150x100.png?text=News1" alt="news1">
+          <div>
+            <h4>เปิดภาคเรียนที่ 2/2568</h4>
+            <p class="meta">ประกาศเมื่อ 10 พฤศจิกายน 2568</p>
+            <p>โรงเรียนจะเปิดภาคเรียนวันที่ 15 พฤศจิกายน 2568 ขอให้นักเรียนเตรียมความพร้อม...</p>
+          </div>
+        </div>
+        <div class="news-item">
+          <img src="https://via.placeholder.com/150x100.png?text=News2" alt="news2">
+          <div>
+            <h4>กำหนดการกิจกรรมวันครู</h4>
+            <p class="meta">ประกาศเมื่อ 5 พฤศจิกายน 2568</p>
+            <p>ขอเชิญร่วมกิจกรรมวันครูประจำปี เพื่อรำลึกพระคุณครูและมอบเกียรติบัตร...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:1.5rem;">
+        <h3>คลังความรู้ / ดาวน์โหลด</h3>
+        <ul>
+          <li>📘 คู่มือนักเรียน (PDF)</li>
+          <li>📅 ปฏิทินการศึกษา (PDF)</li>
+          <li>📂 แบบฟอร์มขอเอกสาร (DOCX)</li>
+        </ul>
+      </div>
+    </div>
+
+    <aside>
+      <div class="card">
+        <h4>เมนูด่วน</h4>
+        <ul>
+          <li><a href="#">ระบบลงทะเบียนเรียน</a></li>
+          <li><a href="#">รายงานผลการเรียน</a></li>
+          <li><a href="#">ข้อมูลนักเรียน</a></li>
+          <li><a href="#">คลังเอกสาร</a></li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:1.5rem;">
+        <h4>ติดต่อโรงเรียน</h4>
+        <p>📍 123 หมู่ 4 ต.ตัวอย่าง อ.ตัวอย่าง จ.นครราชสีมา 30000</p>
+        <p>☎️ โทร. 044-xxx-xxxx</p>
+        <p>📧 Email: info@kannasoot.ac.th</p>
+      </div>
+    </aside>
+  </section>
+
+  <footer>
+    <p>© 2568 โรงเรียนกนกสุทธิ์ | สงวนลิขสิทธิ์</p>
+    <p>พัฒนาโดยฝ่ายเทคโนโลยีสารสนเทศ</p>
+  </footer>
 </body>
 </html>
