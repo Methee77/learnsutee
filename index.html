@@ -19,11 +19,11 @@
     }
     header h1 {
       margin: 0;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
     }
     header p {
       margin: 0;
-      font-size: 1rem;
+      font-size: 0.95rem;
       opacity: 0.9;
     }
     nav {
@@ -34,7 +34,7 @@
     }
     nav a {
       color: white;
-      padding: 0.75rem 1.25rem;
+      padding: 0.5rem 1rem;
       text-decoration: none;
       font-weight: 500;
     }
@@ -42,13 +42,13 @@
       background: #0a7d54;
     }
     .container {
-      max-width: 960px;
-      margin: 1.5rem auto;
+      max-width: 720px;
+      margin: 1rem auto;
       padding: 0 1rem;
     }
     .hero {
       background: white;
-      padding: 1.5rem;
+      padding: 1rem;
       border-radius: 10px;
       text-align: center;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
@@ -56,40 +56,32 @@
     .hero h2 {
       margin-top: 0;
       color: #065f46;
+      font-size: 1.2rem;
     }
-    .news, .downloads, aside {
+    .news {
       background: white;
       padding: 1rem;
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      margin-top: 1.5rem;
-    }
-    .news-item {
-      margin-bottom: 1rem;
+      margin-top: 1rem;
     }
     .news-item h4 {
       margin: 0 0 0.25rem 0;
       color: #0a7d54;
+      font-size: 1rem;
     }
     .news-item p {
       margin: 0;
       color: #4b5563;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
     footer {
       background: #0a7d54;
       color: white;
       text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-      font-size: 0.9rem;
-    }
-    @media (min-width: 768px) {
-      .grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 1.5rem;
-      }
+      padding: 0.75rem;
+      margin-top: 1rem;
+      font-size: 0.85rem;
     }
   </style>
 </head>
@@ -100,37 +92,26 @@
   </header>
   <nav>
     <a href="#">หน้าแรก</a>
-    <a href="#">เกี่ยวกับเรา</a>
     <a href="#">ข่าวสาร</a>
     <a href="#">ดาวน์โหลด</a>
     <a href="#">ติดต่อ</a>
   </nav>
   <div class="container">
     <section class="hero">
-      <h2>ยินดีต้อนรับสู่เว็บไซต์โรงเรียนกนกสุทธิ์</h2>
-      <p>เว็บไซต์อย่างง่ายสำหรับประกาศข้อมูล ข่าวสาร และดาวน์โหลดเอกสารที่สำคัญ</p>
+      <h2>ยินดีต้อนรับ</h2>
+      <p>เว็บไซต์โรงเรียนกนกสุทธิ์ สำหรับเผยแพร่ข่าวสารและข้อมูลสำคัญ</p>
     </section>
-    <div class="grid">
-      <section class="news">
-        <h3>ข่าวประกาศ</h3>
-        <div class="news-item">
-          <h4>เปิดภาคเรียนที่ 2/2568</h4>
-          <p>เริ่มเรียนวันที่ 15 พฤศจิกายน 2568</p>
-        </div>
-        <div class="news-item">
-          <h4>กิจกรรมวันครู</h4>
-          <p>กำหนดจัดวันที่ 16 มกราคม 2569</p>
-        </div>
-      </section>
-      <aside>
-        <h3>ดาวน์โหลด</h3>
-        <ul>
-          <li>คู่มือนักเรียน (PDF)</li>
-          <li>ปฏิทินการศึกษา (PDF)</li>
-          <li>แบบฟอร์มคำร้อง (DOCX)</li>
-        </ul>
-      </aside>
-    </div>
+    <section class="news">
+      <h3>ข่าวประกาศ</h3>
+      <div class="news-item">
+        <h4>เปิดภาคเรียนที่ 2/2568</h4>
+        <p>เริ่มเรียนวันที่ 15 พฤศจิกายน 2568</p>
+      </div>
+      <div class="news-item">
+        <h4>กิจกรรมวันครู</h4>
+        <p>กำหนดจัดวันที่ 16 มกราคม 2569</p>
+      </div>
+    </section>
   </div>
   <footer>
     © 2568 โรงเรียนกนกสุทธิ์ | สงวนลิขสิทธิ์
