@@ -73,6 +73,7 @@
             padding: 0;
             margin-top: 10px;
             font-size: 0.9em;
+            margin-bottom: 15px; /* เพิ่มระยะห่างก่อนส่วน Admin/Summary */
         }
         
         .measure-list li {
@@ -91,75 +92,48 @@
             font-size: 0.8em;
             margin-top: 5px;
         }
-
-        /* --- RATING SECTION (ขนาดเล็ก) --- */
-        .rating-section {
-            background-color: #ffffff;
-            padding: 10px 20px;
-            text-align: center;
-            border: 1px solid #bbdefb;
-            border-top: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            margin-top: -1px;
-            max-width: 1200px;
-        }
-
-        .rating-section h3 {
-            color: #01579b;
-            margin-bottom: 5px;
-            font-size: 1em;
-        }
-
-        .rating-stars {
-            font-size: 1.5em;
-            color: #ccc;
-        }
-
-        .rating-stars i.rated {
-            color: #FFC107;
-        }
         
-        /* --- ADMIN & SUMMARY (ย้ายขึ้นด้านบนและปรับให้เล็ก) --- */
-        .top-sections { /* เปลี่ยนชื่อ class จาก bottom-sections เป็น top-sections */
+        /* --- ADMIN & SUMMARY (ถูกย้ายเข้า Header-Left) --- */
+        .admin-summary-group {
             display: grid;
             grid-template-columns: 1fr 1fr; 
-            gap: 15px;
-            margin-top: 20px;
-            margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่าง */
+            gap: 10px; /* ลด gap ลง */
+            padding-top: 10px;
+            border-top: 1px dashed #90caf9; /* เส้นแบ่งบางๆ */
         }
 
-        .admin-box, .summary-box {
-            background-color: #ffffff;
-            border: 1px solid #bbdefb;
-            padding: 15px; /* ลด Padding ลง */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        .admin-box-inner, .summary-box-inner {
+            background-color: #ffffff; /* พื้นหลังเป็นขาว */
+            border: 1px solid #90caf9; /* ขอบฟ้าอ่อน */
+            padding: 10px; /* ลด Padding ลงอีก */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
             text-align: center;
         }
 
-        .admin-box h3, .summary-box h3 {
+        .admin-box-inner h3, .summary-box-inner h3 {
             color: #01579b;
             margin-top: 0;
-            margin-bottom: 10px; /* ลดระยะห่าง */
-            font-size: 1em; /* ลดขนาดหัวข้อ */
+            margin-bottom: 5px; /* ลดระยะห่าง */
+            font-size: 0.9em; /* ลดขนาดหัวข้อ */
             font-weight: 700;
         }
         
-        .admin-box p, .summary-box p {
+        .admin-box-inner p, .summary-box-inner p {
             color: #555;
-            font-size: 0.8em; /* ลดขนาดตัวอักษร */
-            line-height: 1.5;
-            margin-bottom: 0;
+            font-size: 0.75em; /* ลดขนาดตัวอักษร */
+            line-height: 1.3;
+            margin: 0 0 5px 0;
         }
 
         .admin-button {
             background-color: #388e3c;
             color: white;
             border: none;
-            padding: 8px 15px; /* ลดขนาดปุ่ม */
-            font-size: 0.9em; /* ลดขนาดตัวอักษรปุ่ม */
+            padding: 6px 10px; /* ลดขนาดปุ่ม */
+            font-size: 0.8em; /* ลดขนาดตัวอักษรปุ่ม */
             font-weight: 700;
             cursor: pointer;
-            margin-top: 10px;
+            margin-top: 5px;
             transition: background-color 0.3s;
         }
         .admin-button:hover {
@@ -171,7 +145,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
-            /* margin-top: 20px; */ /* ไม่จำเป็นต้องมี margin top แล้วเพราะมี top-sections คั่น */
+            margin-top: 20px;
             margin-bottom: 20px;
         }
 
@@ -253,14 +227,8 @@
                 grid-template-columns: 1fr;
             }
             
-            .top-sections { /* Responsive ของส่วน Admin/Summary */
+            .admin-summary-group { 
                 grid-template-columns: 1fr; 
-            }
-            .admin-box, .summary-box {
-                padding: 15px;
-            }
-            .admin-box h3, .summary-box h3 {
-                font-size: 1.1em;
             }
         }
     </style>
@@ -273,6 +241,7 @@
                 <div class="title-main">การทำกิจกรรมนิสิต</div>
                 <div class="title-sub">การเรียน การสอบ ออนไลน์ (On-site)</div>
                 <p class="caution-text">ให้ยึดแนวทางตามมาตรการป้องกันโรคโควิด-19 ขั้นสูงสุด</p>
+                
                 <ul class="measure-list">
                     <li>**สวมหน้ากากอนามัย** และเตรียมอุปกรณ์ส่วนตัว</li>
                     <li>**สแกน QR Code** ก่อนเข้า-ออกอาคารทุกครั้ง</li>
@@ -280,6 +249,21 @@
                     <li>**ล้างมือ** ด้วยเจลแอลกอฮอล์บ่อย ๆ</li>
                     <li>**จำกัดจำนวนคน** ในพื้นที่ปฏิบัติการ</li>
                 </ul>
+                
+                <div class="admin-summary-group">
+                    <div class="admin-box-inner">
+                        <h3>🛠️ สำหรับผู้ดูแลระบบ</h3>
+                        <p>เข้าสู่ระบบเพื่อจัดการข้อมูล</p>
+                        <button class="admin-button">เข้าสู่ระบบ Admin</button>
+                    </div>
+
+                    <div class="summary-box-inner">
+                        <h3>📊 สรุปเนื้อหาและสถิติ</h3>
+                        <p>ภาพรวมจำนวนผู้ลงทะเบียนและรายงานต่างๆ</p>
+                        <p style="font-size: 0.7em; color: #aaa;">อัปเดตล่าสุด: 12 พ.ย. 2568</p>
+                    </div>
+                </div>
+                
             </div>
             <div class="header-right">
                 <div class="logo-ku">สไลด์ของสุธี</div>
@@ -299,39 +283,25 @@
             <p id="rating-message" style="margin-top: 10px; color: #0288d1; font-weight: 700; font-size: 0.9em;"></p>
         </div>
         
-        <div class="top-sections">
-            <div class="admin-box">
-                <h3>🛠️ สำหรับผู้ดูแลระบบ</h3>
-                <p>เข้าสู่ระบบเพื่อจัดการข้อมูล กิจกรรม และการตั้งค่าต่างๆ</p>
-                <button class="admin-button">เข้าสู่ระบบ Admin</button>
-            </div>
-
-            <div class="summary-box">
-                <h3>📊 สรุปเนื้อหาและสถิติ</h3>
-                <p>ภาพรวมจำนวนผู้ลงทะเบียน สถิติกิจกรรม และรายงานต่างๆ</p>
-                <p>ข้อมูลอัปเดตล่าสุด: 12 พ.ย. 2568</p>
-            </div>
-        </div>
-        
         <main class="main-registration">
             <a href="#" class="reg-box box-1">
                 <div class="reg-status">ปี1 ภาคปลาย</div>
                 <div class="reg-code">02036221</div>
-                <div class="reg-name">วิทยาศาสตร์และเทคโนโลยีด้านสัตว์</div>
+                <div class="reg-name">;วิทยาศาสตร์และเทคโนโลยีด้านสัตว์</div>
                 <button class="reg-button">คลิก</button>
             </a>
             
             <a href="#" class="reg-box box-2">
                 <div class="reg-status">ปี1 ภาคปลาย</div>
                 <div class="reg-code">02036231</div>
-                <div class="reg-name">วิทยาศาสตร์และเทคโนโลยีพืชไร่</div>
+                <div class="reg-name">;วิทยาศาสตร์และเทคโนโลยีพืชไร่</div>
                 <button class="reg-button">คลิก</button>
             </a>
 
             <a href="#" class="reg-box box-3">
                 <div class="reg-status">ปี2 ภาคต้น</div>
                 <div class="reg-code">01419211</div>
-                <div class="reg-name">จุลชีววิทยาทั่วไป</div>
+                <div class="reg-name">;จุลชีววิทยาทั่วไป</div>
                 <button class="reg-button">คลิก</button>
             </a>
         </main>
