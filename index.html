@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ลงทะเบียนปฏิบัติการเคมี KU - จำลอง</title>
+    <title>ลงทะเบียนปฏิบัติการเคมี KU - สมูท</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
@@ -12,7 +12,7 @@
             font-family: 'Kanit', sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f0f0f0; /* พื้นหลังสีเทาอ่อน */
+            background-color: #f0f0f0;
             display: flex;
             justify-content: center;
         }
@@ -32,39 +32,41 @@
             align-items: flex-start;
             gap: 20px;
             margin-bottom: 20px;
+            border-radius: 12px; /* ทำให้กรอบหลักโค้งมน */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05); /* เพิ่มเงาให้นุ่มนวลขึ้น */
         }
 
         .header-left {
             flex-basis: 70%;
-            background-color: #e6f7ff; /* สีฟ้าอ่อนจำลองพื้นหลัง */
+            background-color: #e6f7ff;
             padding: 20px;
-            border-radius: 5px;
+            border-radius: 10px; /* ทำให้กรอบซ้ายโค้งมน */
         }
 
         .header-right {
             flex-basis: 30%;
-            background-color: #212121; /* สีเข้มจำลองส่วนขวา */
+            background-color: #212121;
             color: white;
             padding: 15px;
             text-align: right;
-            border-radius: 5px;
+            border-radius: 10px; /* ทำให้กรอบขวาโค้งมน */
         }
 
         .title-main {
             font-size: 2em;
             font-weight: 700;
-            color: #004d40; /* สีเขียวเข้ม */
+            color: #004d40;
         }
 
         .title-sub {
             font-size: 1.5em;
             font-weight: 700;
-            color: #00796b; /* สีเขียวกลาง */
+            color: #00796b;
         }
 
         .caution-text {
             font-weight: 700;
-            color: #c62828; /* สีแดง */
+            color: #c62828;
             margin-top: 15px;
         }
 
@@ -82,7 +84,7 @@
         .logo-ku {
             font-size: 1.2em;
             font-weight: 700;
-            background-color: #009688; /* สีเขียว KU */
+            background-color: #009688;
             padding: 5px;
             display: inline-block;
         }
@@ -106,13 +108,14 @@
             text-align: center;
             padding: 20px;
             text-decoration: none;
-            border-radius: 5px;
-            transition: transform 0.2s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px; /* ทำให้กรอบลงทะเบียนโค้งมน */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* เพิ่มการเคลื่อนไหวที่สมูท */
         }
 
         .reg-box:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px); /* เลื่อนขึ้นมากกว่าเดิม */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* เงาเข้มขึ้น */
         }
 
         .reg-code {
@@ -129,24 +132,24 @@
 
         /* Color Schemes */
         .box-1 {
-            background-color: #212121; /* พื้นหลังดำ/เทาเข้ม */
-            border: 5px solid #d32f2f; /* ขอบสีแดง */
+            background-color: #212121;
+            border: 5px solid #d32f2f;
         }
         .box-2 {
-            background-color: #43a047; /* สีเขียว */
+            background-color: #43a047;
         }
         .box-3 {
-            background-color: #d32f2f; /* สีแดง */
+            background-color: #d32f2f;
         }
 
         .reg-status {
-            background-color: #c62828; /* แถบสถานะสีแดง */
+            background-color: #c62828;
             display: inline-block;
             padding: 5px 10px;
             font-size: 0.8em;
             font-weight: 700;
             margin-bottom: 10px;
-            border-radius: 3px;
+            border-radius: 15px; /* ทำให้แถบสถานะโค้งมนมาก */
         }
 
         .reg-button {
@@ -159,7 +162,12 @@
             cursor: pointer;
             margin-top: 15px;
             width: 80%;
-            border-radius: 3px;
+            border-radius: 20px; /* ทำให้ปุ่มโค้งมน */
+            transition: background-color 0.3s;
+        }
+        
+        .reg-button:hover {
+            background-color: #e53935; /* สีสว่างขึ้นตอนโฮเวอร์ */
         }
 
         /* --- 3. FOOTER LINKS --- */
@@ -170,8 +178,9 @@
             background-color: #fff;
             padding: 10px 0;
             border-top: 1px solid #ddd;
-            border-radius: 5px;
-            overflow: hidden; /* ซ่อนเส้นขอบที่เกินมา */
+            border-radius: 12px; /* ทำให้ส่วนท้ายโค้งมน */
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
         }
 
         .footer-item {
@@ -181,7 +190,7 @@
             padding: 10px;
             flex-grow: 1;
             border-right: 1px solid #eee;
-            transition: background-color 0.2s;
+            transition: background-color 0.3s; /* เพิ่มการเปลี่ยนสีที่สมูท */
         }
 
         .footer-item:last-child {
@@ -189,11 +198,11 @@
         }
 
         .footer-item:hover {
-            background-color: #f5f5f5;
+            background-color: #e0f2f1; /* เปลี่ยนเป็นสีเขียวอ่อนนุ่มนวลขึ้น */
         }
 
         .footer-item .icon {
-            font-size: 2.5em; /* ใช้ Emoji แทนไอคอน */
+            font-size: 2.5em;
             display: block;
             margin-bottom: 5px;
         }
@@ -206,11 +215,11 @@
 
         /* สีพิเศษสำหรับบางรายการ */
         .footer-item.latest-news {
-            background-color: #ffccbc; /* ส้มอ่อน */
+            background-color: #ffccbc;
         }
 
         .footer-item.emergency {
-            background-color: #ef9a9a; /* แดงอ่อน */
+            background-color: #ef9a9a;
         }
 
         /* Responsive (ปรับให้แสดงผลดีบนมือถือ) */
@@ -220,16 +229,16 @@
             }
 
             .main-registration {
-                grid-template-columns: 1fr; /* แสดงผลแบบคอลัมน์เดียวบนมือถือ */
+                grid-template-columns: 1fr;
             }
 
             .footer-links {
-                flex-wrap: wrap; /* ให้ลิงก์ลงบรรทัดใหม่ได้ */
+                flex-wrap: wrap;
             }
 
             .footer-item {
-                width: 33.33%; /* ให้ 3 ลิงก์ต่อแถว */
-                box-sizing: border-box; /* รวม padding/border ในความกว้าง */
+                width: 33.33%;
+                box-sizing: border-box;
                 border-bottom: 1px solid #eee;
                 border-right: none;
             }
