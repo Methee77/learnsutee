@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
-        /* --- BASE SETUP (ใช้ฟอนต์ Kodchasan) --- */
+        /* --- BASE SETUP (ฟอนต์ Kodchasan) --- */
         body {
             font-family: 'Kodchasan', sans-serif;
             margin: 0;
@@ -106,7 +106,7 @@
 
         .reg-box {
             display: block;
-            color: #333;
+            color: #333; /* สีตัวอักษรเข้มให้ตัดกับพาสเทล */
             text-align: center;
             padding: 20px;
             text-decoration: none;
@@ -175,7 +175,7 @@
             background-color: #e53935; 
         }
 
-        /* --- RATING SECTION (ปรับให้เล็กลงมาก) --- */
+        /* --- RATING SECTION (ขนาดเล็ก) --- */
         .rating-section {
             background-color: #ffffff;
             padding: 10px 20px;
@@ -195,7 +195,7 @@
         }
 
         .rating-stars {
-            font-size: 1.5em;
+            font-size: 1.5em; /* ดาวขนาดเล็ก */
             color: #ccc;
         }
 
@@ -209,10 +209,10 @@
             color: #FFC107;
         }
         
-        /* --- NEW SECTIONS: ADMIN & SUMMARY --- */
+        /* --- NEW SECTIONS: ADMIN & SUMMARY (อยู่ด้านล่าง) --- */
         .bottom-sections {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* แบ่งเป็น 2 คอลัมน์เท่าๆ กัน */
+            grid-template-columns: 1fr 1fr; 
             gap: 15px;
             margin-top: 20px;
         }
@@ -241,7 +241,7 @@
         }
 
         .admin-button {
-            background-color: #66bb6a; /* สีเขียวอ่อนสำหรับ Admin */
+            background-color: #66bb6a; 
             color: white;
             border: none;
             padding: 10px 20px;
@@ -267,7 +267,7 @@
             }
             
             .bottom-sections {
-                grid-template-columns: 1fr; /* บนมือถือให้เรียงเป็นแถวเดียว */
+                grid-template-columns: 1fr; 
             }
         }
     </style>
