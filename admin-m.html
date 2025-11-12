@@ -4,19 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login | เข้าสู่ระบบผู้ดูแลระบบ</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* เพิ่ม Gradient Background สองสี */
+            background: linear-gradient(135deg, #6dd5ed, #2193b0); /* สีฟ้าสดใส */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #333; /* สีข้อความเริ่มต้น */
+        }
+
+        .login-container {
+            background-color: #ffffff;
+            padding: 45px 40px; /* เพิ่ม padding เล็กน้อย */
+            border-radius: 12px; /* ทำให้มุมมนขึ้น */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้ดูมีมิติมากขึ้น */
+            width: 380px; /* ขยายความกว้างขึ้นเล็กน้อย */
+            text-align: center;
+            transition: transform 0.3s ease-in-out; /* เพิ่ม animation เมื่อมีการโต้ตอบ */
+        }
+
+        .login-container:hover {
+            transform: translateY(-5px); /* เลื่อนขึ้นเล็กน้อยเมื่อวางเมาส์เหนือ */
+        }
+
+        .login-container h2 {
+            margin-bottom: 30px;
+            color: #007bff; /* ใช้สีน้ำเงินที่สดใสขึ้น */
+            font-size: 2.2em; /* เพิ่มขนาดหัวข้อ */
+            font-weight: 600; /* ทำให้ตัวหนาขึ้น */
+            letter-spacing: 0.5px; /* เพิ่มระยะห่างระหว่างตัวอักษร */
+        }
+
+        .input-group {
+            margin-bottom: 25px; /* เพิ่มระยะห่างระหว่างกลุ่ม input */
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #555;
+            font-size: 1.1em;
+        }
+
+        .input-group input[type="text"],
+        .input-group input[type="password"] {
+            width: 100%;
+            padding: 14px; /* เพิ่มขนาด padding */
+            border: 1px solid #a0d9e8; /* ใช้สีขอบที่เข้ากับธีม */
+            border-radius: 6px; /* ทำให้มุมมนขึ้น */
+            box-sizing: border-box;
+            font-size: 1.1em;
+            color: #333;
+            background-color: #f9fcff; /* สีพื้นหลัง input อ่อนๆ */
+            transition: border-color 0.3s ease;
+        }
+
+        .input-group input[type="text"]:focus,
+        .input-group input[type="password"]:focus {
+            border-color: #007bff; /* เปลี่ยนสีขอบเมื่อ focus */
+            outline: none; /* ลบเส้น outline เริ่มต้นของ browser */
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* เพิ่มเงารอบๆ เมื่อ focus */
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 15px; /* เพิ่มขนาด padding */
+            background-color: #28a745; /* ใช้สีเขียวสดใสสำหรับปุ่ม */
+            color: white;
+            border: none;
+            border-radius: 8px; /* ทำให้มุมมนขึ้น */
+            cursor: pointer;
+            font-size: 1.2em; /* เพิ่มขนาดตัวอักษร */
+            font-weight: 700; /* ทำให้ตัวหนามากยิ่งขึ้น */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3); /* เพิ่มเงาให้ปุ่ม */
+        }
+
+        .login-button:hover {
+            background-color: #218838; /* สีเขียวเข้มขึ้นเมื่อชี้เมาส์ */
+            transform: translateY(-2px); /* เลื่อนขึ้นเล็กน้อยเมื่อชี้เมาส์ */
+            box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
+        }
+
+        .login-button:active {
+            transform: translateY(0); /* กลับสู่ตำแหน่งเดิมเมื่อคลิก */
+            box-shadow: 0 2px 5px rgba(40, 167, 69, 0.2);
+        }
+
+        .forgot-password {
+            margin-top: 20px;
+            font-size: 1em;
+        }
+
+        .forgot-password a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+    </style>
+    </head>
 <body>
     <div class="login-container">
         <h2>เข้าสู่ระบบ Admin</h2>
-        <form action="/login" method="POST">
+        <form action="/login" method="POST"> 
             <div class="input-group">
                 <label for="username">ชื่อผู้ใช้:</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" required placeholder="กรอกชื่อผู้ใช้">
             </div>
             <div class="input-group">
                 <label for="password">รหัสผ่าน:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" required placeholder="กรอกรหัสผ่าน">
             </div>
             <button type="submit" class="login-button">เข้าสู่ระบบ</button>
             <div class="forgot-password">
