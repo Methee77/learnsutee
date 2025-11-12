@@ -9,26 +9,25 @@
     
     <style>
         /* --- BASE SETUP (ฟอนต์ Kodchasan) --- */
-        /* ปรับ Body ให้มีสีพื้นหลังและย้ายการจัดกึ่งกลางไปที่ Container */
         body {
             font-family: 'Kodchasan', sans-serif;
             margin: 0;
-            padding: 0; /* ลบ padding ออกเพื่อให้ Footer ชิดขอบ */
-            background-color: #f8f8f8; /* สีพื้นหลังอ่อนๆ */
+            padding: 0;
+            background-color: #f8f8f8;
         }
 
-        .main-wrapper { /* เพิ่ม wrapper เพื่อจัดเนื้อหาให้อยู่ตรงกลาง */
+        .main-wrapper {
             display: flex;
             flex-direction: column;
-            align-items: center; /* จัดเนื้อหาตรงกลาง */
-            min-height: 100vh; /* ความสูงขั้นต่ำเต็มหน้าจอ */
+            align-items: center;
+            min-height: 100vh;
         }
 
         .container {
             width: 100%;
             max-width: 1200px;
-            padding: 20px; /* เพิ่ม padding กลับเข้ามาที่ container */
-            background-color: #ffffff; /* Container สีขาว */
+            padding: 20px;
+            background-color: #ffffff;
             box-sizing: border-box;
         }
         
@@ -225,7 +224,7 @@
             background-color: #0d47a1;
         }
         
-        /* --- RATING SECTION (ย้ายลงล่างสุด) --- */
+        /* --- RATING SECTION --- */
         .rating-section {
             background-color: #f1f8e9;
             padding: 15px 20px;
@@ -233,7 +232,7 @@
             border: 1px solid #bbdefb;
             margin-top: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            width: 100%; /* ทำให้ขยายเต็มความกว้างของ container */
+            width: 100%;
             box-sizing: border-box;
         }
 
@@ -252,17 +251,17 @@
             color: #FFC107;
         }
 
-        /* --- FOOTER SECTION (ลิขสิทธิ์ - ต้องเต็มความกว้าง) --- */
+        /* --- FOOTER SECTION --- */
         .footer-section {
-            background-color: #0d47a1; /* น้ำเงินเข้ม */
+            background-color: #0d47a1;
             color: white;
-            padding: 15px 0; /* เพิ่ม padding บนล่างเพื่อให้ดูดีขึ้น */
+            padding: 15px 0;
             margin-top: 20px;
-            width: 100%; /* ให้เต็มความกว้างของหน้าจอ */
+            width: 100%;
             text-align: center;
             font-size: 0.85em;
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-            position: relative; /* ปรับการแสดงผล */
+            position: relative;
         }
         .footer-section a {
             color: #90caf9;
@@ -270,6 +269,69 @@
         }
         .footer-section a:hover {
             text-decoration: underline;
+        }
+
+
+        /* --- 3. MODAL (หน้าต่างลอยประกาศ) --- */
+        .modal {
+            display: none; /* เริ่มต้นให้ซ่อนไว้ */
+            position: fixed; /* ให้อยู่คงที่บนหน้าจอ */
+            z-index: 1000; /* ให้อยู่ด้านบนสุด */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7); /* พื้นหลังดำโปร่งแสง */
+            backdrop-filter: blur(5px); /* เพิ่มเอฟเฟกต์เบลอ */
+            box-sizing: border-box;
+            padding-top: 50px; /* ระยะห่างจากด้านบน */
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            margin: 15% auto; /* จัดกึ่งกลางแนวตั้งและแนวนอน */
+            padding: 30px;
+            border: 3px solid #0d47a1; /* กรอบสีน้ำเงินเข้ม */
+            width: 80%;
+            max-width: 500px; /* จำกัดความกว้างสูงสุด */
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.5s; /* เพิ่ม Animation */
+        }
+
+        .modal-content h2 {
+            color: #c62828; /* สีแดงสำหรับประกาศสำคัญ */
+            font-size: 1.8em;
+            margin-top: 0;
+        }
+
+        .modal-content p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .modal-close-btn {
+            background-color: #0d47a1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: 700;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .modal-close-btn:hover {
+            background-color: #1976d2;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
         }
 
 
@@ -286,11 +348,25 @@
             .admin-summary-group { 
                 grid-template-columns: 1fr; 
             }
+
+            .modal-content {
+                width: 90%;
+                margin: 30% auto;
+            }
         }
     </style>
 </head>
 <body>
     
+    <div id="updateModal" class="modal">
+        <div class="modal-content">
+            <i class="fas fa-exclamation-triangle" style="font-size: 3em; color: #ff9800; margin-bottom: 15px;"></i>
+            <h2>ระบบกำลังอัปเดตข้อมูล</h2>
+            <p>ขณะนี้ระบบอยู่ระหว่างการปรับปรุงและอัปเดตข้อมูลการลงทะเบียน อาจทำให้ข้อมูลบางส่วนไม่ตรงกับปัจจุบัน ขออภัยในความไม่สะดวก</p>
+            <button class="modal-close-btn" onclick="closeModal()">รับทราบและปิด</button>
+        </div>
+    </div>
+
     <div class="main-wrapper"> 
         <div class="container">
             <header class="header-section">
@@ -416,6 +492,18 @@
                 });
             });
         });
+
+        /* --- Modal Functions --- */
+        function showModal() {
+            document.getElementById('updateModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('updateModal').style.display = 'none';
+        }
+
+        // เรียกใช้ Modal ทันทีที่หน้าเว็บโหลดเสร็จ
+        window.onload = showModal; 
     </script>
 
 </body>
