@@ -3,206 +3,137 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>โรงเรียนกนกสุทธิ์ | เว็บไซต์ตัวอย่างสวยทันสมัย</title>
+  <title>โรงเรียนกนกสุทธิ์ | เว็บไซต์อย่างง่าย</title>
   <style>
-    :root {
-      --primary: #047857;
-      --secondary: #10b981;
-      --accent: #f59e0b;
-      --bg: #f0fdf4;
-      --text: #1e293b;
-      --muted: #64748b;
-      --radius: 18px;
-      --shadow: 0 8px 24px rgba(0,0,0,0.08);
+    body {
+      margin: 0;
+      font-family: 'Noto Sans Thai', sans-serif;
+      background: #f9fafb;
+      color: #1f2937;
     }
-
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: 'Noto Sans Thai', sans-serif; background: var(--bg); color: var(--text); }
-    a { color: var(--primary); text-decoration: none; }
-    a:hover { color: var(--secondary); }
-
-    /* Header */
     header {
-      background: white;
-      box-shadow: var(--shadow);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-radius: 0 0 var(--radius) var(--radius);
-    }
-    .container { max-width: 1200px; margin: auto; padding: 1rem 1.5rem; }
-    .header-inner { display: flex; align-items: center; justify-content: space-between; }
-    .logo { display: flex; align-items: center; gap: 1rem; }
-    .logo img { width: 70px; height: 70px; border-radius: 50%; box-shadow: var(--shadow); }
-    .title h1 { margin: 0; font-size: 1.6rem; color: var(--primary); }
-    .title p { margin: 0; color: var(--muted); font-size: .95rem; }
-
-    nav { display: flex; gap: 1.5rem; align-items: center; }
-    nav a { font-weight: 600; color: var(--text); transition: .2s; }
-    nav a:hover { color: var(--primary); }
-    .btn-primary { background: var(--primary); color: white; padding: .5rem 1rem; border-radius: var(--radius); transition: .2s; }
-    .btn-primary:hover { background: var(--secondary); }
-
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(135deg, #ecfdf5, #d1fae5);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 3rem 1.5rem;
-      border-radius: var(--radius);
-      margin: 2rem auto;
-      max-width: 1200px;
-      box-shadow: var(--shadow);
-    }
-    .hero-text { max-width: 550px; }
-    .hero-text h2 { font-size: 2.2rem; margin: 0; color: var(--primary); }
-    .hero-text p { margin-top: .5rem; color: var(--muted); font-size: 1rem; }
-    .hero img { width: 400px; border-radius: var(--radius); box-shadow: var(--shadow); }
-
-    .search-bar { display: flex; margin-top: 1rem; }
-    .search-bar input {
-      flex: 1;
-      padding: .7rem 1rem;
-      border: 1px solid #cbd5e1;
-      border-radius: var(--radius) 0 0 var(--radius);
-      outline: none;
-      font-size: 1rem;
-    }
-    .search-bar button {
-      background: var(--accent);
+      background: #0a7d54;
       color: white;
-      border: none;
-      padding: .7rem 1.25rem;
-      border-radius: 0 var(--radius) var(--radius) 0;
-      cursor: pointer;
-      font-weight: 600;
-      transition: .2s;
-    }
-    .search-bar button:hover { background: #fbbf24; }
-
-    /* Content */
-    .content { max-width: 1200px; margin: 2rem auto; display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; }
-    .card { background: white; padding: 1.5rem; border-radius: var(--radius); box-shadow: var(--shadow); }
-    .card h3 { margin-top: 0; color: var(--primary); }
-
-    .news-item { display: flex; gap: 1rem; margin-bottom: 1rem; }
-    .news-item img { width: 120px; height: 80px; border-radius: var(--radius); object-fit: cover; }
-    .news-item div { flex: 1; }
-    .news-item .meta { color: var(--muted); font-size: .85rem; }
-
-    /* Sidebar */
-    aside h4 { margin-top: 0; color: var(--secondary); }
-    aside ul { list-style: none; padding-left: 0; }
-    aside li { margin-bottom: .5rem; }
-
-    /* Footer */
-    footer {
-      background: var(--primary);
-      color: white;
-      margin-top: 3rem;
-      padding: 2rem 1.5rem;
+      padding: 1rem 2rem;
       text-align: center;
-      border-radius: var(--radius) var(--radius) 0 0;
     }
-    footer p { margin: .3rem 0; }
-
-    @media (max-width: 900px) {
-      .hero { flex-direction: column; text-align: center; }
-      .hero img { width: 100%; margin-top: 1rem; }
-      .content { grid-template-columns: 1fr; }
-      nav { display: none; }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    header p {
+      margin: 0;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    nav {
+      background: #065f46;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      padding: 0.75rem 1.25rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover {
+      background: #0a7d54;
+    }
+    .container {
+      max-width: 960px;
+      margin: 1.5rem auto;
+      padding: 0 1rem;
+    }
+    .hero {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .hero h2 {
+      margin-top: 0;
+      color: #065f46;
+    }
+    .news, .downloads, aside {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      margin-top: 1.5rem;
+    }
+    .news-item {
+      margin-bottom: 1rem;
+    }
+    .news-item h4 {
+      margin: 0 0 0.25rem 0;
+      color: #0a7d54;
+    }
+    .news-item p {
+      margin: 0;
+      color: #4b5563;
+      font-size: 0.95rem;
+    }
+    footer {
+      background: #0a7d54;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+    @media (min-width: 768px) {
+      .grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="container header-inner">
-      <div class="logo">
-        <img src="https://via.placeholder.com/100x100.png?text=Logo" alt="โลโก้โรงเรียน">
-        <div class="title">
-          <h1>โรงเรียนกนกสุทธิ์</h1>
-          <p>สร้างสรรค์ปัญญา พัฒนาคุณธรรม นำสู่ความสำเร็จ</p>
-        </div>
-      </div>
-      <nav>
-        <a href="#">หน้าแรก</a>
-        <a href="#">เกี่ยวกับเรา</a>
-        <a href="#">ข่าวสาร</a>
-        <a href="#">กิจกรรม</a>
-        <a href="#">ติดต่อเรา</a>
-        <a class="btn-primary" href="#">เข้าสู่ระบบ</a>
-      </nav>
-    </div>
+    <h1>โรงเรียนกนกสุทธิ์</h1>
+    <p>สร้างสรรค์ปัญญา พัฒนาคุณธรรม</p>
   </header>
-
-  <section class="hero">
-    <div class="hero-text">
+  <nav>
+    <a href="#">หน้าแรก</a>
+    <a href="#">เกี่ยวกับเรา</a>
+    <a href="#">ข่าวสาร</a>
+    <a href="#">ดาวน์โหลด</a>
+    <a href="#">ติดต่อ</a>
+  </nav>
+  <div class="container">
+    <section class="hero">
       <h2>ยินดีต้อนรับสู่เว็บไซต์โรงเรียนกนกสุทธิ์</h2>
-      <p>ศูนย์กลางข้อมูล ข่าวสาร และกิจกรรม เพื่อการเรียนรู้ของนักเรียนและบุคลากรทุกคน</p>
-      <div class="search-bar">
-        <input type="text" placeholder="ค้นหาข่าว ประกาศ หรือเอกสาร...">
-        <button>ค้นหา</button>
-      </div>
-    </div>
-    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=60" alt="ภาพโรงเรียน">
-  </section>
-
-  <section class="content">
-    <div>
-      <div class="card">
-        <h3>ข่าวประกาศล่าสุด</h3>
+      <p>เว็บไซต์อย่างง่ายสำหรับประกาศข้อมูล ข่าวสาร และดาวน์โหลดเอกสารที่สำคัญ</p>
+    </section>
+    <div class="grid">
+      <section class="news">
+        <h3>ข่าวประกาศ</h3>
         <div class="news-item">
-          <img src="https://via.placeholder.com/150x100.png?text=News1" alt="news1">
-          <div>
-            <h4>เปิดภาคเรียนที่ 2/2568</h4>
-            <p class="meta">ประกาศเมื่อ 10 พฤศจิกายน 2568</p>
-            <p>โรงเรียนจะเปิดภาคเรียนวันที่ 15 พฤศจิกายน 2568 ขอให้นักเรียนเตรียมความพร้อม...</p>
-          </div>
+          <h4>เปิดภาคเรียนที่ 2/2568</h4>
+          <p>เริ่มเรียนวันที่ 15 พฤศจิกายน 2568</p>
         </div>
         <div class="news-item">
-          <img src="https://via.placeholder.com/150x100.png?text=News2" alt="news2">
-          <div>
-            <h4>กำหนดการกิจกรรมวันครู</h4>
-            <p class="meta">ประกาศเมื่อ 5 พฤศจิกายน 2568</p>
-            <p>ขอเชิญร่วมกิจกรรมวันครูประจำปี เพื่อรำลึกพระคุณครูและมอบเกียรติบัตร...</p>
-          </div>
+          <h4>กิจกรรมวันครู</h4>
+          <p>กำหนดจัดวันที่ 16 มกราคม 2569</p>
         </div>
-      </div>
-
-      <div class="card" style="margin-top:1.5rem;">
-        <h3>คลังความรู้ / ดาวน์โหลด</h3>
+      </section>
+      <aside>
+        <h3>ดาวน์โหลด</h3>
         <ul>
-          <li>📘 คู่มือนักเรียน (PDF)</li>
-          <li>📅 ปฏิทินการศึกษา (PDF)</li>
-          <li>📂 แบบฟอร์มขอเอกสาร (DOCX)</li>
+          <li>คู่มือนักเรียน (PDF)</li>
+          <li>ปฏิทินการศึกษา (PDF)</li>
+          <li>แบบฟอร์มคำร้อง (DOCX)</li>
         </ul>
-      </div>
+      </aside>
     </div>
-
-    <aside>
-      <div class="card">
-        <h4>เมนูด่วน</h4>
-        <ul>
-          <li><a href="#">ระบบลงทะเบียนเรียน</a></li>
-          <li><a href="#">รายงานผลการเรียน</a></li>
-          <li><a href="#">ข้อมูลนักเรียน</a></li>
-          <li><a href="#">คลังเอกสาร</a></li>
-        </ul>
-      </div>
-
-      <div class="card" style="margin-top:1.5rem;">
-        <h4>ติดต่อโรงเรียน</h4>
-        <p>📍 123 หมู่ 4 ต.ตัวอย่าง อ.ตัวอย่าง จ.นครราชสีมา 30000</p>
-        <p>☎️ โทร. 044-xxx-xxxx</p>
-        <p>📧 Email: info@kannasoot.ac.th</p>
-      </div>
-    </aside>
-  </section>
-
+  </div>
   <footer>
-    <p>© 2568 โรงเรียนกนกสุทธิ์ | สงวนลิขสิทธิ์</p>
-    <p>พัฒนาโดยฝ่ายเทคโนโลยีสารสนเทศ</p>
+    © 2568 โรงเรียนกนกสุทธิ์ | สงวนลิขสิทธิ์
   </footer>
 </body>
 </html>
