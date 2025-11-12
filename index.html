@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ลงทะเบียนปฏิบัติการเคมี KU - สมูท</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
         /* --- BASE SETUP --- */
@@ -32,15 +33,15 @@
             align-items: flex-start;
             gap: 20px;
             margin-bottom: 20px;
-            border-radius: 12px; /* ทำให้กรอบหลักโค้งมน */
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05); /* เพิ่มเงาให้นุ่มนวลขึ้น */
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
         }
 
         .header-left {
             flex-basis: 70%;
             background-color: #e6f7ff;
             padding: 20px;
-            border-radius: 10px; /* ทำให้กรอบซ้ายโค้งมน */
+            border-radius: 10px;
         }
 
         .header-right {
@@ -49,7 +50,7 @@
             color: white;
             padding: 15px;
             text-align: right;
-            border-radius: 10px; /* ทำให้กรอบขวาโค้งมน */
+            border-radius: 10px;
         }
 
         .title-main {
@@ -108,14 +109,14 @@
             text-align: center;
             padding: 20px;
             text-decoration: none;
-            border-radius: 10px; /* ทำให้กรอบลงทะเบียนโค้งมน */
+            border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* เพิ่มการเคลื่อนไหวที่สมูท */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
         .reg-box:hover {
-            transform: translateY(-5px); /* เลื่อนขึ้นมากกว่าเดิม */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* เงาเข้มขึ้น */
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         .reg-code {
@@ -130,17 +131,15 @@
             margin-top: 10px;
         }
 
-        /* Color Schemes */
+        /* Color Schemes (ปรับปรุงแล้ว) */
         .box-1 {
-            background-color: #212121; /* ดำ/เทาเข้ม */
-            border: 5px solid #d32f2f; /* แดง */
+            background-color: #212121; 
+            border: 5px solid #d32f2f; 
         }
-        /* --- ปรับปรุงสีสำหรับ box-2 --- */
         .box-2 {
             background-color: #2196f3; /* สีน้ำเงิน */
             border: 5px solid #212121; /* ขอบสีดำ */
         }
-        /* --- ปรับปรุงสีสำหรับ box-3 --- */
         .box-3 {
             background-color: #4CAF50; /* สีเขียว */
             border: 5px solid #FFC107; /* ขอบสีเหลือง */
@@ -153,7 +152,7 @@
             font-size: 0.8em;
             font-weight: 700;
             margin-bottom: 10px;
-            border-radius: 15px; /* ทำให้แถบสถานะโค้งมนมาก */
+            border-radius: 15px;
         }
 
         .reg-button {
@@ -166,64 +165,42 @@
             cursor: pointer;
             margin-top: 15px;
             width: 80%;
-            border-radius: 20px; /* ทำให้ปุ่มโค้งมน */
+            border-radius: 20px;
             transition: background-color 0.3s;
         }
         
         .reg-button:hover {
-            background-color: #e53935; /* สีสว่างขึ้นตอนโฮเวอร์ */
+            background-color: #e53935; 
         }
 
-        /* --- 3. FOOTER LINKS --- */
-        .footer-links {
-            display: flex;
-            justify-content: space-around;
-            align-items: stretch;
+        /* --- NEW RATING SECTION --- */
+        .rating-section {
             background-color: #fff;
-            padding: 10px 0;
-            border-top: 1px solid #ddd;
-            border-radius: 12px; /* ทำให้ส่วนท้ายโค้งมน */
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .footer-item {
-            text-decoration: none;
-            color: #333;
+            padding: 30px;
             text-align: center;
-            padding: 10px;
-            flex-grow: 1;
-            border-right: 1px solid #eee;
-            transition: background-color 0.3s; /* เพิ่มการเปลี่ยนสีที่สมูท */
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            margin-top: 20px;
         }
 
-        .footer-item:last-child {
-            border-right: none;
+        .rating-section h3 {
+            color: #004d40;
+            margin-bottom: 15px;
         }
 
-        .footer-item:hover {
-            background-color: #e0f2f1; /* เปลี่ยนเป็นสีเขียวอ่อนนุ่มนวลขึ้น */
-        }
-
-        .footer-item .icon {
+        .rating-stars {
             font-size: 2.5em;
-            display: block;
-            margin-bottom: 5px;
+            color: #ccc; /* สีเทาสำหรับดาวที่ยังไม่ถูกเลือก */
         }
 
-        .footer-item p {
-            font-size: 0.8em;
-            margin: 0;
-            font-weight: 700;
+        .rating-stars i {
+            cursor: pointer;
+            transition: color 0.2s;
+            margin: 0 5px;
         }
 
-        /* สีพิเศษสำหรับบางรายการ */
-        .footer-item.latest-news {
-            background-color: #ffccbc;
-        }
-
-        .footer-item.emergency {
-            background-color: #ef9a9a;
+        .rating-stars i.rated {
+            color: #FFC107; /* สีเหลืองทองสำหรับดาวที่ถูกเลือก */
         }
 
         /* Responsive (ปรับให้แสดงผลดีบนมือถือ) */
@@ -234,17 +211,6 @@
 
             .main-registration {
                 grid-template-columns: 1fr;
-            }
-
-            .footer-links {
-                flex-wrap: wrap;
-            }
-
-            .footer-item {
-                width: 33.33%;
-                box-sizing: border-box;
-                border-bottom: 1px solid #eee;
-                border-right: none;
             }
         }
     </style>
@@ -294,33 +260,66 @@
             </a>
         </main>
 
-        <footer class="footer-links">
-            <a href="#" class="footer-item">
-                <span class="icon">🧑‍🔬</span>
-                <p>เกี่ยวกับทดลอง</p>
-            </a>
-            <a href="#" class="footer-item latest-news">
-                <span class="icon">📰</span>
-                <p>เกาะติดสถานการณ์</p>
-            </a>
-            <a href="#" class="footer-item">
-                <span class="icon">📜</span>
-                <p>ข้อปฏิบัติในห้องปฏิบัติการ</p>
-            </a>
-            <a href="#" class="footer-item">
-                <span class="icon">📽️</span>
-                <p>สื่อการสอน</p>
-            </a>
-             <a href="#" class="footer-item">
-                <span class="icon">❓</span>
-                <p>FAQ คำถาม</p>
-            </a>
-             <a href="#" class="footer-item emergency">
-                <span class="icon">🚨</span>
-                <p>EMERGENCY กรณีฉุกเฉิน</p>
-            </a>
-        </footer>
+        <div class="rating-section">
+            <h3>⭐ ประเมินความพอใจต่อการใช้งานเว็บไซต์</h3>
+            <div class="rating-stars" id="star-rating">
+                <i class="far fa-star" data-rating="1"></i>
+                <i class="far fa-star" data-rating="2"></i>
+                <i class="far fa-star" data-rating="3"></i>
+                <i class="far fa-star" data-rating="4"></i>
+                <i class="far fa-star" data-rating="5"></i>
+            </div>
+            <p id="rating-message" style="margin-top: 10px; color: #00796b; font-weight: 700;"></p>
+        </div>
+        
     </div>
+    
+    <script>
+        const stars = document.querySelectorAll('#star-rating i');
+        const message = document.getElementById('rating-message');
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const ratingValue = star.getAttribute('data-rating');
+                
+                // Set the status of all stars
+                stars.forEach(s => {
+                    s.classList.remove('fas', 'rated');
+                    s.classList.add('far');
+                });
+                
+                // Color the selected stars and those before it
+                for (let i = 0; i < ratingValue; i++) {
+                    stars[i].classList.remove('far');
+                    stars[i].classList.add('fas', 'rated');
+                }
+
+                // Display a feedback message
+                message.textContent = `ขอบคุณสำหรับ ${ratingValue} ดาว!`;
+                
+                // In a real application, you would send this ratingValue to a server here.
+                console.log('User rated:', ratingValue);
+            });
+            
+            // Optional: Add hover effect (visual feedback)
+            star.addEventListener('mouseover', () => {
+                const hoverValue = star.getAttribute('data-rating');
+                stars.forEach((s, index) => {
+                    if (index < hoverValue) {
+                        s.style.color = '#ffd700'; // Gold on hover
+                    } else {
+                        s.style.color = '';
+                    }
+                });
+            });
+            
+            star.addEventListener('mouseout', () => {
+                stars.forEach(s => {
+                    s.style.color = ''; // Reset color if not rated
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
