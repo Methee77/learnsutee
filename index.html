@@ -178,7 +178,7 @@
         /* --- RATING SECTION (ปรับให้เล็กลงมาก) --- */
         .rating-section {
             background-color: #ffffff;
-            padding: 10px 20px; /* ลด padding ลงอีก */
+            padding: 10px 20px;
             text-align: center;
             border-radius: 0 0 12px 12px;
             border: 1px solid #ddd;
@@ -190,23 +190,70 @@
 
         .rating-section h3 {
             color: #004d40;
-            margin-bottom: 5px; /* ลด margin bottom ลงอีก */
-            font-size: 1em; /* ลดขนาดตัวอักษรลง */
+            margin-bottom: 5px;
+            font-size: 1em;
         }
 
         .rating-stars {
-            font-size: 1.5em; /* ลดขนาดของดาวลงอีก */
+            font-size: 1.5em;
             color: #ccc;
         }
 
         .rating-stars i {
             cursor: pointer;
             transition: color 0.2s;
-            margin: 0 2px; /* ลดระยะห่างระหว่างดาวลงอีก */
+            margin: 0 2px;
         }
 
         .rating-stars i.rated {
             color: #FFC107;
+        }
+        
+        /* --- NEW SECTIONS: ADMIN & SUMMARY --- */
+        .bottom-sections {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* แบ่งเป็น 2 คอลัมน์เท่าๆ กัน */
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .admin-box, .summary-box {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .admin-box h3, .summary-box h3 {
+            color: #004d40;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+        
+        .admin-box p, .summary-box p {
+            color: #555;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .admin-button {
+            background-color: #66bb6a; /* สีเขียวอ่อนสำหรับ Admin */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 15px;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+        }
+        .admin-button:hover {
+            background-color: #4CAF50;
         }
 
         /* Responsive */
@@ -217,6 +264,10 @@
 
             .main-registration {
                 grid-template-columns: 1fr;
+            }
+            
+            .bottom-sections {
+                grid-template-columns: 1fr; /* บนมือถือให้เรียงเป็นแถวเดียว */
             }
         }
     </style>
@@ -277,6 +328,20 @@
                 <button class="reg-button">คลิก</button>
             </a>
         </main>
+
+        <div class="bottom-sections">
+            <div class="admin-box">
+                <h3>🛠️ สำหรับผู้ดูแลระบบ</h3>
+                <p>เข้าสู่ระบบเพื่อจัดการข้อมูล กิจกรรม และการตั้งค่าต่างๆ</p>
+                <button class="admin-button">เข้าสู่ระบบ Admin</button>
+            </div>
+
+            <div class="summary-box">
+                <h3>📊 สรุปเนื้อหาและสถิติ</h3>
+                <p>ภาพรวมจำนวนผู้ลงทะเบียน สถิติกิจกรรม และรายงานต่างๆ</p>
+                <p>ข้อมูลอัปเดตล่าสุด: 12 พ.ย. 2568</p>
+            </div>
+        </div>
         
     </div>
     
