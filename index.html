@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ลงทะเบียนปฏิบัติการเคมี KU - Kodchasan</title>
+    <title>ลงทะเบียนปฏิบัติการเคมี KU - Kodchasan (Azure Blue Theme)</title>
     <link href="https://fonts.googleapis.com/css2?family=Kodchasan:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
@@ -13,7 +13,7 @@
             font-family: 'Kodchasan', sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f0f0f0;
+            background-color: #e3f2fd; /* พื้นหลังสีฟ้าอ่อนมาก */
             display: flex;
             justify-content: center;
         }
@@ -26,7 +26,7 @@
         /* --- 1. HEADER SECTION --- */
         .header-section {
             background-color: #ffffff;
-            border: 1px solid #ddd;
+            border: 1px solid #bbdefb; /* เปลี่ยนเป็นขอบสีฟ้าอ่อน */
             padding: 30px;
             display: flex;
             justify-content: space-between;
@@ -39,14 +39,14 @@
 
         .header-left {
             flex-basis: 70%;
-            background-color: #e6f7ff;
+            background-color: #f1f8e9; /* สีเขียว/ฟ้าอ่อนๆ */
             padding: 20px;
             border-radius: 10px;
         }
 
         .header-right {
             flex-basis: 30%;
-            background-color: #212121;
+            background-color: #0d47a1; /* น้ำเงินเข้ม (Cobalt Blue) */
             color: white;
             padding: 15px;
             text-align: right;
@@ -56,18 +56,18 @@
         .title-main {
             font-size: 2em;
             font-weight: 700;
-            color: #004d40;
+            color: #01579b; /* น้ำเงินเข้ม */
         }
 
         .title-sub {
             font-size: 1.5em;
             font-weight: 700;
-            color: #00796b;
+            color: #0288d1; /* น้ำเงินสดใส */
         }
 
         .caution-text {
             font-weight: 700;
-            color: #c62828;
+            color: #c62828; /* แดงยังคงใช้สำหรับข้อควรระวัง */
             margin-top: 15px;
         }
 
@@ -85,7 +85,7 @@
         .logo-ku {
             font-size: 1.2em;
             font-weight: 700;
-            background-color: #009688;
+            background-color: #00838f; /* สีเขียวอมน้ำเงิน */
             padding: 5px;
             display: inline-block;
         }
@@ -132,22 +132,22 @@
             margin-top: 10px;
         }
 
-        /* Pastel Color Schemes */
+        /* Pastel Color Schemes (Blue/Cyan/Green) */
         .box-1 {
-            background-color: #ffcccb; 
-            border: 5px solid #ff7f7f;
+            background-color: #bbdefb; /* ฟ้าอ่อน */
+            border: 5px solid #42a5f5; /* ขอบน้ำเงิน */
         }
         .box-2 {
-            background-color: #b0e0e6;
-            border: 5px solid #87ceeb;
+            background-color: #c8e6c9; /* เขียวอ่อน */
+            border: 5px solid #81c784; /* ขอบเขียว */
         }
         .box-3 {
-            background-color: #98fb98;
-            border: 5px solid #66cdaa;
+            background-color: #b2ebf2; /* ฟ้าคราม */
+            border: 5px solid #4dd0e1; /* ขอบน้ำเงินคราม */
         }
 
         .reg-status {
-            background-color: #ff9999;
+            background-color: #90caf9; /* สีฟ้าที่เด่นขึ้น */
             display: inline-block;
             padding: 5px 10px;
             font-size: 0.8em;
@@ -158,7 +158,7 @@
         }
 
         .reg-button {
-            background-color: #ff7f7f;
+            background-color: #1976d2; /* ปุ่มเป็นสีน้ำเงิน */
             color: white;
             border: none;
             padding: 10px 20px;
@@ -172,7 +172,7 @@
         }
         
         .reg-button:hover {
-            background-color: #e53935; 
+            background-color: #0d47a1; /* น้ำเงินเข้มขึ้นเมื่อชี้ */
         }
 
         /* --- RATING SECTION (ขนาดเล็ก) --- */
@@ -181,7 +181,7 @@
             padding: 10px 20px;
             text-align: center;
             border-radius: 0 0 12px 12px;
-            border: 1px solid #ddd;
+            border: 1px solid #bbdefb;
             border-top: none;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
             margin-top: -1px;
@@ -189,7 +189,7 @@
         }
 
         .rating-section h3 {
-            color: #004d40;
+            color: #01579b; /* น้ำเงินเข้ม */
             margin-bottom: 5px;
             font-size: 1em;
         }
@@ -206,7 +206,7 @@
         }
 
         .rating-stars i.rated {
-            color: #FFC107;
+            color: #FFC107; /* ดาวสีเหลืองยังคงเดิม */
         }
         
         /* --- NEW SECTIONS: ADMIN & SUMMARY (อยู่ด้านล่าง) --- */
@@ -219,7 +219,7 @@
 
         .admin-box, .summary-box {
             background-color: #ffffff;
-            border: 1px solid #ddd;
+            border: 1px solid #bbdefb;
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
@@ -227,7 +227,7 @@
         }
 
         .admin-box h3, .summary-box h3 {
-            color: #004d40;
+            color: #01579b; /* น้ำเงินเข้ม */
             margin-top: 0;
             margin-bottom: 15px;
             font-size: 1.2em;
@@ -241,7 +241,7 @@
         }
 
         .admin-button {
-            background-color: #66bb6a; 
+            background-color: #388e3c; /* ปุ่ม Admin สีเขียวมรกต */
             color: white;
             border: none;
             padding: 10px 20px;
@@ -253,7 +253,7 @@
             transition: background-color 0.3s;
         }
         .admin-button:hover {
-            background-color: #4CAF50;
+            background-color: #2e7d32; /* เข้มขึ้น */
         }
 
         /* Responsive */
@@ -303,7 +303,7 @@
                 <i class="far fa-star" data-rating="4"></i>
                 <i class="far fa-star" data-rating="5"></i>
             </div>
-            <p id="rating-message" style="margin-top: 10px; color: #00796b; font-weight: 700; font-size: 0.9em;"></p>
+            <p id="rating-message" style="margin-top: 10px; color: #0288d1; font-weight: 700; font-size: 0.9em;"></p>
         </div>
         
         <main class="main-registration">
