@@ -9,24 +9,33 @@
     
     <style>
         /* --- BASE SETUP (ฟอนต์ Kodchasan) --- */
+        /* ปรับ Body ให้มีสีพื้นหลังและย้ายการจัดกึ่งกลางไปที่ Container */
         body {
             font-family: 'Kodchasan', sans-serif;
             margin: 0;
-            padding: 20px;
-            background-color: #ffffff; /* พื้นหลังสีขาว */
+            padding: 0; /* ลบ padding ออกเพื่อให้ Footer ชิดขอบ */
+            background-color: #f8f8f8; /* สีพื้นหลังอ่อนๆ */
+        }
+
+        .main-wrapper { /* เพิ่ม wrapper เพื่อจัดเนื้อหาให้อยู่ตรงกลาง */
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center; /* จัดเนื้อหาตรงกลาง */
+            min-height: 100vh; /* ความสูงขั้นต่ำเต็มหน้าจอ */
         }
 
         .container {
             width: 100%;
             max-width: 1200px;
+            padding: 20px; /* เพิ่ม padding กลับเข้ามาที่ container */
+            background-color: #ffffff; /* Container สีขาว */
+            box-sizing: border-box;
         }
-
+        
         /* --- 1. HEADER SECTION --- */
         .header-section {
             background-color: #ffffff;
-            border: 1px solid #bbdefb; /* ขอบสีฟ้าอ่อน */
+            border: 1px solid #bbdefb;
             padding: 30px;
             display: flex;
             justify-content: space-between;
@@ -38,13 +47,13 @@
 
         .header-left {
             flex-basis: 70%;
-            background-color: #e3f2fd; /* สีฟ้าอ่อน */
+            background-color: #e3f2fd;
             padding: 20px;
         }
 
         .header-right {
             flex-basis: 30%;
-            background-color: #0d47a1; /* น้ำเงินเข้ม (Cobalt Blue) */
+            background-color: #0d47a1;
             color: white;
             padding: 15px;
             text-align: right;
@@ -53,13 +62,13 @@
         .title-main {
             font-size: 2em;
             font-weight: 700;
-            color: #01579b; /* น้ำเงินเข้ม */
+            color: #01579b;
         }
 
         .title-sub {
             font-size: 1.5em;
             font-weight: 700;
-            color: #0288d1; /* น้ำเงินสดใส */
+            color: #0288d1;
         }
 
         .caution-text {
@@ -146,7 +155,6 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
             margin-top: 20px;
-            /* ไม่มี margin-bottom เพราะจะตามด้วย rating-section */
         }
 
         .reg-box {
@@ -219,12 +227,14 @@
         
         /* --- RATING SECTION (ย้ายลงล่างสุด) --- */
         .rating-section {
-            background-color: #f1f8e9; /* พื้นหลังสีฟ้าอ่อน/เขียวอ่อน */
-            padding: 15px 20px; /* เพิ่ม padding เล็กน้อย */
+            background-color: #f1f8e9;
+            padding: 15px 20px;
             text-align: center;
             border: 1px solid #bbdefb;
-            margin-top: 20px; /* เพิ่มระยะห่างจากส่วนลงทะเบียน */
+            margin-top: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            width: 100%; /* ทำให้ขยายเต็มความกว้างของ container */
+            box-sizing: border-box;
         }
 
         .rating-section h3 {
@@ -234,7 +244,7 @@
         }
 
         .rating-stars {
-            font-size: 1.8em; /* ขยายดาวให้ใหญ่ขึ้นเล็กน้อย */
+            font-size: 1.8em;
             color: #ccc;
         }
 
@@ -242,15 +252,17 @@
             color: #FFC107;
         }
 
-        /* --- FOOTER SECTION (ลิขสิทธิ์) --- */
+        /* --- FOOTER SECTION (ลิขสิทธิ์ - ต้องเต็มความกว้าง) --- */
         .footer-section {
             background-color: #0d47a1; /* น้ำเงินเข้ม */
             color: white;
-            padding: 10px;
+            padding: 15px 0; /* เพิ่ม padding บนล่างเพื่อให้ดูดีขึ้น */
             margin-top: 20px;
+            width: 100%; /* ให้เต็มความกว้างของหน้าจอ */
             text-align: center;
             font-size: 0.85em;
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            position: relative; /* ปรับการแสดงผล */
         }
         .footer-section a {
             color: #90caf9;
@@ -278,76 +290,79 @@
     </style>
 </head>
 <body>
+    
+    <div class="main-wrapper"> 
+        <div class="container">
+            <header class="header-section">
+                <div class="header-left">
+                    <div class="title-main">การทำกิจกรรมนิสิต</div>
+                    <div class="title-sub">การเรียน การสอบ ออนไลน์ (On-site)</div>
+                    <p class="caution-text">ให้ยึดแนวทางตามมาตรการป้องกันโรคโควิด-19 ขั้นสูงสุด</p>
+                    
+                    <ul class="measure-list">
+                        <li>**สวมหน้ากากอนามัย** และเตรียมอุปกรณ์ส่วนตัว</li>
+                        <li>**สแกน QR Code** ก่อนเข้า-ออกอาคารทุกครั้ง</li>
+                        <li>**เว้นระยะห่าง** ทางกายภาพอย่างน้อย 1-2 เมตร</li>
+                        <li>**ล้างมือ** ด้วยเจลแอลกอฮอล์บ่อย ๆ</li>
+                        <li>**จำกัดจำนวนคน** ในพื้นที่ปฏิบัติการ</li>
+                    </ul>
+                    
+                    <div class="admin-summary-group">
+                        <div class="admin-box-inner">
+                            <h3>🛠️ สำหรับผู้ดูแลระบบ</h3>
+                            <p>เข้าสู่ระบบเพื่อจัดการข้อมูล</p>
+                            <button class="admin-button">เข้าสู่ระบบ Admin</button>
+                        </div>
 
-    <div class="container">
-        <header class="header-section">
-            <div class="header-left">
-                <div class="title-main">การทำกิจกรรมนิสิต</div>
-                <div class="title-sub">การเรียน การสอบ ออนไลน์ (On-site)</div>
-                <p class="caution-text">ให้ยึดแนวทางตามมาตรการป้องกันโรคโควิด-19 ขั้นสูงสุด</p>
-                
-                <ul class="measure-list">
-                    <li>**สวมหน้ากากอนามัย** และเตรียมอุปกรณ์ส่วนตัว</li>
-                    <li>**สแกน QR Code** ก่อนเข้า-ออกอาคารทุกครั้ง</li>
-                    <li>**เว้นระยะห่าง** ทางกายภาพอย่างน้อย 1-2 เมตร</li>
-                    <li>**ล้างมือ** ด้วยเจลแอลกอฮอล์บ่อย ๆ</li>
-                    <li>**จำกัดจำนวนคน** ในพื้นที่ปฏิบัติการ</li>
-                </ul>
-                
-                <div class="admin-summary-group">
-                    <div class="admin-box-inner">
-                        <h3>🛠️ สำหรับผู้ดูแลระบบ</h3>
-                        <p>เข้าสู่ระบบเพื่อจัดการข้อมูล</p>
-                        <button class="admin-button">เข้าสู่ระบบ Admin</button>
+                        <div class="summary-box-inner">
+                            <h3>📊 สรุปเนื้อหาและสถิติ</h3>
+                            <p>ภาพรวมจำนวนผู้ลงทะเบียนและรายงานต่างๆ</p>
+                            <p style="font-size: 0.7em; color: #aaa;">อัปเดตล่าสุด: 12 พ.ย. 2568</p>
+                        </div>
                     </div>
-
-                    <div class="summary-box-inner">
-                        <h3>📊 สรุปเนื้อหาและสถิติ</h3>
-                        <p>ภาพรวมจำนวนผู้ลงทะเบียนและรายงานต่างๆ</p>
-                        <p style="font-size: 0.7em; color: #aaa;">อัปเดตล่าสุด: 12 พ.ย. 2568</p>
-                    </div>
+                    
                 </div>
-                
-            </div>
-            <div class="header-right">
-                <div class="logo-ku">สไลด์ของสุธี</div>
-                <div class="info-date">อัปเดต 12 พฤศจิกายน 2568</div>
-            </div>
-        </header>
-        
-        <main class="main-registration">
-            <a href="#" class="reg-box box-1">
-                <div class="reg-status">ปี1 ภาคปลาย</div>
-                <div class="reg-code">02036221</div>
-                <div class="reg-name">;วิทยาศาสตร์และเทคโนโลยีด้านสัตว์</div>
-                <button class="reg-button">คลิก</button>
-            </a>
+                <div class="header-right">
+                    <div class="logo-ku">สไลด์ของสุธี</div>
+                    <div class="info-date">อัปเดต 12 พฤศจิกายน 2568</div>
+                </div>
+            </header>
             
-            <a href="#" class="reg-box box-2">
-                <div class="reg-status">ปี1 ภาคปลาย</div>
-                <div class="reg-code">02036231</div>
-                <div class="reg-name">;วิทยาศาสตร์และเทคโนโลยีพืชไร่</div>
-                <button class="reg-button">คลิก</button>
-            </a>
+            <main class="main-registration">
+                <a href="#" class="reg-box box-1">
+                    <div class="reg-status">ปี1 ภาคปลาย</div>
+                    <div class="reg-code">02036221</div>
+                    <div class="reg-name">;วิทยาศาสตร์และเทคโนโลยีด้านสัตว์</div>
+                    <button class="reg-button">คลิก</button>
+                </a>
+                
+                <a href="#" class="reg-box box-2">
+                    <div class="reg-status">ปี1 ภาคปลาย</div>
+                    <div class="reg-code">02036231</div>
+                    <div class="reg-name">;วิทยาศาสตร์และเทคโนโลยีพืชไร่</div>
+                    <button class="reg-button">คลิก</button>
+                </a>
 
-            <a href="#" class="reg-box box-3">
-                <div class="reg-status">ปี2 ภาคต้น</div>
-                <div class="reg-code">01419211</div>
-                <div class="reg-name">;จุลชีววิทยาทั่วไป</div>
-                <button class="reg-button">คลิก</button>
-            </a>
-        </main>
+                <a href="#" class="reg-box box-3">
+                    <div class="reg-status">ปี2 ภาคต้น</div>
+                    <div class="reg-code">01419211</div>
+                    <div class="reg-name">;จุลชีววิทยาทั่วไป</div>
+                    <button class="reg-button">คลิก</button>
+                </a>
+            </main>
 
-        <div class="rating-section">
-            <h3>⭐ ประเมินความพอใจต่อการใช้งานเว็บไซต์</h3>
-            <div class="rating-stars" id="star-rating">
-                <i class="far fa-star" data-rating="1"></i>
-                <i class="far fa-star" data-rating="2"></i>
-                <i class="far fa-star" data-rating="3"></i>
-                <i class="far fa-star" data-rating="4"></i>
-                <i class="far fa-star" data-rating="5"></i>
+            <div class="rating-section">
+                <h3>⭐ ประเมินความพอใจต่อการใช้งานเว็บไซต์</h3>
+                <div class="rating-stars" id="star-rating">
+                    <i class="far fa-star" data-rating="1"></i>
+                    <i class="far fa-star" data-rating="2"></i>
+                    <i class="far fa-star" data-rating="3"></i>
+                    <i class="far fa-star" data-rating="4"></i>
+                    <i class="far fa-star" data-rating="5"></i>
+                </div>
+                <p id="rating-message" style="margin-top: 10px; color: #0288d1; font-weight: 700; font-size: 0.9em;"></p>
             </div>
-            <p id="rating-message" style="margin-top: 10px; color: #0288d1; font-weight: 700; font-size: 0.9em;"></p>
+            
         </div>
         
     </div>
