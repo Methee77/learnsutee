@@ -13,7 +13,7 @@
             font-family: 'Kodchasan', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8;
+            background-color: #f8f8f8; /* สีพื้นหลังอ่อนๆ */
         }
 
         .main-wrapper {
@@ -27,8 +27,25 @@
             width: 100%;
             max-width: 1200px;
             padding: 20px;
-            background-color: #ffffff;
+            background-color: #ffffff; /* Container สีขาว */
             box-sizing: border-box;
+        }
+
+        /* --- DARK MODE TOGGLE BUTTON STYLE --- */
+        .mode-toggle-btn {
+            background-color: #1976d2; 
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 0.9em;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .mode-toggle-btn:hover {
+            background-color: #0d47a1;
         }
         
         /* --- 1. HEADER SECTION --- */
@@ -56,6 +73,9 @@
             color: white;
             padding: 15px;
             text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
         }
 
         .title-main {
@@ -274,35 +294,35 @@
 
         /* --- 3. MODAL (หน้าต่างลอยประกาศ) --- */
         .modal {
-            display: none; /* เริ่มต้นให้ซ่อนไว้ */
-            position: fixed; /* ให้อยู่คงที่บนหน้าจอ */
-            z-index: 1000; /* ให้อยู่ด้านบนสุด */
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0, 0, 0, 0.7); /* พื้นหลังดำโปร่งแสง */
-            backdrop-filter: blur(5px); /* เพิ่มเอฟเฟกต์เบลอ */
+            background-color: rgba(0, 0, 0, 0.7); 
+            backdrop-filter: blur(5px); 
             box-sizing: border-box;
-            padding-top: 50px; /* ระยะห่างจากด้านบน */
+            padding-top: 50px; 
         }
 
         .modal-content {
             background-color: #ffffff;
-            margin: 15% auto; /* จัดกึ่งกลางแนวตั้งและแนวนอน */
+            margin: 15% auto; 
             padding: 30px;
-            border: 3px solid #0d47a1; /* กรอบสีน้ำเงินเข้ม */
+            border: 3px solid #0d47a1; 
             width: 80%;
-            max-width: 500px; /* จำกัดความกว้างสูงสุด */
+            max-width: 500px; 
             border-radius: 10px;
             text-align: center;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 0.5s; /* เพิ่ม Animation */
+            animation: fadeIn 0.5s; 
         }
 
         .modal-content h2 {
-            color: #c62828; /* สีแดงสำหรับประกาศสำคัญ */
+            color: #c62828; 
             font-size: 1.8em;
             margin-top: 0;
         }
@@ -335,6 +355,105 @@
         }
 
 
+        /* --- DARK MODE STYLES --- */
+        .dark-mode {
+            background-color: #121212 !important;
+            color: #e0e0e0 !important;
+        }
+
+        .dark-mode .container {
+            background-color: #1e1e1e !important;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .dark-mode .header-section {
+            background-color: #1e1e1e !important;
+            border: 1px solid #3d3d3d !important;
+            box-shadow: none !important;
+        }
+
+        .dark-mode .header-left {
+            background-color: #3d3d3d !important;
+        }
+
+        .dark-mode .title-main, 
+        .dark-mode .title-sub,
+        .dark-mode .admin-box-inner h3, 
+        .dark-mode .summary-box-inner h3 {
+            color: #90caf9 !important;
+        }
+
+        .dark-mode .caution-text {
+            color: #ff8a80 !important; /* Warning color for dark mode */
+        }
+
+        .dark-mode .admin-box-inner, .dark-mode .summary-box-inner {
+            background-color: #121212 !important;
+            border: 1px solid #3d3d3d !important;
+            box-shadow: none !important;
+        }
+        .dark-mode .admin-box-inner p, .dark-mode .summary-box-inner p {
+            color: #ccc !important;
+        }
+
+        /* Dark mode for registration boxes (changing borders and background) */
+        .dark-mode .reg-box {
+            color: #e0e0e0 !important;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1) !important;
+        }
+        .dark-mode .reg-box:hover {
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2) !important;
+        }
+
+        .dark-mode .box-1 {
+            background-color: #2a3e5c !important; /* Dark Blue */
+            border: 5px solid #64b5f6 !important;
+        }
+        .dark-mode .box-2 {
+            background-color: #3b503c !important; /* Dark Green */
+            border: 5px solid #a5d6a7 !important;
+        }
+        .dark-mode .box-3 {
+            background-color: #2c5861 !important; /* Dark Cyan */
+            border: 5px solid #80deea !important;
+        }
+        
+        .dark-mode .reg-status {
+            background-color: #64b5f6 !important;
+            color: #121212 !important;
+        }
+
+        .dark-mode .rating-section {
+            background-color: #2d3e2f !important; 
+            border: 1px solid #3d3d3d !important;
+            box-shadow: none !important;
+        }
+        .dark-mode .rating-section h3 {
+            color: #90caf9 !important;
+        }
+        .dark-mode .rating-stars {
+            color: #616161 !important;
+        }
+
+        /* Dark mode for Modal */
+        .dark-mode .modal-content {
+            background-color: #1e1e1e !important;
+            border: 3px solid #64b5f6 !important;
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.1) !important;
+            color: #e0e0e0 !important;
+        }
+        .dark-mode .modal-content p {
+            color: #e0e0e0 !important;
+        }
+
+        .dark-mode .footer-section {
+            background-color: #000000 !important;
+            box-shadow: none !important;
+        }
+        .dark-mode .footer-section a {
+            color: #90caf9 !important;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .header-section {
@@ -362,7 +481,7 @@
         <div class="modal-content">
             <i class="fas fa-exclamation-triangle" style="font-size: 3em; color: #ff9800; margin-bottom: 15px;"></i>
             <h2>ระบบกำลังอัปเดตข้อมูล</h2>
-            <p>ขณะนี้ระบบอยู่ระหว่างการปรับปรุงและอัปเดตข้อมูลการลงทะเบียน อาจทำให้ข้อมูลบางส่วนไม่ตรงกับปัจจุบัน ขออภัยในความไม่สะดวก</p>
+            <p>ขณะนี้ระบบอยู่ระหว่างการปรับปรุงและอัปเดตข้อมูล อาจทำให้ข้อมูลบางส่วนไม่ตรงกับปัจจุบัน ขออภัยในความไม่สะดวก</p>
             <button class="modal-close-btn" onclick="closeModal()">รับทราบและปิด</button>
         </div>
     </div>
@@ -399,6 +518,9 @@
                     
                 </div>
                 <div class="header-right">
+                    <button id="darkModeToggle" class="mode-toggle-btn">
+                        <i class="fas fa-moon"></i> Dark Mode
+                    </button>
                     <div class="logo-ku">สไลด์ของสุธี</div>
                     <div class="info-date">อัปเดต 12 พฤศจิกายน 2568</div>
                 </div>
@@ -408,21 +530,21 @@
                 <a href="#" class="reg-box box-1">
                     <div class="reg-status">ปี1 ภาคปลาย</div>
                     <div class="reg-code">02036221</div>
-                    <div class="reg-name">;วิทยาศาสตร์และเทคโนโลยีด้านสัตว์</div>
+                    <div class="reg-name">วิทยาศาสตร์และเทคโนโลยีด้านสัตว์</div>
                     <button class="reg-button">คลิก</button>
                 </a>
                 
                 <a href="#" class="reg-box box-2">
                     <div class="reg-status">ปี1 ภาคปลาย</div>
                     <div class="reg-code">02036231</div>
-                    <div class="reg-name">;วิทยาศาสตร์และเทคโนโลยีพืชไร่</div>
+                    <div class="reg-name">วิทยาศาสตร์และเทคโนโลยีพืชไร่</div>
                     <button class="reg-button">คลิก</button>
                 </a>
 
                 <a href="#" class="reg-box box-3">
                     <div class="reg-status">ปี2 ภาคต้น</div>
                     <div class="reg-code">01419211</div>
-                    <div class="reg-name">;จุลชีววิทยาทั่วไป</div>
+                    <div class="reg-name">จุลชีววิทยาทั่วไป</div>
                     <button class="reg-button">คลิก</button>
                 </a>
             </main>
@@ -444,7 +566,7 @@
     </div>
     
     <footer class="footer-section">
-        © 2025 โดย สไลด์ของสุธี | ภาควิชาเคมี มหาวิทยาลัยเกษตรศาสตร์ | <a href="#">นโยบายความเป็นส่วนตัว</a>
+        © 2025 โดยสุธี | สงวนลิขสิทธิ์ | <a href="#">นโยบายความเป็นส่วนตัว</a>
     </footer>
     
     <script>
@@ -504,6 +626,43 @@
 
         // เรียกใช้ Modal ทันทีที่หน้าเว็บโหลดเสร็จ
         window.onload = showModal; 
+
+        /* --- Dark Mode Functions --- */
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        
+        function toggleDarkMode() {
+            body.classList.toggle('dark-mode');
+            
+            // Save preference to localStorage
+            const isDarkMode = body.classList.contains('dark-mode');
+            localStorage.setItem('dark-mode', isDarkMode);
+
+            // Update button icon/text
+            if (isDarkMode) {
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+                darkModeToggle.style.backgroundColor = '#ffaa00';
+            } else {
+                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+                darkModeToggle.style.backgroundColor = '#1976d2';
+            }
+        }
+
+        // Check localStorage for previous preference on load
+        (function checkDarkModePreference() {
+            if (localStorage.getItem('dark-mode') === 'true') {
+                body.classList.add('dark-mode');
+                // Manually update button state when the window finishes loading
+                window.addEventListener('load', () => {
+                    darkModeToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+                    darkModeToggle.style.backgroundColor = '#ffaa00';
+                });
+            }
+        })();
+
+        // Attach event listener to the button
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+
     </script>
 
 </body>
