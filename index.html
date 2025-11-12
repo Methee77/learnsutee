@@ -32,8 +32,8 @@
             justify-content: space-between;
             align-items: flex-start;
             gap: 20px;
-            margin-bottom: 20px;
-            border-radius: 12px;
+            margin-bottom: 0; /* ลบ margin bottom ออก */
+            border-radius: 12px 12px 0 0; /* ทำให้ขอบด้านล่างเป็นเหลี่ยม */
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
         }
 
@@ -46,7 +46,7 @@
 
         .header-right {
             flex-basis: 30%;
-            background-color: #212121; /* ยังคงสีเข้มตามเดิมเพื่อความตัดกัน */
+            background-color: #212121;
             color: white;
             padding: 15px;
             text-align: right;
@@ -100,12 +100,13 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
+            margin-top: 20px; /* เพิ่มระยะห่างจากส่วนประเมินดาว */
             margin-bottom: 20px;
         }
 
         .reg-box {
             display: block;
-            color: #333; /* เปลี่ยนสีตัวอักษรเป็นสีเข้มเพื่อให้ตัดกับพื้นหลังพาสเทล */
+            color: #333;
             text-align: center;
             padding: 20px;
             text-decoration: none;
@@ -133,31 +134,31 @@
 
         /* Pastel Color Schemes */
         .box-1 {
-            background-color: #ffcccb; /* Pastel Red */
+            background-color: #ffcccb; 
             border: 5px solid #ff7f7f;
         }
         .box-2 {
-            background-color: #b0e0e6; /* Pastel Blue */
+            background-color: #b0e0e6;
             border: 5px solid #87ceeb;
         }
         .box-3 {
-            background-color: #98fb98; /* Pastel Green */
+            background-color: #98fb98;
             border: 5px solid #66cdaa;
         }
 
         .reg-status {
-            background-color: #ff9999; /* Pastel Redder */
+            background-color: #ff9999;
             display: inline-block;
             padding: 5px 10px;
             font-size: 0.8em;
             font-weight: 700;
             margin-bottom: 10px;
             border-radius: 15px;
-            color: #333; /* เปลี่ยนสีตัวอักษรเป็นสีเข้ม */
+            color: #333;
         }
 
         .reg-button {
-            background-color: #ff7f7f; /* Pastel Red */
+            background-color: #ff7f7f;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -174,34 +175,34 @@
             background-color: #e53935; 
         }
 
-        /* --- RATING SECTION (SMALLER) --- */
+        /* --- RATING SECTION (NEW POSITION) --- */
         .rating-section {
-            background-color: #fff;
-            padding: 20px; /* ลด padding */
+            background-color: #ffffff; /* เปลี่ยนพื้นหลังเป็นสีขาวเพื่อให้เป็นกรอบต่อเนื่องกับ Header */
+            padding: 15px 20px; /* ลด padding ด้านบน/ล่าง */
             text-align: center;
-            border-radius: 12px;
+            border-radius: 0 0 12px 12px; /* ทำให้ขอบด้านบนเป็นเหลี่ยมและด้านล่างโค้งมน */
+            border: 1px solid #ddd;
+            border-top: none; /* ลบเส้นขอบด้านบนที่ซ้ำซ้อนกับ Header */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            margin-top: 20px;
-            max-width: 400px; /* จำกัดความกว้างของกรอบ */
-            margin-left: auto; /* จัดให้อยู่ตรงกลาง */
-            margin-right: auto; /* จัดให้อยู่ตรงกลาง */
+            margin-top: -1px; /* ดึงขึ้นเล็กน้อยเพื่อประกบกับ Header */
+            max-width: 1200px; /* ขยายความกว้างให้เต็ม Container */
         }
 
         .rating-section h3 {
             color: #004d40;
-            margin-bottom: 10px; /* ลด margin */
-            font-size: 1.1em; /* ลดขนาดตัวอักษร */
+            margin-bottom: 10px;
+            font-size: 1.1em;
         }
 
         .rating-stars {
-            font-size: 2em; /* ลดขนาดของดาว */
+            font-size: 2em;
             color: #ccc;
         }
 
         .rating-stars i {
             cursor: pointer;
             transition: color 0.2s;
-            margin: 0 3px; /* ลดระยะห่างระหว่างดาว */
+            margin: 0 3px;
         }
 
         .rating-stars i.rated {
@@ -216,9 +217,6 @@
 
             .main-registration {
                 grid-template-columns: 1fr;
-            }
-            .rating-section {
-                max-width: 90%; /* ปรับให้พอดีกับหน้าจอมือถือ */
             }
         }
     </style>
@@ -245,6 +243,18 @@
             </div>
         </header>
 
+        <div class="rating-section">
+            <h3>⭐ ประเมินความพอใจต่อการใช้งานเว็บไซต์</h3>
+            <div class="rating-stars" id="star-rating">
+                <i class="far fa-star" data-rating="1"></i>
+                <i class="far fa-star" data-rating="2"></i>
+                <i class="far fa-star" data-rating="3"></i>
+                <i class="far fa-star" data-rating="4"></i>
+                <i class="far fa-star" data-rating="5"></i>
+            </div>
+            <p id="rating-message" style="margin-top: 10px; color: #00796b; font-weight: 700;"></p>
+        </div>
+        
         <main class="main-registration">
             <a href="#" class="reg-box box-1">
                 <div class="reg-status">ปี1 ภาคปลาย</div>
@@ -267,18 +277,6 @@
                 <button class="reg-button">คลิก</button>
             </a>
         </main>
-
-        <div class="rating-section">
-            <h3>⭐ ประเมินความพอใจต่อการใช้งานเว็บไซต์</h3>
-            <div class="rating-stars" id="star-rating">
-                <i class="far fa-star" data-rating="1"></i>
-                <i class="far fa-star" data-rating="2"></i>
-                <i class="far fa-star" data-rating="3"></i>
-                <i class="far fa-star" data-rating="4"></i>
-                <i class="far fa-star" data-rating="5"></i>
-            </div>
-            <p id="rating-message" style="margin-top: 10px; color: #00796b; font-weight: 700;"></p>
-        </div>
         
     </div>
     
